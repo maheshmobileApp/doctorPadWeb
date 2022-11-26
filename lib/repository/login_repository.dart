@@ -5,16 +5,9 @@ import 'package:cgg_base_project/res/constants/api_constants.dart';
 
 class LoginRepository {
 final _baseClient = BaseApiClient();
- Future<LoginResponse> loginTheUser(LoginPayload payload){
-   final baseClient = _baseClient.postCall(ApiConstants.endPoint_MobileLogin,payload: payload.toJson());
-   
-   
-
-    
+ Future<LoginResponse> loginTheUser(LoginPayload payload) async{
+   final respnse = await _baseClient.postCall(ApiConstants.endPoint_MobileLogin,payload: payload.toJson());
+   return LoginResponse.fromJson(respnse);  
   }
+  
 }
-// }{
-//     "status_Message": "user not found for given user name",
-//     "status_Code": 204,
-//     "time": "2022-11-26T11:03:32.392"
-// }

@@ -9,8 +9,10 @@ import '../view_model/login_view_mode.dart';
 
 class LoginMobileView extends StatelessWidget {
   LoginMobileView({super.key});
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _emailController =
+      TextEditingController(text: "Rekha_Mobile");
+  TextEditingController _passwordController =
+      TextEditingController(text: "PQMS@2022");
 
   @override
   Widget build(BuildContext context) {

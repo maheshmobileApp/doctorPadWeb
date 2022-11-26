@@ -1,6 +1,7 @@
 import 'package:cgg_base_project/view/login_view.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
+        builder: EasyLoading.init(),
         theme: ThemeData(
           // This is the theme of your application.
           //

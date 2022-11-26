@@ -1,6 +1,12 @@
 import 'package:cgg_base_project/res/constants/api_constants.dart';
 import 'package:dio/dio.dart';
 
+class ApiErrorCodes {
+  ApiErrorCodes._();
+  static const int success = 200;
+  static const int invalid = 204;
+}
+
 class BaseApiClient {
   late final Dio _client = Dio(
     BaseOptions(
