@@ -40,8 +40,9 @@ class LoginMobileView extends StatelessWidget {
                       controller: _passwordController,
                       hintText: "Please enter password"),
                   AppButton(
-                    text: "Login",
+                    text: "Login ${loginProvider.couter}",
                     onPressed: () {
+                      loginProvider.couter ++;
                       loginProvider.loginTheUser(_emailController.text,
                           _passwordController.text, context);
                     },

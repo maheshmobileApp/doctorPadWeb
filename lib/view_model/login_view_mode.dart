@@ -11,6 +11,11 @@ import 'package:go_router/go_router.dart';
 
 class LoginViewModel with ChangeNotifier {
   final _loginRepository = LoginRepository();
+   int _couter = 0;
+   int get couter => this._couter;
+
+ set couter(int value) => this._couter = value;
+
   loginTheUser(String userName, String password, BuildContext context) async {
     AppLoader.showLoader(message: "login...");
     final loginRequestPayload = LoginPayload(
