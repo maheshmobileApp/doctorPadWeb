@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cgg_base_project/model/login_payload.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewModel with ChangeNotifier {
@@ -7,7 +8,9 @@ class LoginViewModel with ChangeNotifier {
   int count = 0;
 
   loginTheUser(String userName, String password) {
-    count++;
+    final loginRequestPayload =
+        LoginPayload(iMEI: "45646346", deviceId: "564858457848", password: password, username: userName);
+
     notifyListeners();
   }
 }
