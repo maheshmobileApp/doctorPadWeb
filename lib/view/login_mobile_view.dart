@@ -42,8 +42,8 @@ class LoginMobileView extends StatelessWidget {
                   AppButton(
                     text: "Login",
                     onPressed: () {
-                      loginProvider.loginTheUser(
-                          _emailController.text, _passwordController.text);
+                      loginProvider.loginTheUser(_emailController.text,
+                          _passwordController.text, context);
                     },
                   )
                 ],

@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/constants/go_router.dart';
 import 'package:cgg_base_project/view/login_view.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Flutter Demo',
         builder: EasyLoading.init(),
         theme: ThemeData(
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: LoginView(),
+        routerConfig: routes,
       ),
     );
   }
