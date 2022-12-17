@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "1019656392452",
+    "firebase_url": "https://trackingapp-8c90f-default-rtdb.firebaseio.com",
+    "project_id": "trackingapp-8c90f",
+    "storage_bucket": "trackingapp-8c90f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019656392452:android:156a2e2fdef67e710fca51",
+        "android_client_info": {
+          "package_name": "com.example.cgg_base_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019656392452-144rldrc17laq1hcmu97695lvp6p87nr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwCoDqpmP9vVvU3oLzU9eqmQf3LmCP6yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019656392452-144rldrc17laq1hcmu97695lvp6p87nr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1019656392452-faagf20oj6331h42m1obn2vk5tr50jf1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trackingapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019656392452:android:5541831bfd7574820fca51",
+        "android_client_info": {
+          "package_name": "com.salex.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019656392452-144rldrc17laq1hcmu97695lvp6p87nr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwCoDqpmP9vVvU3oLzU9eqmQf3LmCP6yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019656392452-144rldrc17laq1hcmu97695lvp6p87nr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1019656392452-faagf20oj6331h42m1obn2vk5tr50jf1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trackingapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

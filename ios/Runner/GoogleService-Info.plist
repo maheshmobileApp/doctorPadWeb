@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1019656392452-if8s8gfjb94grrhrnnc7j3nsm7trdd5h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1019656392452-if8s8gfjb94grrhrnnc7j3nsm7trdd5h</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUp7aElmpWG-PbIidgAzT27dzAlXFqiZ8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1019656392452</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cggBaseProject</string>
+	<key>PROJECT_ID</key>
+	<string>trackingapp-8c90f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>trackingapp-8c90f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1019656392452:ios:f7ed7b892db7b1920fca51</string>
+	<key>DATABASE_URL</key>
+	<string>https://trackingapp-8c90f-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
