@@ -46,6 +46,20 @@ class LoginMobileView extends StatelessWidget {
                       loginProvider.loginTheUser(_emailController.text,
                           _passwordController.text, context);
                     },
+                  ),
+                   AppButton(
+                    text: "Add User To Collection",
+                    onPressed: () {
+                      loginProvider.couter ++;
+                      loginProvider.addDataToFirStore();
+                    },
+                  ),
+                    AppButton(
+                    text: "Get Collection",
+                    onPressed: () {
+                      loginProvider.couter ++;
+                      loginProvider.getUsers();
+                    },
                   )
                 ],
               ),

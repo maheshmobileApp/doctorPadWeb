@@ -6,6 +6,8 @@ import 'package:cgg_base_project/repository/login_repository.dart';
 import 'package:cgg_base_project/res/components/loader.dart';
 import 'package:cgg_base_project/res/components/toast.dart';
 import 'package:cgg_base_project/res/constants/routes_constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,10 +15,27 @@ class LoginViewModel with ChangeNotifier {
   final _loginRepository = LoginRepository();
    int _couter = 0;
    int get couter => this._couter;
+DatabaseReference ref = FirebaseDatabase.instance.ref("CggUsers/");
 
  set couter(int value) => this._couter = value;
 
   loginTheUser(String userName, String password, BuildContext context) async {
+
+//UPDATE
+// await ref.child().update({
+//   //"age": 21,
+//   "number":9099999
+// });
+
+//ADD
+await ref.child("sai").set({
+  "name": "sai",
+  "age": 15,
+  "address": {
+    "line1": "100 Mountain View"
+  }
+});
+
     AppLoader.showLoader(message: "login...");
     final loginRequestPayload = LoginPayload(
         iMEI: "45646346",
@@ -34,5 +53,35 @@ class LoginViewModel with ChangeNotifier {
       showToast(result.statusMessage ?? "");
     } else {}
     notifyListeners();
+  }
+
+  addDataToFirStore(){
+    CollectionReference users = FirebaseFirestore.instance.collection('CggUsers');
+users
+          .add({
+            'full_name': "sai", // John Doe
+            'company': "cgg", // Stokes and Sons
+            'age': 22 // 42
+          })
+          .then((value) => print("User Added"))
+          .catchError((error) => print("Failed to add user: $error"));
+  }
+
+  getUsers(){
+FirebaseFirestore.instance
+    .collection('testing')
+    .get()
+    .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+            print(doc);
+        });
+    });
+  }
+
+  updateUser(){
+
+  }
+  deleteUser(){
+
   }
 }
