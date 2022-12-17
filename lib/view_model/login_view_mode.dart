@@ -8,10 +8,14 @@ import 'package:cgg_base_project/res/components/toast.dart';
 import 'package:cgg_base_project/res/constants/routes_constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../push_notification.dart';
+
 class LoginViewModel with ChangeNotifier {
+  
   final _loginRepository = LoginRepository();
    int _couter = 0;
    int get couter => this._couter;
@@ -84,4 +88,40 @@ FirebaseFirestore.instance
   deleteUser(){
 
   }
-}
+
+  setUpTheFirebase(BuildContext context) async{
+    await FirebaseMessaging.instance.subscribeToTopic('12345');
+
+    LocalNotificationService.initialize(context);
+    final fcmToken = await FirebaseMessaging.instance.getToken();
+
+    ///gives you the message on which user taps
+    ///and it opened the app from terminated state
+    FirebaseMessaging.instance.getInitialMessage().then((message) {
+      if (message != null) {
+        final routeFromMessage = message.data["route"];
+
+       // Navigator.of(context).pushNamed(routeFromMessage);
+      }
+    });
+
+    ///forground work
+    FirebaseMessaging.onMessage.listen((message) {
+      if (message.notification != null) {
+        print(message.notification!.body);
+        print(message.notification!.title);
+      }
+
+      LocalNotificationService.display(message);
+    });
+
+    ///When the app is in background but opened and user taps
+    ///on the notification
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+     // final routeFromMessage = message.data["route"];
+
+//      Navigator.of(context).pushNamed(routeFromMessage);
+    });
+  }
+  }
+
