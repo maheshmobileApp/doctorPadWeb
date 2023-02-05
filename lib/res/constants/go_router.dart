@@ -22,7 +22,7 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: RoutesList.loginWebView,
       builder: (BuildContext context, GoRouterState state) {
-        return const LoginWebView ();
+        return  LoginWebView ();
       },
     ),
   ],
