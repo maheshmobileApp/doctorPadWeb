@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
     return BaseScaffold(
       mobile:  LoginMobileView(),
       tablet: Container(color: Colors.blue),
-      web: Container(color: Colors.green),
+      web: Container(color: Colors.red),
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:cgg_base_project/res/constants/go_router.dart';
+import 'package:cgg_base_project/view/login/login_web_view.dart';
 import 'package:cgg_base_project/view/login_view.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -50,7 +51,8 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        routerConfig: routes,
+         debugShowCheckedModeBanner: false,
+         routerConfig: routes,
       ),
     );
   }
