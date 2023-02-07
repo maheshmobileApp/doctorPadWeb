@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../res/components/doctor_web_view/doctor_web_view.dart';
 class DoctorWebView extends StatelessWidget {
   final List dummyList = List.generate(10, (index) {
     return {
@@ -68,9 +70,13 @@ class DoctorWebView extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(80)),
                   Image.asset('assets/search2.png'),
                   Padding(padding: EdgeInsets.all(50)),
-                  Image.asset(
-                    'assets/add_hospitals.png',
-                  ),
+                  ElevatedButton(
+                      onPressed:() {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context)=>DoctorWebDetails()));
+                      },
+                    child: Image.asset('assets/add_hospitals.png',
+                  ),),
                   Padding(padding: EdgeInsets.all(10)),
                   Image.asset('assets/user2.png'),
                   Padding(padding: EdgeInsets.all(5)),

@@ -1,3 +1,5 @@
+
+import 'package:cgg_base_project/res/components/hospital_web_details/hospital_web_details.dart';
 import 'package:flutter/material.dart';
 
 class HospitalView extends StatelessWidget {
@@ -16,7 +18,9 @@ class HospitalView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      body: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
         Container(
           width: 150,
           alignment: Alignment.topLeft,
@@ -68,9 +72,11 @@ class HospitalView extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(80)),
                   Image.asset('assets/search2.png'),
                   Padding(padding: EdgeInsets.all(50)),
-                  Image.asset(
-                    'assets/add_hospitals.png',
-                  ),
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>HospitalWebDetails()));
+                  },
+                    child: Image.asset('assets/add_hospitals.png',),),
                   Padding(padding: EdgeInsets.all(10)),
                   Image.asset('assets/user2.png'),
                   Padding(padding: EdgeInsets.all(5)),

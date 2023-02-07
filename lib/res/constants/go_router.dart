@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter routes = GoRouter(
-  initialLocation: RoutesList.hospitalView,
+  initialLocation: RoutesList.loginWebView,
   routes: <RouteBase>[
     GoRoute(
         path: RoutesList.login,
