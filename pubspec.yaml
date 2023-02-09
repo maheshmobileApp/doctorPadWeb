@@ -81,6 +81,12 @@ flutter:
     - assets/add_doctor.png
     - assets/doctor.png
     - assets/add_hospitals.png
+    - assets/contact.png
+    - assets/home.png
+    - assets/call.png
+    - assets/email.png
+    - assets/successfully.png
+    - assets/icons/
 
 
    # - assets/images/doctor.png
