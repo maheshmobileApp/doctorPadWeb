@@ -20,7 +20,8 @@ class DoctorWebView extends StatelessWidget {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Container(
-          width: 150,
+          width: 120,
+          height: 1080,
           alignment: Alignment.topLeft,
           padding: EdgeInsets.all(25),
           child: Column(
@@ -59,7 +60,7 @@ class DoctorWebView extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 100,
+                height: 75,
                 width: MediaQuery.of(context).size.width - 150,
                 alignment: Alignment.topLeft,
                 color: Color.fromRGBO(19, 151, 219, 0.06),
@@ -100,7 +101,18 @@ class DoctorWebView extends StatelessWidget {
                     elevation: 6,
                     margin: const EdgeInsets.all(10),
                     child: ListTile(
-                      //  leading: Image.asset(dummyList[index]["id"].toString()),
+                        leading:Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Color(0xffFFFFFF),width: 3),
+                            color: Color.fromRGBO(15, 148, 220, 1),
+                          ),
+
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 6),
+                            child:   Image.asset('assets/doctor.png',color: Colors.white,),
+                          ),
+                        ),
+
 
                       //child: Text(dummyList[index]["id"].toString()),
 

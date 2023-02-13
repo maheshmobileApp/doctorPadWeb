@@ -9,59 +9,64 @@ class DoctorAddDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Container(
-          width: 150,
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.all(25),
-          child: Column(
-            children: [
-              Image.asset('assets/doctpad.png'),
-              SizedBox(height: 30,),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HospitalView()));
-                },
-                child: Image.asset('assets/view_hospital.png'),
-              ),
-              SizedBox(height: 30,),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DoctorWebView()));
-                },
-                child: Image.asset('assets/view_doctor.png'),
-              ),
-              SizedBox(height: 10,),
-              Text('View Doctors', style: TextStyle(color: Colors.white),),
-              SizedBox(height: 200,),
-              Icon(Icons.logout_outlined, color: Colors.white, size: 60,),
-              SizedBox(height: 10,),
-              Text('Logout', style: TextStyle(color: Colors.white),
-              )
-            ],
+        SingleChildScrollView(
+          child: Container(
+            width: 120,
+            height: 1080,
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.all(25),
+            child: Column(
+              children: [
+                Image.asset('assets/doctpad.png'),
+                SizedBox(height: 30,),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HospitalView()));
+                  },
+                  child: Image.asset('assets/view_hospital.png'),
+                ),
+                SizedBox(height: 30,),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => DoctorWebView()));
+                  },
+                  child: Image.asset('assets/view_doctor.png'),
+                ),
+                SizedBox(height: 10,),
+                Text('View Doctors', style: TextStyle(color: Colors.white),),
+                SizedBox(height: 400,),
+                Icon(Icons.logout_outlined, color: Colors.white, size: 60,),
+                SizedBox(height: 10,),
+                Text('Logout', style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            color: Color.fromRGBO(15, 148, 220, 1),
           ),
-          color: Color.fromRGBO(15, 148, 220, 1),
         ),
         Column(
           children: [
-            Container(
-              height: 100,
-              width: MediaQuery.of(context).size.width - 150,
-              alignment: Alignment.topLeft,
-              color: Color.fromRGBO(19, 151, 219, 0.06),
-              padding: EdgeInsets.all(25),
-              child: Row(
-                children: [
-                  Text('Add Doctors', style: TextStyle(fontSize: 25),),
-                  Padding(padding: EdgeInsets.all(80)),
-                  Image.asset('assets/search2.png'),
-                  Padding(padding: EdgeInsets.all(50)),
-                  Image.asset('assets/user2.png'),
-                  Padding(padding: EdgeInsets.all(5)),
-                  Text('User Name', style: TextStyle(color: Colors.black),
-                  ),
-                ],
+            SingleChildScrollView(
+              child: Container(
+                height: 75,
+                width: MediaQuery.of(context).size.width - 150,
+                alignment: Alignment.topLeft,
+                color: Color.fromRGBO(19, 151, 219, 0.06),
+                padding: EdgeInsets.all(25),
+                child: Row(
+                  children: [
+                    Text('Add Doctors', style: TextStyle(fontSize: 25),),
+                    Padding(padding: EdgeInsets.all(80)),
+                    Image.asset('assets/search2.png'),
+                    Padding(padding: EdgeInsets.all(50)),
+                    Image.asset('assets/user2.png'),
+                    Padding(padding: EdgeInsets.all(5)),
+                    Text('User Name', style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 20,),
@@ -69,7 +74,8 @@ class DoctorAddDetails extends StatelessWidget {
               child: Container(
                 height: 500,
                 width: 350,
-                color: Color.fromRGBO(15, 148, 220, 1),
+                decoration: BoxDecoration(
+                    color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
                 child: Column(
                   children: [
                     TextFeild(

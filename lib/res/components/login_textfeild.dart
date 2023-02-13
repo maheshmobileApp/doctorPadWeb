@@ -16,32 +16,36 @@ class LoginTextFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20 ),
+      padding: const EdgeInsets.only(right: 20,left: 85),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 1,
-            child: CircleAvatar(
-              radius: 15,
-              child: Icon(
-               icon ?? Icons.person
+          Column(
+            children: [
+              SizedBox(height: 10,),
+              CircleAvatar(
+                radius: 20,
+                child: Icon(
+                 icon ?? Icons.person
+                ),
               ),
-            ),
+            ],
           ),
+          SizedBox(width: 9,),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: TextFormField(
               cursorHeight:20,
                 cursorRadius: Radius.zero,
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 2),
                   hintText: hintText,
                   hintStyle: TextStyle(
                     fontSize: 14,
                     color: Colors.grey
                   ),
                   prefixIcon: prefixIcon,
-                  border: UnderlineInputBorder(
+                  enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0xff1397DB)
                     )

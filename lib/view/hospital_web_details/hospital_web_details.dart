@@ -2,64 +2,65 @@ import 'package:flutter/material.dart';
 import '../../res/components/text_field/text_field.dart';
 import '../doctor_web_view/doctor_web_view.dart';
 import '../hospital_web_view/hospital_web_view.dart';
-
 class HospitalWebDetails extends StatelessWidget {
   const HospitalWebDetails({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Container(
-          width: 150,
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.all(25),
-          child: Column(
-            children: [
-              Image.asset('assets/doctpad.png'),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HospitalView()));
-                },
-                child: Image.asset('assets/view_hospital.png'),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DoctorWebView()));
-                },
-                child: Image.asset('assets/view_doctor.png'),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'View Doctors',
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(
-                height: 200,
-              ),
-              Icon(
-                Icons.logout_outlined,
-                color: Colors.white,
-                size: 40,
-              )
-            ],
+        SingleChildScrollView(
+          child: Container(
+            width: 120,
+            height: 1080,
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.all(25),
+            child: Column(
+              children: [
+                Image.asset('assets/doctpad.png'),
+                SizedBox(
+                  height: 30,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HospitalView()));
+                  },
+                  child: Image.asset('assets/view_hospital.png'),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => DoctorWebView()));
+                  },
+                  child: Image.asset('assets/view_doctor.png'),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'View Doctors',
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(
+                  height: 400,
+                ),
+                Icon(
+                  Icons.logout_outlined,
+                  color: Colors.white,
+                  size: 40,
+                )
+              ],
+            ),
+            color: Color.fromRGBO(15, 148, 220, 1),
           ),
-          color: Color.fromRGBO(15, 148, 220, 1),
         ),
         Column(
           children: [
             Container(
-              height: 100,
+              height: 75,
               width: MediaQuery.of(context).size.width - 150,
               alignment: Alignment.topLeft,
               color: Color.fromRGBO(19, 151, 219, 0.06),
@@ -88,7 +89,8 @@ class HospitalWebDetails extends StatelessWidget {
             Container(
               height: 500,
               width: 500,
-              color: Color.fromRGBO(15, 148, 220, 1),
+              decoration: BoxDecoration(
+                  color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
                   TextFeild(

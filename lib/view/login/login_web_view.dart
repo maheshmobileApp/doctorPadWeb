@@ -11,12 +11,11 @@ class LoginWebView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1397DB),
-      body: Form(
-        key: _formKey,
-        child: Center(
-          child: SingleChildScrollView(
+      body:Form(
+          key: _formKey,
+          child: Center(
             child: Container(
-              height: 400,
+              height: 450,
               width: 450,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(16)),
@@ -57,12 +56,17 @@ class LoginWebView extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+                      // if (_formKey.currentState!.validate()) {
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => HospitalView()));
+                  //  }
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HospitalView()));
-                      }
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => HospitalView()));
+
                     },
                     child: Text(
                       'Login',
@@ -71,7 +75,7 @@ class LoginWebView extends StatelessWidget {
                       shape: StadiumBorder(),
                       primary: Colors.blue,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 100, vertical: 20),
                       textStyle: TextStyle(
                         fontSize: 20,
                       ),
@@ -89,7 +93,7 @@ class LoginWebView extends StatelessWidget {
             ),
           ),
         ),
-      ),
+
     );
   }
 
