@@ -23,7 +23,7 @@ class TextFeild extends StatelessWidget {
           Expanded(
             flex: 1,
             child: CircleAvatar(
-              radius: 15,
+              radius: 20,
               child: Icon(
                   icon ?? Icons.person
               ),

@@ -70,84 +70,82 @@ class DoctorAddDetails extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20,),
-            SingleChildScrollView(
-              child: Container(
-                height: 500,
-                width: 350,
-                decoration: BoxDecoration(
-                    color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
-                child: Column(
-                  children: [
-                    TextFeild(
-                      icon: Icons.home,
-                      hintText: 'Name Of The Doctor',
-                    ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
-                      icon: Icons.lock,
-                      hintText: 'Doctor Registration Number',
-                    ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
-                      icon: Icons.call,
-                      hintText: "Mobile Number",
-                    ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
-                      icon: Icons.lock,
-                      hintText: 'Doctor Speciality',
-                    ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
-                      icon: Icons.lock,
-                      hintText: 'Clinic Speciality',
-                    ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
-                      icon: Icons.email,
-                      hintText: 'Email id',
-                    ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'BULK UPLOAD',
-                        style: TextStyle(
-                          color: Color(0xff11193C),
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        primary: Color(0xff1397DB0F),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                        textStyle: TextStyle(
-                            // fontSize: 20,
-                            ),
+            Container(
+              height: 550,
+              width: 450,
+              decoration: BoxDecoration(
+                  color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
+              child: Column(
+                children: [
+                  TextFeild(
+                    icon: Icons.home,
+                    hintText: 'Name Of The Doctor',
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  TextFeild(
+                    icon: Icons.lock,
+                    hintText: 'Doctor Registration Number',
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  TextFeild(
+                    icon: Icons.call,
+                    hintText: "Mobile Number",
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  TextFeild(
+                    icon: Icons.lock,
+                    hintText: 'Doctor Speciality',
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  TextFeild(
+                    icon: Icons.lock,
+                    hintText: 'Clinic Speciality',
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  TextFeild(
+                    icon: Icons.email,
+                    hintText: 'Email id',
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'BULK UPLOAD',
+                      style: TextStyle(
+                        color: Color(0xff11193C),
                       ),
                     ),
-                    Padding(padding: EdgeInsets.all(8)),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AddDoctorSuccessfully()));
-                      },
-                      child: Text(
-                        'ADD DOCTOR',
-                        style: TextStyle(color: Color(0xff0093E9)),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        primary: Color(0xffFFFFFF),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                        textStyle: TextStyle(),
-                      ),
+                    style: ElevatedButton.styleFrom(
+                      shape: StadiumBorder(),
+                      primary: Color(0xff1397DB0F),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      textStyle: TextStyle(
+                          // fontSize: 20,
+                          ),
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddDoctorSuccessfully()));
+                    },
+                    child: Text(
+                      'ADD DOCTOR',
+                      style: TextStyle(color: Color(0xff0093E9)),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      shape: StadiumBorder(),
+                      primary: Color(0xffFFFFFF),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                      textStyle: TextStyle(),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

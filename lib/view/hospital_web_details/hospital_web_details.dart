@@ -8,54 +8,52 @@ class HospitalWebDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        SingleChildScrollView(
-          child: Container(
-            width: 120,
-            height: 1080,
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.all(25),
-            child: Column(
-              children: [
-                Image.asset('assets/doctpad.png'),
-                SizedBox(
-                  height: 30,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HospitalView()));
-                  },
-                  child: Image.asset('assets/view_hospital.png'),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => DoctorWebView()));
-                  },
-                  child: Image.asset('assets/view_doctor.png'),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'View Doctors',
-                  style: TextStyle(color: Colors.white),
-                ),
-                SizedBox(
-                  height: 400,
-                ),
-                Icon(
-                  Icons.logout_outlined,
-                  color: Colors.white,
-                  size: 40,
-                )
-              ],
-            ),
-            color: Color.fromRGBO(15, 148, 220, 1),
+        Container(
+          width: 120,
+          height: 1080,
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.all(25),
+          child: Column(
+            children: [
+              Image.asset('assets/doctpad.png'),
+              SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HospitalView()));
+                },
+                child: Image.asset('assets/view_hospital.png'),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DoctorWebView()));
+                },
+                child: Image.asset('assets/view_doctor.png'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'View Doctors',
+                style: TextStyle(color: Colors.white),
+              ),
+              SizedBox(
+                height: 200,
+              ),
+              Icon(
+                Icons.logout_outlined,
+                color: Colors.white,
+                size: 40,
+              )
+            ],
           ),
+          color: Color.fromRGBO(15, 148, 220, 1),
         ),
         Column(
           children: [
@@ -87,8 +85,8 @@ class HospitalWebDetails extends StatelessWidget {
               height: 20,
             ),
             Container(
-              height: 500,
-              width: 500,
+              height: 800,
+              width: 700,
               decoration: BoxDecoration(
                   color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
               child: Column(
@@ -99,7 +97,7 @@ class HospitalWebDetails extends StatelessWidget {
                   ),
                   Padding(padding: EdgeInsets.all(20)),
                   TextFeild(
-                    icon: Icons.lock,
+                    icon: Icons.contact_phone_outlined,
                     hintText: 'Address',
                   ),
                   Padding(padding: EdgeInsets.all(20)),

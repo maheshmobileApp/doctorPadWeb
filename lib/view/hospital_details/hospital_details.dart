@@ -9,40 +9,38 @@ class HospitalDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        SingleChildScrollView(
-          child: Container(
-            width: 120,
-            height: 1080,
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.all(25),
-            child: Column(
-              children: [
-                Image.asset('assets/doctpad.png'),
-                SizedBox(height: 30,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HospitalView()));
-                  },
-                  child: Image.asset('assets/view_hospital.png'),
-                ),
-                SizedBox(height: 30,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => DoctorWebView()));
-                  },
-                  child: Image.asset('assets/view_doctor.png'),),
-                SizedBox(height: 10,),
-                Text('View Doctors', style: TextStyle(color: Colors.white),),
-                SizedBox(height: 400,),
-                Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
-                SizedBox(height: 10,),
-                Text('Logout', style: TextStyle(color: Colors.white),),
-              ],
-            ),
-            color: Color.fromRGBO(15, 148, 220, 1),
+        Container(
+          width: 120,
+          height: 1080,
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.all(25),
+          child: Column(
+            children: [
+              Image.asset('assets/doctpad.png'),
+              SizedBox(height: 30,),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HospitalView()));
+                },
+                child: Image.asset('assets/view_hospital.png'),
+              ),
+              SizedBox(height: 30,),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DoctorWebView()));
+                },
+                child: Image.asset('assets/view_doctor.png'),),
+              SizedBox(height: 10,),
+              Text('View Doctors', style: TextStyle(color: Colors.white),),
+              SizedBox(height: 200,),
+              Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
+              SizedBox(height: 10,),
+              Text('Logout', style: TextStyle(color: Colors.white),),
+            ],
           ),
+          color: Color.fromRGBO(15, 148, 220, 1),
         ),
         Column(
           children: [
@@ -69,8 +67,8 @@ class HospitalDetails extends StatelessWidget {
               height: 20,
             ),
             Container(
-              height: 400,
-              width: 300,
+              height: 500,
+              width: 400,
               decoration: BoxDecoration(
                   color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
               child: Column(
@@ -79,22 +77,22 @@ class HospitalDetails extends StatelessWidget {
                     icon: Icons.home,
                     hintText: 'Name Of The Hospital',
                   ),
-                  Padding(padding: EdgeInsets.all(8)),
+                  Padding(padding: EdgeInsets.all(10)),
                   TextFeild(
                     icon: Icons.lock,
                     hintText: 'Address',
                   ),
-                  Padding(padding: EdgeInsets.all(8)),
+                  Padding(padding: EdgeInsets.all(10)),
                   TextFeild(
                     icon: Icons.call,
                     hintText: "Contact Number",
                   ),
-                  Padding(padding: EdgeInsets.all(8)),
+                  Padding(padding: EdgeInsets.all(10)),
                   TextFeild(
                     icon: Icons.email,
                     hintText: 'Email id',
                   ),
-                  Padding(padding: EdgeInsets.all(20)),
+                  Padding(padding: EdgeInsets.all(25)),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -110,7 +108,7 @@ class HospitalDetails extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(horizontal: 40, vertical: 5),
                       textStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: 10,
                       ),
                     ),
                   ),

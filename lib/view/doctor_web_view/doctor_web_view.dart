@@ -68,7 +68,7 @@ class DoctorWebView extends StatelessWidget {
                 child: Row(
                   children: [
                     Text('Doctor View', style: TextStyle(fontSize: 25),),
-                    Padding(padding: EdgeInsets.all(80)),
+                    Padding(padding:EdgeInsets.only(left: 70,right:500,top: 10 ,bottom: 10)),
                     Image.asset('assets/search2.png'),
                     Padding(padding: EdgeInsets.all(50)),
                     ElevatedButton(
@@ -78,17 +78,25 @@ class DoctorWebView extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => DoctorAddDetails()));
                       },
-                      child: Image.asset('assets/add_doctor.png',),
+                      child:Text('+ Add Doctor'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  padding:
+                  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  textStyle: TextStyle(
+                    fontSize: 10,
+                  ),
+                ),
                     ),
-                    Padding(padding: EdgeInsets.all(10)),
+                    SizedBox(height: 20,width: 20,),
                     Image.asset('assets/user2.png'),
-                    Padding(padding: EdgeInsets.all(5)),
+                    SizedBox(height: 20,width: 5,),
                     Text('User Name', style: TextStyle(color: Colors.black),
                     ),
                   ],
                 ),
               ),
-              Text('Doctors List ', style: TextStyle(fontSize: 30),),
+              Text('Doctors List ',textAlign:TextAlign.left,style: TextStyle(fontSize: 10),),
               Container(
                 height: MediaQuery.of(context).size.height - 100,
                 width: MediaQuery.of(context).size.width - 150,
@@ -98,8 +106,8 @@ class DoctorWebView extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: dummyList.length,
                   itemBuilder: (context, index) => Card(
-                    elevation: 6,
-                    margin: const EdgeInsets.all(10),
+                    elevation: 4,
+                    margin: EdgeInsets.only(top: 26,left: 200,right: 250,),
                     child: ListTile(
                         leading:Container(
                           decoration: BoxDecoration(
@@ -108,13 +116,11 @@ class DoctorWebView extends StatelessWidget {
                           ),
 
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 6),
+                            padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 15),
                             child:   Image.asset('assets/doctor.png',color: Colors.white,),
                           ),
                         ),
 
-
-                      //child: Text(dummyList[index]["id"].toString()),
 
                       title: Text(dummyList[index]["title"]),
                       subtitle: Text(dummyList[index]["subtitle"]),
