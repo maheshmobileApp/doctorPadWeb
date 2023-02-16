@@ -20,13 +20,15 @@ class TextFeild extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Expanded(
-            flex: 1,
-            child: CircleAvatar(
-              radius: 20,
-              child: Icon(
-                  icon ?? Icons.person
-              ),
+          // ImageIcon(
+          //   AssetImage("assets/icons/doctor.png"),
+          //   color: Colors.white,
+          //   size: 24,
+          // ),
+          CircleAvatar(
+            radius: 20,
+            child: Icon(
+                icon ?? Icons.person
             ),
           ),
           Expanded(

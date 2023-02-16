@@ -18,36 +18,43 @@ class DoctorDetails extends StatelessWidget {
           child: Column(
             children: [
               Image.asset('assets/doctpad.png'),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HospitalView()));
+              Padding(padding:EdgeInsets.all(25),),
+              GestureDetector(
+                child: Image.asset(
+                  'assets/icons/home.png',
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HospitalView()));
                 },
-                child: Image.asset('assets/view_hospital.png'),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DoctorWebView()));
-                },
-                child: Image.asset('assets/view_doctor.png'),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: 5,),
               Text(
-                'View Doctors',
-                style: TextStyle(color: Colors.white),
+                'View Doctor',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.white,fontSize: 10),
               ),
-              SizedBox(
-                height: 400,
+              SizedBox(height: 30,width: 20,),
+              GestureDetector(
+                child: Image.asset(
+                  'assets/view_doctor.png',
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DoctorWebView()));
+                },
               ),
+              SizedBox(height: 5,),
+              Text(
+                'View Hospitals',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.white,fontSize: 10 ),
+              ),
+              SizedBox(height: 180,),
               Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
               SizedBox(height: 10,),
               Text('Logout', style: TextStyle(color: Colors.white),),
@@ -67,11 +74,11 @@ class DoctorDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Text('Add Doctors', style: TextStyle(fontSize: 25),),
-                    Padding(padding: EdgeInsets.all(80)),
+                    Padding(padding:EdgeInsets.only(left: 100,right:550,top: 10 ,bottom: 10)),
                     Image.asset('assets/search2.png'),
-                    Padding(padding: EdgeInsets.all(50)),
+                    SizedBox(height: 20,width: 20,),
                     Image.asset('assets/user2.png'),
-                    Padding(padding: EdgeInsets.all(5)),
+                    SizedBox(height: 20,width: 5,),
                     Text('User Name', style: TextStyle(color: Colors.black),
                     ),
                   ],
@@ -128,7 +135,7 @@ class DoctorDetails extends StatelessWidget {
                       },
                       child: Text(
                         'Back',
-                        style: TextStyle(color: Color(0xff0093E9)),
+                        style: TextStyle(color: Color(0xff0093E9),),
                       ),
                       style: ElevatedButton.styleFrom(
                         shape: StadiumBorder(),
@@ -136,7 +143,7 @@ class DoctorDetails extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 50, vertical: 10),
                         textStyle: TextStyle(
-                          fontSize: 20,
+                          fontSize: 10,
                         ),
                       ),
                     ),

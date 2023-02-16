@@ -1,36 +1,47 @@
+import 'package:cgg_base_project/res/components/button_component.dart';
+import 'package:cgg_base_project/res/constants/routes_constants.dart';
+import 'package:cgg_base_project/utils/regex.dart';
 import 'package:cgg_base_project/view/hospital_web_view/hospital_web_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../res/components/login_textfeild.dart';
+import '../../res/components/logo_widget.dart';
 
 class LoginWebView extends StatelessWidget {
   LoginWebView({super.key});
 
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1397DB),
       body:Form(
-          key: _formKey,
+        key: _formKey,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+                colors: [
+                  Color(0xff0A4C6E),
+                  Color(0xff1397DB),
+                ]
+            )
+          ),
           child: Center(
             child: Container(
-              height: 450,
+              height: 420,
               width: 450,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
-                  Image.asset(
-                    'assets/doctpad.png',
-                    height: 100,
-                    width: 100,
-                  ),
-                  SizedBox(
-                    height: 23,
-                  ),
+                  _sizedBox(height: 20),
+                  LogoWidget(),
+                  _sizedBox(height: 23),
                   LoginTextFeild(
                     hintText: 'User Mobile Number',
+                    keyboardType: TextInputType.numberWithOptions(decimal: true,signed: true),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Enter Mobile Number';
@@ -39,9 +50,7 @@ class LoginWebView extends StatelessWidget {
                       }
                     },
                   ),
-                  SizedBox(
-                    height: 23,
-                  ),
+                  _sizedBox(height: 10),
                   LoginTextFeild(
                     icon: Icons.lock,
                     hintText: 'Password',
@@ -51,54 +60,31 @@ class LoginWebView extends StatelessWidget {
                       }
                     },
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // if (_formKey.currentState!.validate()) {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => HospitalView()));
-                  //  }
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                        builder: (context) => HospitalView()));
-
-                    },
-                    child: Text(
-                      'Login',
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: StadiumBorder(),
-                      primary: Colors.blue,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 35,
-                  ),
-                  RichText(
-                      text: TextSpan(
-                          text: 'Forget Password?',
-                          style: TextStyle(color: Colors.blue)))
+                  _sizedBox(height: 30),
+                  AppButton(text:'LOGIN', onPressed: () {
+                    if(_formKey.currentState!.validate()){
+                      context.go(RoutesList.hospitalView);
+                    }
+                   // context.go(RoutesList.hospitalView);
+                  }),
+                   _sizedBox(height: 15),
+                  Text('Forgot Password?',style: TextStyle(
+                      color: Colors.blue
+                  ),),
+                  _sizedBox(height: 15),
                 ],
               ),
             ),
           ),
         ),
+      ),
 
     );
   }
-
-  bool phonenovalid(String phoneno) {
-    return RegExp('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}\$')
-        .hasMatch(phoneno);
-  }
+SizedBox _sizedBox({double? height, double? width}){
+    return SizedBox(
+      height: height,
+      width: width,
+    );
+}
 }

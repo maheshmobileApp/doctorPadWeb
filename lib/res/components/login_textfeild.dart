@@ -18,15 +18,17 @@ class LoginTextFeild extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 20,left: 85),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+       // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: 25,),
               CircleAvatar(
                 radius: 20,
+                backgroundColor: Color(0xff1397DB),
                 child: Icon(
-                 icon ?? Icons.person
+                 icon ?? Icons.person,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -37,6 +39,7 @@ class LoginTextFeild extends StatelessWidget {
             child: TextFormField(
               cursorHeight:20,
                 cursorRadius: Radius.zero,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 2),
                   hintText: hintText,
@@ -47,7 +50,8 @@ class LoginTextFeild extends StatelessWidget {
                   prefixIcon: prefixIcon,
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xff1397DB)
+                       color: Color(0xff1397DB)
+
                     )
                   )
                 ),

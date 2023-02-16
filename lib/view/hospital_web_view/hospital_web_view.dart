@@ -1,8 +1,9 @@
+import 'package:cgg_base_project/res/constants/routes_constants.dart';
 import 'package:cgg_base_project/view/doctor_web_view/doctor_web_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../hospital_details/hospital_details.dart';
 class HospitalView extends StatelessWidget {
-  String inkwell='';
   final List dummyList = List.generate(10, (index) {
     return {
       "title": "Hospitail Details",
@@ -15,60 +16,59 @@ class HospitalView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          SingleChildScrollView(
-            child: Container(
-              width: 120,
-              height: 1080,
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.all(25),
-              child: Column(
-                children: [
-                   Image.asset('assets/doctpad.png'),
-                   Padding(padding:EdgeInsets.all(25),),
-                  InkWell(
-                    onTap:() {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalView()));
-                    },
-                    child: Ink(
-                      color: Colors.blueGrey,
-                      height: 120,
-                      width: 120,
-                      child: Center(
-                        child: Image.asset('assets/view_hospital.png',color: Colors.white),
-                      ),
-                    ),
+          Container(
+            width: 120,
+            height: 1080,
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.all(25),
+            child: Column(
+              children: [
+                 Image.asset('assets/doctpad.png'),
+                 Padding(padding:EdgeInsets.all(25),),
+                GestureDetector(
+                  child: Image.asset(
+                    'assets/icons/home.png',
                   ),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     Navigator.push(
-                  //         context,
-                  //         MaterialPageRoute(
-                  //             builder: (context) => HospitalView()));
-                  //   },
-                  //
-                  //    child: Image.asset('assets/view_hospital.png',color: Colors.white,
-                  //      ),style:ElevatedButton.styleFrom(
-                  //   primary: Colors.blue,
-                  //   padding: EdgeInsets.symmetric(horizontal: 250, vertical: 50),),
-                  // ),
-                  SizedBox(height: 30,width: 20,),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorWebView()));
-                    },
-                    child: Image.asset('assets/view_doctor.png', height: 20, width: 10,
-                    ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HospitalView()));
+                  },
+                ),
+                SizedBox(height: 5,),
+                Text(
+                  'View Hospitals',
+                  textDirection: TextDirection.ltr,
+                  style: TextStyle(color: Colors.white,fontSize: 10),
+                ),
+                SizedBox(height: 30,width: 20,),
+                GestureDetector(
+                  child: Image.asset(
+                    'assets/view_doctor.png',
                   ),
-                  SizedBox(height: 10,),
-                  Text('View Doctors', style: TextStyle(color: Colors.white,fontSize: 10),),
-                  SizedBox(height: 200,),
-                  Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
-                  SizedBox(height: 10,),
-                  Text('Logout', style: TextStyle(color: Colors.white),),
-                ],
-              ),
-              color: Color.fromRGBO(15, 148, 220, 1),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DoctorWebView()));
+                  },
+                ),
+                SizedBox(height: 5,),
+                Text(
+                  'View Doctor',
+                  textDirection: TextDirection.ltr,
+                  style: TextStyle(color: Colors.white,fontSize: 10 ),
+                ),
+                SizedBox(height: 180,),
+                InkWell(
+                  onTap: () => context.go(RoutesList.loginWebView),
+                    child: Icon(Icons.logout_outlined, color: Colors.white, size: 40,)),
+                SizedBox(height: 10,),
+                Text('Logout', style: TextStyle(color: Colors.white),),
+              ],
             ),
+            color: Color.fromRGBO(15, 148, 220, 1),
           ),
           SingleChildScrollView(
             child: Column(
@@ -107,7 +107,7 @@ class HospitalView extends StatelessWidget {
                   ),
                 ),
                 Text('Hospitals List ', textAlign:TextAlign.left,
-                    style: TextStyle(fontSize: 30),),
+                    style: TextStyle(fontSize: 15),),
                 SingleChildScrollView(
                   child: Container(
                     height: MediaQuery.of(context).size.height - 100,

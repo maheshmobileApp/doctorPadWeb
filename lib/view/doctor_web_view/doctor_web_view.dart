@@ -10,7 +10,7 @@ class DoctorWebView extends StatelessWidget {
       //   // color: Color.fromRGBO(15, 148, 220,1),
       // ),
       "title": "Doctor Details",
-      "subtitle": "Name Details ",
+      "subtitle": "Name\n Details ",
     };
   });
 
@@ -27,28 +27,43 @@ class DoctorWebView extends StatelessWidget {
           child: Column(
             children: [
               Image.asset('assets/doctpad.png'),
-              SizedBox(height: 30,),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HospitalView()));
-                },
-                child: Image.asset('assets/view_hospital.png'),
-              ),
-              SizedBox(height: 30,),
-              ElevatedButton(
-                onPressed: () {
+              Padding(padding:EdgeInsets.all(25),),
+              GestureDetector(
+                child: Image.asset(
+                  'assets/icons/home.png',
+                ),
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => DoctorAddDetails()));
+                          builder: (context) => HospitalView()));
                 },
-                child: Image.asset('assets/view_doctor.png'),
               ),
-              SizedBox(height: 10,),
-              Text('View Doctors', style: TextStyle(color: Colors.white),
+              SizedBox(height: 5,),
+              Text(
+                'View Hospitals',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.white,fontSize: 10),
               ),
-              SizedBox(height: 200,),
+              SizedBox(height: 30,width: 20,),
+              GestureDetector(
+                child: Image.asset(
+                  'assets/view_doctor.png',
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DoctorWebView()));
+                },
+              ),
+              SizedBox(height: 5,),
+              Text(
+                'View Doctor',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(color: Colors.white,fontSize: 10 ),
+              ),
+              SizedBox(height: 180,),
               Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
               SizedBox(height: 10,),
               Text('Logout', style: TextStyle(color: Colors.white),),
