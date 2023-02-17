@@ -4,16 +4,17 @@ import 'package:go_router/go_router.dart';
 import '../../constants/routes_constants.dart';
 import '../button_component.dart';
 class OptionWidgets extends StatelessWidget {
-    OptionWidgets({Key? key,this.text,this.title,this.appButton,this.routes} ) : super(key:key);
+    OptionWidgets({Key? key,this.text,this.title,this.appButton,this.routes,required this.isAcceptTermsAndConditions,required this.onTap} ) : super(key:key);
   final String? text;
   final String? title;
   final AppButton? appButton;
   final  RoutesList? routes;
-  bool _isAcceptTermsAndConditions = false;
+  bool isAcceptTermsAndConditions = false;
+    final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
 
-    return    Container(
+    return Container(
       height:75,
       width: MediaQuery.of(context).size.width -120,
       alignment: Alignment.topLeft,
@@ -41,19 +42,16 @@ class OptionWidgets extends StatelessWidget {
     //     }),
     // Text('I accept the terms and conditions.'),
 
-       appButton??   AppButton(
-    // onPressed: _isAcceptTermsAndConditions
-    // ? () {
-    // print('Submit');
-    // }
-    //     : null,
-    text:title??'+ Add Hospital',
+        if (isAcceptTermsAndConditions)...{
+            AppButton(
+            text:title??'+ Add Hospital',
               myEdgeInsets: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
               borderRadius: BorderRadius.circular(3),
               onPressed: () {
-           routes?? context.go(RoutesList.hospitalDetails);
-          }
-          ),
+                this.onTap();
+                }
+
+          )},
           SizedBox(height: 20,width: 20,),
           Image.asset('assets/user2.png',),
           SizedBox(height: 20,width: 5,),

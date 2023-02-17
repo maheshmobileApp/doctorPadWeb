@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
+import '../../res/constants/routes_constants.dart';
 class HospitalView extends StatelessWidget {
   final List dummyList = List.generate(10, (index) {
     return {
@@ -16,7 +18,9 @@ class HospitalView extends StatelessWidget {
         SidepanelWidgets(),
           Column(
             children: [
-             OptionWidgets(),
+             OptionWidgets(isAcceptTermsAndConditions: true,onTap:() {
+               context.go(RoutesList.hospitalDetails);
+    },),
               Text('Hospitals List ', textAlign:TextAlign.left,
                 style: TextStyle(fontSize: 15),),
               Container(
