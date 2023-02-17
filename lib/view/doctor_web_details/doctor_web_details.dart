@@ -1,67 +1,16 @@
-import 'package:cgg_base_project/view/add_doctor_successfully/add_doctor_successfully.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../res/components/button_component.dart';
+import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/components/text_field/text_field.dart';
-import '../doctor_web_view/doctor_web_view.dart';
-import '../hospital_web_view/hospital_web_view.dart';
+import '../../res/constants/routes_constants.dart';
 class DoctorAddDetails extends StatelessWidget {
   const DoctorAddDetails({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Container(
-          width: 120,
-          height: 1080,
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.all(25),
-          child: Column(
-            children: [
-              Image.asset('assets/doctpad.png'),
-              Padding(padding:EdgeInsets.all(25),),
-              GestureDetector(
-                child: Image.asset(
-                  'assets/icons/home.png',
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HospitalView()));
-                },
-              ),
-              SizedBox(height: 5,),
-              Text(
-                'View Hospitals',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(color: Colors.white,fontSize: 10),
-              ),
-              SizedBox(height: 30,width: 20,),
-              GestureDetector(
-                child: Image.asset(
-                  'assets/view_doctor.png',
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DoctorWebView()));
-                },
-              ),
-              SizedBox(height: 5,),
-              Text(
-                'View Doctor',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(color: Colors.white,fontSize: 10 ),
-              ),
-              SizedBox(height: 180,),
-              Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
-              SizedBox(height: 10,),
-              Text('Logout', style: TextStyle(color: Colors.white),),
-
-            ],
-          ),
-          color: Color.fromRGBO(15, 148, 220, 1),
-        ),
+        SidepanelWidgets(),
         Column(
           children: [
             SingleChildScrollView(
@@ -123,43 +72,20 @@ class DoctorAddDetails extends StatelessWidget {
                     hintText: 'Email id',
                   ),
                   Padding(padding: EdgeInsets.all(8)),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'BULK UPLOAD',
-                      style: TextStyle(
-                        color: Color(0xff11193C),
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: StadiumBorder(),
-                      primary: Color(0xff1397DB0F),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                      textStyle: TextStyle(
-                          // fontSize: 20,
-                          ),
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.all(8)),
-                  ElevatedButton(
+                AppButton(text:'BULK UPLOAD',color:Color(0xff11193C),
+                    myEdgeInsets: EdgeInsets.symmetric(horizontal: 30,vertical: 10),
+                    primaryColor:  Color(0xff1397DB0F),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddDoctorSuccessfully()));
-                    },
-                    child: Text(
-                      'ADD DOCTOR',
-                      style: TextStyle(color: Color(0xff0093E9)),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: StadiumBorder(),
-                      primary: Color(0xffFFFFFF),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                      textStyle: TextStyle(),
-                    ),
+                     // context.go(RoutesList.hospitalDetails);
+                    }
+                ),
+                  Padding(padding: EdgeInsets.all(8)),
+                  AppButton(text:'ADD DOCTOR',color:Color(0xff0093E9),
+                      myEdgeInsets: EdgeInsets.symmetric(horizontal: 40,vertical: 10),
+                      primaryColor: Color(0xffFFFFFF),
+                      onPressed: () {
+                    context.go(RoutesList.addDoctorSuccessfully);
+                  }
                   ),
                 ],
               ),

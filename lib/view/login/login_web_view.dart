@@ -62,10 +62,10 @@ class LoginWebView extends StatelessWidget {
                   ),
                   _sizedBox(height: 30),
                   AppButton(text:'LOGIN', onPressed: () {
-                    if(_formKey.currentState!.validate()){
-                      context.go(RoutesList.hospitalView);
-                    }
-                   // context.go(RoutesList.hospitalView);
+                    // if(_formKey.currentState!.validate()){
+                    //   context.go(RoutesList.hospitalView);
+                    // }
+                    context.go(RoutesList.hospitalView);
                   }),
                    _sizedBox(height: 15),
                   Text('Forgot Password?',style: TextStyle(

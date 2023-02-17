@@ -1,21 +1,26 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class AppButton extends StatelessWidget {
   const AppButton(
-      {super.key, required this.text, required this.onPressed,this.color,this.width});
+      {super.key, required this.text,
+        required this.onPressed,
+        this.color,this.width, this.myEdgeInsets,this. borderRadius ,this.primaryColor});
   final String text;
   final Color? color;
   final double? width;
   final void Function()? onPressed;
+  final EdgeInsets? myEdgeInsets;
+  final  BorderRadius?  borderRadius;
+  final dynamic? primaryColor;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
          onPressed:onPressed,style: ElevatedButton.styleFrom(
-      padding: EdgeInsets.symmetric(horizontal: 100,vertical: 20),
+      padding: myEdgeInsets ?? EdgeInsets.symmetric(horizontal: 100,vertical: 20),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-        ), primary:color ?? Color(0xff1397DB)),
-      child:Text(text,style:TextStyle(fontSize: 12) ,)
+          borderRadius:borderRadius?? BorderRadius.circular(50),
+        ), primary:primaryColor?? Color(0xff1397DB)),
+      child:Text(text,style:TextStyle( fontSize: 12 ,color:color?? Colors.white) ,)
     );
   }
 }

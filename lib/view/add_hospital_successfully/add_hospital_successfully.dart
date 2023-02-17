@@ -1,67 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../doctor_web_view/doctor_web_view.dart';
-import '../hospital_web_view/hospital_web_view.dart';
-
+import 'package:go_router/go_router.dart';
+import '../../res/components/button_component.dart';
+import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
+import '../../res/constants/routes_constants.dart';
 class AddHospitalSuccessfully extends StatelessWidget {
   const AddHospitalSuccessfully({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Container(
-          width: 120,
-          height: 1080,
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.all(25),
-          child: Column(
-            children: [
-              Image.asset('assets/doctpad.png'),
-              Padding(padding:EdgeInsets.all(25),),
-              GestureDetector(
-                child: Image.asset(
-                  'assets/icons/home.png',
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HospitalView()));
-                },
-              ),
-              SizedBox(height: 5,),
-              Text(
-                'View Hospitals',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(color: Colors.white,fontSize: 10),
-              ),
-              SizedBox(height: 30,width: 20,),
-              GestureDetector(
-                child: Image.asset(
-                  'assets/view_doctor.png',
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DoctorWebView()));
-                },
-              ),
-              SizedBox(height: 5,),
-              Text(
-                'View Doctor',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(color: Colors.white,fontSize: 10 ),
-              ),
-              SizedBox(height: 180,),
-              Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
-              SizedBox(height: 10,),
-              Text('Logout', style: TextStyle(color: Colors.white),),
-            ],
-          ),
-          color: Color.fromRGBO(15, 148, 220, 1),
-        ),
+       SidepanelWidgets(),
         Column(
           children: [
             Container(
@@ -105,27 +54,13 @@ class AddHospitalSuccessfully extends StatelessWidget {
                     style: TextStyle(fontSize: 25, color: Color(0xff1397DB)),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HospitalView()));
-                    },
-                    child: Text(
-                      'Back',
-                      style: TextStyle(fontSize: 25, color: Color(0xffFFFFFF)),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: StadiumBorder(),
-                      primary: Color(0xff1397DB),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  )
+                  AppButton(text:'Back',color: Color(0xffFFFFFF),
+                      myEdgeInsets: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
+                      primaryColor: Color(0xff1397DB),
+                      onPressed: () {
+                        context.go(RoutesList.hospitalView);
+                      }
+                  ),
                 ],
               ),
             ),

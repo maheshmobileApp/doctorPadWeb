@@ -1,65 +1,16 @@
+import 'package:cgg_base_project/res/components/button_component.dart';
+import 'package:cgg_base_project/res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../res/components/text_field/text_field.dart';
-import '../doctor_web_view/doctor_web_view.dart';
-import '../hospital_web_view/hospital_web_view.dart';
+import '../../res/constants/routes_constants.dart';
 class HospitalWebDetails extends StatelessWidget {
   const HospitalWebDetails({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Container(
-          width: 120,
-          height: 1080,
-          alignment: Alignment.topLeft,
-          padding: EdgeInsets.all(25),
-          child: Column(
-            children: [
-              Image.asset('assets/doctpad.png'),
-              Padding(padding:EdgeInsets.all(25),),
-              GestureDetector(
-                child: Image.asset(
-                  'assets/icons/home.png',
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HospitalView()));
-                },
-              ),
-              SizedBox(height: 5,),
-              Text(
-                'View Hospitals',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(color: Colors.white,fontSize: 10),
-              ),
-              SizedBox(height: 30,width: 20,),
-              GestureDetector(
-                child: Image.asset(
-                  'assets/view_doctor.png',
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DoctorWebView()));
-                },
-              ),
-              SizedBox(height: 5,),
-              Text(
-                'View Doctor',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(color: Colors.white,fontSize: 10 ),
-              ),
-              SizedBox(height: 180,),
-              Icon(Icons.logout_outlined, color: Colors.white, size: 40,),
-              SizedBox(height: 10,),
-              Text('Logout', style: TextStyle(color: Colors.white),),
-            ],
-          ),
-          color: Color.fromRGBO(15, 148, 220, 1),
-        ),
+        SidepanelWidgets(),
         Column(
           children: [
             Container(
@@ -90,8 +41,8 @@ class HospitalWebDetails extends StatelessWidget {
               height: 20,
             ),
             Container(
-              height: 800,
-              width: 700,
+              height: 480,
+              width: 400,
               decoration: BoxDecoration(
                   color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
               child: Column(
@@ -116,21 +67,21 @@ class HospitalWebDetails extends StatelessWidget {
                     hintText: 'Email id',
                   ),
                   Padding(padding: EdgeInsets.all(20)),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'ADD Doctor To HOSPITAL',
-                      style: TextStyle(color: Color(0xff0093E9)),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: StadiumBorder(),
-                      primary: Color(0xffFFFFFF),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                      textStyle: TextStyle(
-                        fontSize: 10,
-                      ),
-                    ),
+                  AppButton(text:'ADD Doctor To HOSPITAL',color: Color(0xff000000),
+                      myEdgeInsets: EdgeInsets.symmetric(horizontal:20,vertical:10),
+                      borderRadius: BorderRadius.circular(2),
+                      primaryColor: Color(0xffB8DAD2),
+                      onPressed: () {
+                  //  context.go(RoutesList.hospitalDetails);
+                  }
+                  ),
+                  Padding(padding:EdgeInsets.all(10)),
+                  AppButton(text:'Back',color: Color(0xff0F94DC),
+                      myEdgeInsets: EdgeInsets.symmetric(horizontal:40,vertical:10),
+                      primaryColor: Colors.white,
+                      onPressed: () {
+                        context.go(RoutesList.hospitalWebDetails);
+                      }
                   ),
                 ],
               ),
