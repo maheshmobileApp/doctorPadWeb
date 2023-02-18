@@ -1,6 +1,6 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../../constants/routes_constants.dart';
 import '../button_component.dart';
 class OptionWidgets extends StatelessWidget {
@@ -18,7 +18,7 @@ class OptionWidgets extends StatelessWidget {
       height:75,
       width: MediaQuery.of(context).size.width -120,
       alignment: Alignment.topLeft,
-      color: Color.fromRGBO(19, 151, 219, 0.06),
+      color: AppColors.color9,
       padding: EdgeInsets.all(25),
       child: Row(
         children: [
@@ -47,7 +47,7 @@ class OptionWidgets extends StatelessWidget {
           SizedBox(height: 20,width: 20,),
           Image.asset('assets/user2.png',),
           SizedBox(height: 20,width: 5,),
-          Text('User Name', style: TextStyle(color: Colors.black),
+          Text('User Name', style: TextStyle(color:  AppColors.color5,),
           ),
         ],
       ),

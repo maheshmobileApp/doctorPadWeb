@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/material.dart';
 class TextFeild extends StatelessWidget {
   final IconData? icon;
@@ -40,12 +41,12 @@ class TextFeild extends StatelessWidget {
                     hintText: hintText,
                     hintStyle: TextStyle(
                         fontSize: 14,
-                        color: Color(0xffFCFCFC)
+                        color:AppColors.color1
                     ),
                     prefixIcon: prefixIcon,
                     border: UnderlineInputBorder(
                         borderSide: BorderSide(
-                            color: Color(0xffFCFCFC)
+                            color:AppColors.color1
                         )
                     )
                 ),

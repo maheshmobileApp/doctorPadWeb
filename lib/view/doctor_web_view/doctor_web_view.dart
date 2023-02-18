@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/constants/routes_constants.dart';
@@ -37,13 +38,13 @@ class DoctorWebView extends StatelessWidget {
                   child: ListTile(
                       leading:Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Color(0xffFFFFFF),width: 3),
-                          color: Color.fromRGBO(15, 148, 220, 1),
+                          border: Border.all(color:  AppColors.color1,width: 3),
+                          color:  AppColors.backgroundcolori,
                         ),
 
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 15),
-                          child:   Image.asset('assets/doctor.png',color: Colors.white,),
+                          child:   Image.asset('assets/doctor.png',color:  AppColors.color1,),
                         ),
                       ),
                     title: Text(dummyList[index]["title"]),

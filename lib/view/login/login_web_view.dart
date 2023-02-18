@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:cgg_base_project/res/components/button_component.dart';
 import 'package:cgg_base_project/res/constants/routes_constants.dart';
 import 'package:cgg_base_project/utils/regex.dart';
@@ -13,7 +14,7 @@ class LoginWebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1397DB),
+      backgroundColor: AppColors.backgroundcolori,
       body:Form(
         key: _formKey,
         child: Container(
@@ -22,8 +23,8 @@ class LoginWebView extends StatelessWidget {
               begin: Alignment.centerRight,
                 end: Alignment.centerLeft,
                 colors: [
-                  Color(0xff0A4C6E),
-                  Color(0xff1397DB),
+                  AppColors.app_bg_color,
+                  AppColors.backgroundcolori
                 ]
             )
           ),
@@ -32,7 +33,7 @@ class LoginWebView extends StatelessWidget {
               height: 420,
               width: 450,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(16)),
+                  color: AppColors.color1, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
                   _sizedBox(height: 20),
@@ -68,7 +69,7 @@ class LoginWebView extends StatelessWidget {
                   }),
                    _sizedBox(height: 15),
                   Text('Forgot Password?',style: TextStyle(
-                      color: Colors.blue
+                      color:   AppColors.backgroundcolori,
                   ),),
                   _sizedBox(height: 15),
                 ],

@@ -15,30 +15,6 @@ class AddHospitalSuccessfully extends StatelessWidget {
         Column(
           children: [
             OptionWidgets(isAcceptTermsAndConditions: false,onTap: (){},text: 'Add Hospitals',),
-            // Container(
-            //   height: 75,
-            //   width: MediaQuery.of(context).size.width - 150,
-            //   alignment: Alignment.topLeft,
-            //   color: Color.fromRGBO(19, 151, 219, 0.06),
-            //   padding: EdgeInsets.all(25),
-            //   child: Row(
-            //     children: [
-            //       Text(
-            //         'Add Doctors',
-            //         style: TextStyle(fontSize: 25),
-            //       ),
-            //       Padding(padding:EdgeInsets.only(left: 100,right:550,top: 10 ,bottom: 10)),
-            //       Image.asset('assets/search2.png'),
-            //       SizedBox(height: 20,width: 20,),
-            //       Image.asset('assets/user2.png'),
-            //       SizedBox(height: 20,width: 5,),
-            //       Text(
-            //         'User Name',
-            //         style: TextStyle(color: Colors.black),
-            //       ),
-            //     ],
-            //   ),
-            // ),
             SizedBox(
               height: 20,
             ),

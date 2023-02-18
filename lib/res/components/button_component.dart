@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
@@ -19,8 +20,8 @@ class AppButton extends StatelessWidget {
       padding: myEdgeInsets ?? EdgeInsets.symmetric(horizontal: 100,vertical: 20),
         shape: RoundedRectangleBorder(
           borderRadius:borderRadius?? BorderRadius.circular(50),
-        ), primary:primaryColor?? Color(0xff1397DB)),
-      child:Text(text,style:TextStyle( fontSize: 12 ,color:color?? Colors.white) ,)
+        ), primary:primaryColor?? AppColors.backgroundcolori),
+      child:Text(text,style:TextStyle( fontSize: 12 ,color:color?? AppColors.color1) ,)
     );
   }
 }

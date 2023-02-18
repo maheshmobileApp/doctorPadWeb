@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../res/components/Web_Textfield/Web_Textfield.dart';
+import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -23,7 +23,7 @@ class HospitalDetails extends StatelessWidget {
               height: 500,
               width: 400,
               decoration: BoxDecoration(
-                  color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
+                  color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
                   TextFeild(
@@ -46,9 +46,9 @@ class HospitalDetails extends StatelessWidget {
                     hintText: 'Email id',
                   ),
                   Padding(padding: EdgeInsets.all(25)),
-                  AppButton(text:'ADD  HOSPITAL', color: Colors.blue,
+                  AppButton(text:'ADD  HOSPITAL', color:   AppColors.backgroundcolori,
                       myEdgeInsets: EdgeInsets.symmetric(horizontal:40,vertical:5),
-                      primaryColor: Colors.white,
+                      primaryColor:   AppColors.color1,
                       onPressed: () {
                     context.go(RoutesList.addHospitalSuccessfully);
                   }

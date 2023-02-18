@@ -2,6 +2,7 @@ import 'package:cgg_base_project/res/components/button_component.dart';
 import 'package:cgg_base_project/res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
@@ -15,30 +16,6 @@ class HospitalWebDetails extends StatelessWidget {
         Column(
           children: [
             OptionWidgets(isAcceptTermsAndConditions: false,onTap: (){},text: 'Add Hospitals',),
-            // Container(
-            //   height: 75,
-            //   width: MediaQuery.of(context).size.width - 150,
-            //   alignment: Alignment.topLeft,
-            //   color: Color.fromRGBO(19, 151, 219, 0.06),
-            //   padding: EdgeInsets.all(25),
-            //   child: Row(
-            //     children: [
-            //       Text(
-            //         'Add Hospitals',
-            //         style: TextStyle(fontSize: 25),
-            //       ),
-            //       Padding(padding:EdgeInsets.only(left: 100,right:550,top: 10 ,bottom: 10)),
-            //       Image.asset('assets/search2.png'),
-            //       SizedBox(height: 20,width: 20,),
-            //       Image.asset('assets/user2.png'),
-            //       SizedBox(height: 20,width: 5,),
-            //       Text(
-            //         'User Name',
-            //         style: TextStyle(color: Colors.black),
-            //       ),
-            //     ],
-            //   ),
-            // ),
             SizedBox(
               height: 20,
             ),
@@ -46,7 +23,7 @@ class HospitalWebDetails extends StatelessWidget {
               height: 480,
               width: 400,
               decoration: BoxDecoration(
-                  color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
+                  color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
                   TextFeild(
@@ -69,7 +46,7 @@ class HospitalWebDetails extends StatelessWidget {
                     hintText: 'Email id',
                   ),
                   Padding(padding: EdgeInsets.all(20)),
-                  AppButton(text:'ADD Doctor To HOSPITAL',color: Color(0xff000000),
+                  AppButton(text:'ADD Doctor To HOSPITAL',color:  AppColors.color5,
                       myEdgeInsets: EdgeInsets.symmetric(horizontal:20,vertical:10),
                       borderRadius: BorderRadius.circular(2),
                       primaryColor: Color(0xffB8DAD2),
@@ -78,9 +55,9 @@ class HospitalWebDetails extends StatelessWidget {
                   }
                   ),
                   Padding(padding:EdgeInsets.all(10)),
-                  AppButton(text:'Back',color: Color(0xff0F94DC),
+                  AppButton(text:'Back',color:AppColors.backgroundcolori,
                       myEdgeInsets: EdgeInsets.symmetric(horizontal:40,vertical:10),
-                      primaryColor: Colors.white,
+                      primaryColor:   AppColors.color1,
                       onPressed: () {
                         context.go(RoutesList.hospitalWebDetails);
                       }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -20,7 +21,7 @@ class DoctorAddDetails extends StatelessWidget {
               height: 480,
               width: 400,
               decoration: BoxDecoration(
-                  color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
+                  color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
                   TextFeild(
@@ -61,9 +62,9 @@ class DoctorAddDetails extends StatelessWidget {
                     }
                 ),
                   Padding(padding: EdgeInsets.all(8)),
-                  AppButton(text:'ADD DOCTOR',color:Color(0xff0093E9),
+                  AppButton(text:'ADD DOCTOR',color:AppColors.backgroundcolori,
                       myEdgeInsets: EdgeInsets.symmetric(horizontal: 40,vertical: 10),
-                      primaryColor: Color(0xffFFFFFF),
+                      primaryColor:   AppColors.color1,
                       onPressed: () {
                     context.go(RoutesList.addDoctorSuccessfully);
                   }

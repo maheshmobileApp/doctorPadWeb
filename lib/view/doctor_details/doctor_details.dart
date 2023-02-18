@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -17,25 +18,6 @@ class DoctorDetails extends StatelessWidget {
           child: Column(
             children: [
               OptionWidgets(isAcceptTermsAndConditions: false,onTap: (){},text: 'Doctor Details',),
-              // Container(
-              //   height: 75,
-              //   width: MediaQuery.of(context).size.width - 150,
-              //   alignment: Alignment.topLeft,
-              //   color: Color.fromRGBO(19, 151, 219, 0.06),
-              //   padding: EdgeInsets.all(25),
-              //   child: Row(
-              //     children: [
-              //       Text('Add Doctors', style: TextStyle(fontSize: 25),),
-              //       Padding(padding:EdgeInsets.only(left: 100,right:550,top: 10 ,bottom: 10)),
-              //       Image.asset('assets/search2.png'),
-              //       SizedBox(height: 20,width: 20,),
-              //       Image.asset('assets/user2.png'),
-              //       SizedBox(height: 20,width: 5,),
-              //       Text('User Name', style: TextStyle(color: Colors.black),
-              //       ),
-              //     ],
-              //   ),
-              // ),
               SizedBox(
                 height: 20,
               ),
@@ -44,7 +26,7 @@ class DoctorDetails extends StatelessWidget {
                 //height: MediaQuery.of(context).size.height - 100,
                 width: 300,
                 decoration: BoxDecoration(
-                    color:Color.fromRGBO(15, 148, 220, 1), borderRadius: BorderRadius.circular(16)),
+                    color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
                 // alignment: Alignment.topLeft,
                 child: Column(
                   children: [
@@ -78,9 +60,9 @@ class DoctorDetails extends StatelessWidget {
                       hintText: 'Email id',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
-                    AppButton(text:'Back',color: Color(0xff0093E9),
+                    AppButton(text:'Back', color: AppColors.backgroundcolori,
                         myEdgeInsets: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
-                        primaryColor:Color(0xffFFFFFF),
+                        primaryColor:  AppColors.color1,
                         onPressed: () {
                           context.go(RoutesList.doctorWebView);
                         }

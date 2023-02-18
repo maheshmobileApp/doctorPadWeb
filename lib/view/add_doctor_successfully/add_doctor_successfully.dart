@@ -1,8 +1,8 @@
-import 'package:cgg_base_project/res/components/logo_widget.dart';
 import 'package:cgg_base_project/res/constants/routes_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -31,12 +31,12 @@ class AddDoctorSuccessfully extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   Text(
                     'Add Doctor Successfully',
-                    style: TextStyle(fontSize: 25, color: Color(0xff1397DB)),
+                    style: TextStyle(fontSize: 25, color:  AppColors.backgroundcolori,),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  AppButton(text:'Back',color: Color(0xffFFFFFF),
+                  AppButton(text:'Back',color:  AppColors.color1,
                       myEdgeInsets: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
-                      primaryColor:Color(0xff1397DB),
+                      primaryColor:  AppColors.backgroundcolori,
                       onPressed: () {
                         context.go(RoutesList.doctorWebView);
                       }

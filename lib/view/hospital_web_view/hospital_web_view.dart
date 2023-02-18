@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
@@ -35,13 +36,13 @@ class HospitalView extends StatelessWidget {
                     child: ListTile(
                       leading:Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Color(0xffFFFFFF),width: 3),
-                          color: Color.fromRGBO(15, 148, 220, 1),
+                            border: Border.all(color:AppColors.color1,width: 3),
+                          color:AppColors.backgroundcolori,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 6),
                           child: Text('Hospital\nLogo',textAlign:TextAlign.center,style:
-                          TextStyle(color: Colors.white,fontSize:8  ),),
+                          TextStyle(color:AppColors.color1,fontSize:8  ),),
                         ),
                       ),
                       title: Text(dummyList[index]["title"]),

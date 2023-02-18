@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:cgg_base_project/res/components/logo_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class SidepanelWidgets extends StatelessWidget {
           Text(
             'View Hospitals',
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: Colors.white,fontSize: 10),
+            style: TextStyle(color: AppColors.color1,fontSize: 10),
           ),
           SizedBox(height: 30,width: 20,),
           GestureDetector(
@@ -40,17 +41,17 @@ class SidepanelWidgets extends StatelessWidget {
           Text(
             'View Doctor',
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: Colors.white,fontSize: 10 ),
+            style: TextStyle(color: AppColors.color1,fontSize: 10 ),
           ),
           SizedBox(height: 180,),
           InkWell(
               onTap: () => context.go(RoutesList.loginWebView),
-              child: Icon(Icons.logout_outlined, color: Colors.white, size: 40,)),
+              child: Icon(Icons.logout_outlined, color:AppColors.color1, size: 40,)),
           SizedBox(height: 10,),
-          Text('Logout', style: TextStyle(color: Colors.white),),
+          Text('Logout', style: TextStyle(color:AppColors.color1),),
         ],
       ),
-      color: Color.fromRGBO(15, 148, 220, 1),
+      color: AppColors.backgroundcolori
     );
   }
 }

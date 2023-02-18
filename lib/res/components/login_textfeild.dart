@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../app_colors.dart';
 class LoginTextFeild extends StatelessWidget {
   final IconData? icon;
   final String? hintText;
@@ -25,10 +27,10 @@ class LoginTextFeild extends StatelessWidget {
               SizedBox(height: 25,),
               CircleAvatar(
                 radius: 20,
-                backgroundColor: Color(0xff1397DB),
+                backgroundColor: AppColors.backgroundcolori,
                 child: Icon(
                  icon ?? Icons.person,
-                  color: Colors.white,
+                  color: AppColors.color1
                 ),
               ),
             ],
@@ -50,7 +52,7 @@ class LoginTextFeild extends StatelessWidget {
                   prefixIcon: prefixIcon,
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                       color: Color(0xff1397DB)
+                       color: AppColors.backgroundcolori
 
                     )
                   )
