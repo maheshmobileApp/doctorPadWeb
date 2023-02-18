@@ -34,14 +34,6 @@ class OptionWidgets extends StatelessWidget {
           //   ),
           // ),
           Image.asset('assets/search2.png'),
-    //     value: _isAcceptTermsAndConditions,
-    //     onChanged: (value) {
-    //       setState(() {
-    //         _isAcceptTermsAndConditions = value ?? false;
-    //       });
-    //     }),
-    // Text('I accept the terms and conditions.'),
-
         if (isAcceptTermsAndConditions)...{
             AppButton(
             text:title??'+ Add Hospital',
