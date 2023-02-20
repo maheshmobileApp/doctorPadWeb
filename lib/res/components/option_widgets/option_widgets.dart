@@ -23,16 +23,26 @@ class OptionWidgets extends StatelessWidget {
       child: Row(
         children: [
           Text( text??'Hospitals View', style: TextStyle(fontSize: 25),),
-          Padding(padding:EdgeInsets.only(left: 100,right:550,top: 10 ,bottom: 10)),
+         Padding(padding:EdgeInsets.only(left: 100,right:550,top: 10 ,bottom: 10)),
           // TextField(
           //   decoration: InputDecoration(
-          //     border: OutlineInputBorder(
-          //       borderRadius: BorderRadius.circular(8)
-          //     ),
-          //     hintText: 'Search',
-          //     prefixIcon: Icon(Icons.search)
+          //     border: OutlineInputBorder(),
+          //     labelText: 'User Name',
+          //     hintText: 'Enter Your Name',
           //   ),
           // ),
+          //  TextField(
+         //    decoration: InputDecoration(
+         //      contentPadding: EdgeInsets.all(5),
+         //      icon: Icon(Icons.search),
+         //      filled: true,
+         //      fillColor: Colors.blueAccent,
+         //      border: OutlineInputBorder(
+         //          borderSide: BorderSide.none,
+         //          borderRadius: BorderRadius.circular(50)
+         //      ),
+         //    ),
+         //  ),
           Image.asset('assets/search2.png'),
         if (isAcceptTermsAndConditions)...{
             AppButton(

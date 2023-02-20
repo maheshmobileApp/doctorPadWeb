@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
+import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
@@ -30,32 +31,32 @@ class DoctorDetails extends StatelessWidget {
                 // alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    TextFeild(
+                    SearchTextfield(
                       icon: Icons.home,
                       hintText: 'Name Of The Doctor',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
+                    SearchTextfield(
                       icon: Icons.lock,
                       hintText: 'Doctor Registration Number',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
+                    SearchTextfield(
                       icon: Icons.call,
                       hintText: "Mobile Number",
                     ),
                     Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
+                    SearchTextfield(
                       icon: Icons.lock,
                       hintText: 'Doctor Speciality',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
+                    SearchTextfield(
                       icon: Icons.lock,
                       hintText: 'Clinic Speciality',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
-                    TextFeild(
+                    SearchTextfield(
                       icon: Icons.email,
                       hintText: 'Email id',
                     ),

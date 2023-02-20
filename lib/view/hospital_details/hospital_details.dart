@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
+import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
@@ -22,28 +23,29 @@ class HospitalDetails extends StatelessWidget {
             Container(
               height: 500,
               width: 400,
+              padding: EdgeInsets.all( 45),
               decoration: BoxDecoration(
                   color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
-                  TextFeild(
-                    icon: Icons.person,
-                    hintText: 'Name Of The Hospital',
+                  SearchTextfield(
+                    icon: Icons.home,
+                    hintText:  'Name Of The Hospital',
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  TextFeild(
-                    icon: Icons.lock,
+                  SearchTextfield(
+                    icon: Icons.home,
                     hintText: 'Address',
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  TextFeild(
+                  SearchTextfield(
                     icon: Icons.call,
                     hintText: "Contact Number",
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  TextFeild(
+                  SearchTextfield(
                     icon: Icons.email,
-                    hintText: 'Email id',
+                    hintText:  'Email id',
                   ),
                   Padding(padding: EdgeInsets.all(25)),
                   AppButton(text:'ADD  HOSPITAL', color:   AppColors.backgroundcolori,

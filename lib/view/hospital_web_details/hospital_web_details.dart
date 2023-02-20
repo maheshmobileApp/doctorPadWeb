@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
+import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
 class HospitalWebDetails extends StatelessWidget {
@@ -26,22 +27,22 @@ class HospitalWebDetails extends StatelessWidget {
                   color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
-                  TextFeild(
+                  SearchTextfield(
                     icon:Icons.person,
                     hintText: 'Name Of The Hospital',
                   ),
                   Padding(padding: EdgeInsets.all(20)),
-                  TextFeild(
+                  SearchTextfield(
                     icon: Icons.contact_phone_outlined,
                     hintText: 'Address',
                   ),
                   Padding(padding: EdgeInsets.all(20)),
-                  TextFeild(
+                  SearchTextfield(
                     icon: Icons.call,
                     hintText: "Contact Number",
                   ),
                   Padding(padding: EdgeInsets.all(20)),
-                  TextFeild(
+                  SearchTextfield(
                     icon: Icons.email,
                     hintText: 'Email id',
                   ),
