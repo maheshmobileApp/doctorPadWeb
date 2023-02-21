@@ -22,9 +22,17 @@ class HospitalView extends StatelessWidget {
              OptionWidgets(isAcceptTermsAndConditions: true,onTap:() {
                context.go(RoutesList.hospitalDetails);
     },),
-              Text('Hospitals List ', textAlign:TextAlign.left,
-                style: TextStyle(fontSize: 15),),
-              Container(
+              // Text('Hospitals List ', textAlign:TextAlign.left,
+              //   style: TextStyle(fontSize: 15),),
+
+              Column(
+             crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text('Hospitals List',style: TextStyle(fontSize: 15,fontFamily: 'Muli,Bold'),),
+                ],
+              ),
+
+                  Container(
                 height: MediaQuery.of(context).size.height - 100,
                 width: MediaQuery.of(context).size.width - 150,
                 padding: EdgeInsets.all(25),
@@ -42,11 +50,11 @@ class HospitalView extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 6),
                           child: Text('Hospital\nLogo',textAlign:TextAlign.center,style:
-                          TextStyle(color:AppColors.color1,fontSize:8  ),),
+                          TextStyle(color:AppColors.color1,fontSize:8 ,fontFamily: 'Muli' ),),
                         ),
                       ),
-                      title: Text(dummyList[index]["title"]),
-                      subtitle: Text(dummyList[index]["subtitle"]),
+                      title: Text(dummyList[index]["title"],style: TextStyle(fontFamily: 'Muli,Regular',fontSize: 12),),
+                      subtitle: Text(dummyList[index]["subtitle"],style: TextStyle(fontFamily: 'Muli,Regular',fontSize: 12),),
                     ),
                   ),
                 ),

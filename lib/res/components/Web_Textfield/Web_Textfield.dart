@@ -14,6 +14,9 @@ class WebTextfield extends StatelessWidget {
             Image.asset('assets/icons/doctor.png'),
             TextFeild(
               hintText: 'Name Of The Hospital',
+            hintStyle: TextStyle(
+              fontFamily: 'Muli,Regular'
+            )
             ),
           ],
         ),

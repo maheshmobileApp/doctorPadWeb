@@ -26,18 +26,19 @@ class DoctorDetails extends StatelessWidget {
                 height: 500,
                 //height: MediaQuery.of(context).size.height - 100,
                 width: 300,
+                padding: EdgeInsets.all( 45),
                 decoration: BoxDecoration(
                     color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
                 // alignment: Alignment.topLeft,
                 child: Column(
                   children: [
                     SearchTextfield(
-                      icon: Icons.home,
+                      icon: Icons.person,
                       hintText: 'Name Of The Doctor',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
                     SearchTextfield(
-                      icon: Icons.lock,
+                      icon: Icons.contact_phone_outlined,
                       hintText: 'Doctor Registration Number',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
@@ -47,12 +48,12 @@ class DoctorDetails extends StatelessWidget {
                     ),
                     Padding(padding: EdgeInsets.all(8)),
                     SearchTextfield(
-                      icon: Icons.lock,
+                      icon: Icons.person,
                       hintText: 'Doctor Speciality',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
                     SearchTextfield(
-                      icon: Icons.lock,
+                      icon: Icons.home,
                       hintText: 'Clinic Speciality',
                     ),
                     Padding(padding: EdgeInsets.all(8)),

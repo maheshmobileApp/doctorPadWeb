@@ -8,16 +8,18 @@ class SearchTextfield extends StatelessWidget {
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   final Color? color;
+  final Image? image;
+  final FontStyle? fontStyle;
   const SearchTextfield({Key? key,
     this.icon,
     this.hintText,
     this.prefixIcon,
     this.keyboardType,
     this.validator,
-    this.color
-
+    this.color,
+    this.image,
+    this.fontStyle
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -30,6 +32,7 @@ class SearchTextfield extends StatelessWidget {
           contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           hintText: hintText,
           hintStyle: TextStyle(
+            fontFamily: 'Muli,Regular',
             fontSize: 14,
             color: AppColors.color1,
           ),
@@ -43,12 +46,6 @@ class SearchTextfield extends StatelessWidget {
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
             child: Icon(icon??Icons.help_outline,color:color?? Colors.white,),
           ),
-          // enabledBorder: UnderlineInputBorder(
-          //     borderSide: BorderSide(
-          //         color: AppColors.backgroundcolori
-          //
-          //     )
-          // )
         ),
         keyboardType: keyboardType,
         validator: validator

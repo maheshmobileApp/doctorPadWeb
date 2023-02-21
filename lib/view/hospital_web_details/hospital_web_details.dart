@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
-import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
 class HospitalWebDetails extends StatelessWidget {
   const HospitalWebDetails({Key? key}) : super(key: key);
@@ -23,12 +22,13 @@ class HospitalWebDetails extends StatelessWidget {
             Container(
               height: 480,
               width: 400,
+              padding: EdgeInsets.all( 45),
               decoration: BoxDecoration(
                   color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
               child: Column(
                 children: [
                   SearchTextfield(
-                    icon:Icons.person,
+                    icon:Icons.home,
                     hintText: 'Name Of The Hospital',
                   ),
                   Padding(padding: EdgeInsets.all(20)),

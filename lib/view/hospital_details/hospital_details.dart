@@ -5,7 +5,6 @@ import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
-import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
 class HospitalDetails extends StatelessWidget {
   const HospitalDetails({Key? key}) : super(key: key);
@@ -30,11 +29,12 @@ class HospitalDetails extends StatelessWidget {
                 children: [
                   SearchTextfield(
                     icon: Icons.home,
+                   // image: Image.asset('assets/icons/home.png'),
                     hintText:  'Name Of The Hospital',
                   ),
                   Padding(padding: EdgeInsets.all(10)),
                   SearchTextfield(
-                    icon: Icons.home,
+                    icon: Icons.contact_phone_outlined,
                     hintText: 'Address',
                   ),
                   Padding(padding: EdgeInsets.all(10)),

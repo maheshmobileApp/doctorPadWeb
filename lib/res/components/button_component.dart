@@ -21,7 +21,7 @@ class AppButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius:borderRadius?? BorderRadius.circular(50),
         ), primary:primaryColor?? AppColors.backgroundcolori),
-      child:Text(text,style:TextStyle( fontSize: 12 ,color:color?? AppColors.color1) ,)
+      child:Text(text,style:TextStyle( fontSize: 12 ,fontFamily:'Muli,bold',color:color?? AppColors.color1) ,)
     );
   }
 }

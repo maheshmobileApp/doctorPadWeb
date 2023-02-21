@@ -7,12 +7,12 @@ class LoginTextFeild extends StatelessWidget {
   final Widget? prefixIcon;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
-  const LoginTextFeild({Key? key,
+   LoginTextFeild({Key? key,
     this.icon,
     this.hintText,
     this.prefixIcon,
     this.keyboardType,
-    this.validator
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -46,6 +46,7 @@ class LoginTextFeild extends StatelessWidget {
                   contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 2),
                   hintText: hintText,
                   hintStyle: TextStyle(
+                    fontFamily: 'Muli,Regular',
                     fontSize: 14,
                     color: Colors.grey
                   ),

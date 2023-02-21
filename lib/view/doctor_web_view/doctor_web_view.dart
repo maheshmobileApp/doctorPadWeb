@@ -25,34 +25,39 @@ class DoctorWebView extends StatelessWidget {
                 context.go(RoutesList.doctorAddDetails);
             },
                 ),
-            Text('Doctors List ',textAlign:TextAlign.left,style: TextStyle(fontSize: 10),),
-            Container(
-              height: MediaQuery.of(context).size.height - 100,
-              width: MediaQuery.of(context).size.width - 150,
-              padding: EdgeInsets.all(25),
-              child: ListView.builder(
-                itemCount: dummyList.length,
-                itemBuilder: (context, index) => Card(
-                  elevation: 4,
-                  margin: EdgeInsets.only(top: 26,left: 200,right: 250,),
-                  child: ListTile(
-                      leading:Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color:  AppColors.color1,width: 3),
-                          color:  AppColors.backgroundcolori,
-                        ),
+            // Text('Doctors List ',textAlign:TextAlign.left,style: TextStyle(fontSize: 10),),
+            Column(
+              children: [
+                Text('Doctors List ',textAlign:TextAlign.left,style: TextStyle(fontSize: 15,fontFamily: 'Muli,Bold'),),
+                Container(
+                  height: MediaQuery.of(context).size.height - 100,
+                  width: MediaQuery.of(context).size.width - 150,
+                  padding: EdgeInsets.all(25),
+                  child: ListView.builder(
+                    itemCount: dummyList.length,
+                    itemBuilder: (context, index) => Card(
+                      elevation: 4,
+                      margin: EdgeInsets.only(top: 26,left: 200,right: 250,),
+                      child: ListTile(
+                          leading:Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color:  AppColors.color1,width: 3),
+                              color:  AppColors.backgroundcolori,
+                            ),
 
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 15),
-                          child:   Image.asset('assets/doctor.png',color:  AppColors.color1,),
-                        ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 15),
+                              child:   Image.asset('assets/doctor.png',color:  AppColors.color1,),
+                            ),
+                          ),
+                        title: Text(dummyList[index]["title"],style: TextStyle(fontFamily: 'Muli,Bold'),),
+                        subtitle: Text(dummyList[index]["subtitle"],style: TextStyle(fontFamily: 'Muli,Bold'),),
+                        //trailing: const Icon(Icons.add_a_photo),
                       ),
-                    title: Text(dummyList[index]["title"]),
-                    subtitle: Text(dummyList[index]["subtitle"]),
-                    //trailing: const Icon(Icons.add_a_photo),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         )

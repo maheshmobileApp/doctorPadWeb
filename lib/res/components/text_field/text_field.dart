@@ -11,7 +11,7 @@ class TextFeild extends StatelessWidget {
     this.hintText,
     this.prefixIcon,
     this.keyboardType,
-    this.validator
+    this.validator, required TextStyle hintStyle
   }) : super(key: key);
 
   @override
@@ -21,11 +21,6 @@ class TextFeild extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          // ImageIcon(
-          //   AssetImage("assets/icons/doctor.png"),
-          //   color: Colors.white,
-          //   size: 24,
-          // ),
           CircleAvatar(
             radius: 20,
             child: Icon(
@@ -41,6 +36,7 @@ class TextFeild extends StatelessWidget {
                     hintText: hintText,
                     hintStyle: TextStyle(
                         fontSize: 14,
+                        fontFamily: 'Muli,Regular',
                         color:AppColors.color1
                     ),
                     prefixIcon: prefixIcon,
