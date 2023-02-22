@@ -28,8 +28,8 @@ class AddHospitalSuccessfully extends StatelessWidget {
                   Image.asset('assets/successfully.png'),
                   Padding(padding: EdgeInsets.all(10)),
                   Text(
-                    'Add Hospital Successfully',
-                    style: TextStyle(fontSize: 25,fontFamily: 'Muli,Regular', color: Color(0xff1397DB)),
+                    'Added Hospital Successfully',
+                    style: TextStyle(fontSize: 20,fontFamily: 'Muli', color: Color(0xff1397DB)),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
                   AppButton(text:'Back',color: Color(0xffFFFFFF),

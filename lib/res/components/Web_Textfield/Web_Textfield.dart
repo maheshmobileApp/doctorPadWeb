@@ -15,7 +15,7 @@ class WebTextfield extends StatelessWidget {
             TextFeild(
               hintText: 'Name Of The Hospital',
             hintStyle: TextStyle(
-              fontFamily: 'Muli,Regular'
+              fontFamily: 'Muli'
             )
             ),
           ],

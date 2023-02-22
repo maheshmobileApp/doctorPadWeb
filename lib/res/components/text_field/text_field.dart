@@ -36,7 +36,7 @@ class TextFeild extends StatelessWidget {
                     hintText: hintText,
                     hintStyle: TextStyle(
                         fontSize: 14,
-                        fontFamily: 'Muli,Regular',
+                        fontFamily: 'Muli',
                         color:AppColors.color1
                     ),
                     prefixIcon: prefixIcon,

@@ -32,7 +32,7 @@ class OptionWidgets extends StatelessWidget {
         children: [
           Text(
             text ?? 'Hospitals View',
-            style: TextStyle(fontSize: 25),
+            style: TextStyle(fontSize: 25,fontFamily: 'Muli',fontWeight: FontWeight.bold),
           ),
           Expanded(
               child: Align(
@@ -45,7 +45,7 @@ class OptionWidgets extends StatelessWidget {
                       width: 250,
                       child: TextField(
                         maxLines: 1,
-                        style: TextStyle(fontSize: 17,fontFamily: 'Muli,Regular'),
+                        style: TextStyle(fontSize: 17,fontFamily: 'Muli,'),
                         textAlignVertical: TextAlignVertical.center,
                         decoration: InputDecoration(
                           filled: true,
@@ -58,7 +58,7 @@ class OptionWidgets extends StatelessWidget {
                           fillColor: AppColors.color1,
                           contentPadding: EdgeInsets.zero,
                           hintText: 'Search',
-                          helperStyle: TextStyle(fontFamily: 'Muli,Bold')
+                          helperStyle: TextStyle(fontFamily: 'Muli')
                         ),
                       ),
                     ),
@@ -90,6 +90,7 @@ class OptionWidgets extends StatelessWidget {
                       'User Name',
                       style: TextStyle(
                         color: AppColors.color5,
+                        fontFamily: 'Muli'
                       ),
                     ),
                   ])))

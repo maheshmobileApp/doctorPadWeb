@@ -30,8 +30,8 @@ class AddDoctorSuccessfully extends StatelessWidget {
                   Image.asset('assets/successfully.png'),
                   Padding(padding: EdgeInsets.all(10)),
                   Text(
-                    'Add Doctor Successfully',
-                    style: TextStyle(fontSize: 25,fontFamily: 'Muli,Regular', color:  AppColors.backgroundcolori,),
+                    'Added Doctor Successfully',
+                    style: TextStyle(fontSize: 20,fontFamily: 'Muli', color:  AppColors.backgroundcolori,),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
                   AppButton(text:'Back',color:  AppColors.color1,

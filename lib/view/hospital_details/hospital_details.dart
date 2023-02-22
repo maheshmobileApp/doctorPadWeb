@@ -40,7 +40,7 @@ class HospitalDetails extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   SearchTextfield(
                     icon: Icons.call,
-                    hintText: "Contact Number",
+                    hintText: "Contact number",
                   ),
                   Padding(padding: EdgeInsets.all(10)),
                   SearchTextfield(

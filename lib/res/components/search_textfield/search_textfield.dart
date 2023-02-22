@@ -32,7 +32,7 @@ class SearchTextfield extends StatelessWidget {
           contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           hintText: hintText,
           hintStyle: TextStyle(
-            fontFamily: 'Muli,Regular',
+            fontFamily: 'Muli',
             fontSize: 14,
             color: AppColors.color1,
           ),

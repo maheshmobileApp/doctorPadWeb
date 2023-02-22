@@ -110,7 +110,7 @@ flutter:
         - asset: assets/fonts/Muli-Regular.ttf
         - asset: assets/fonts/Muli-Italic.ttf
         - asset: assets/fonts/Muli-Light.ttf
-#        - asset: assets/ fonts/Muli-LightItalic.ttf
+#        - asset: assets/ fonts/Muli-Bold.ttf
 
   #   - family: Trajan Pro
   #     fonts:

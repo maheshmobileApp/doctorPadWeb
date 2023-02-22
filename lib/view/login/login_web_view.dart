@@ -40,13 +40,13 @@ class LoginWebView extends StatelessWidget {
                   LogoWidget(),
                   _sizedBox(height: 23),
                   LoginTextFeild(
-                    hintText: 'User Mobile Number',
+                    hintText: 'User Mobile number',
                     keyboardType: TextInputType.numberWithOptions(decimal: true,signed: true),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Enter Mobile Number';
+                        return 'Enter Mobile number';
                       } else if (!phonenovalid(value)) {
-                        return 'Enter Valid Mobile Number';
+                        return 'Enter Valid Mobile number';
                       }
                     },
                   ),

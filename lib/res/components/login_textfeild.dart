@@ -46,7 +46,7 @@ class LoginTextFeild extends StatelessWidget {
                   contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 2),
                   hintText: hintText,
                   hintStyle: TextStyle(
-                    fontFamily: 'Muli,Regular',
+                    fontFamily: 'Muli',
                     fontSize: 14,
                     color: Colors.grey
                   ),

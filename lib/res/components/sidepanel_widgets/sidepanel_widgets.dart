@@ -28,7 +28,7 @@ class SidepanelWidgets extends StatelessWidget {
           Text(
             'View Hospitals',
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: AppColors.color1,fontSize: 10,fontFamily: 'Muli,Bold'),
+            style: TextStyle(color: AppColors.color1,fontSize: 10,fontFamily: 'Muli'),
           ),
           SizedBox(height: 30,width: 20,),
           GestureDetector(
@@ -41,14 +41,14 @@ class SidepanelWidgets extends StatelessWidget {
           Text(
             'View Doctor',
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: AppColors.color1,fontSize: 10 ,fontFamily: 'Muli,Bold'),
+            style: TextStyle(color: AppColors.color1,fontSize: 10 ,fontFamily: 'Muli'),
           ),
           SizedBox(height: 180,),
           InkWell(
               onTap: () => context.go(RoutesList.loginWebView),
               child: Icon(Icons.logout_outlined, color:AppColors.color1, size: 40,)),
           SizedBox(height: 10,),
-          Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli,Bold'),),
+          Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli'),),
         ],
       ),
       color: AppColors.backgroundcolori
