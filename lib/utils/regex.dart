@@ -1,5 +1,5 @@
-class AppRegex {
-  AppRegex();
-  
 
+bool phonenovalid (String phoneno) {
+  return RegExp('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}\$')
+      .hasMatch(phoneno);
 }
