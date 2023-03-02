@@ -10,19 +10,20 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 import 'view/doctor_web_details/doctor_web_details.dart';
+
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
   print(message.notification!.title);
 }
-void main() async{
-    WidgetsFlutterBinding.ensureInitialized();
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
   runApp(const MyApp());
-    FirebaseMessaging.onBackgroundMessage(backgroundHandler);
-
+  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
 }
 
 class MyApp extends StatelessWidget {
@@ -31,29 +32,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-       
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
       ],
       child: MaterialApp.router(
-        title: 'Flutter Demo',
+        title: 'DRPad',
         builder: EasyLoading.init(),
         theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.blue
-        ),
-         debugShowCheckedModeBanner: false,
-         routerConfig: routes,
+            // This is the theme of your application.
+            //
+            // Try running your application with "flutter run". You'll see the
+            // application has a blue toolbar. Then, without quitting the app, try
+            // changing the primarySwatch below to Colors.green and then invoke
+            // "hot reload" (press "r" in the console where you ran "flutter run",
+            // or simply save your changes to "hot reload" in a Flutter IDE).
+            // Notice that the counter didn't reset back to zero; the application
+            // is not restarted.
+            primarySwatch: Colors.blue),
+        debugShowCheckedModeBanner: false,
+        routerConfig: routes,
       ),
     );
   }
