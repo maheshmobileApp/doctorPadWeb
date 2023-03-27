@@ -80,7 +80,7 @@ class OptionWidgets extends StatelessWidget {
                         height: 20,
                         width: 20,
                         child: Image.asset(
-                          'assets/user2.png',
+                          'assets/images/user2.png',
                         )),
                     SizedBox(
                       height: 20,
