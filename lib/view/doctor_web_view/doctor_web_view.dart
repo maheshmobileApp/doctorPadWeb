@@ -58,7 +58,7 @@ class DoctorWebView extends StatelessWidget {
 
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 15),
-                          child:   Image.asset('assets/doctor.png',color:  AppColors.color1,),
+                          child:   Image.asset('assets/images/doctor.png',color:  AppColors.color1,),
                         ),
                       ),
                     title: Text(dummyList[index]["title"],style: TextStyle(fontFamily: 'Muli',fontSize: 12),),

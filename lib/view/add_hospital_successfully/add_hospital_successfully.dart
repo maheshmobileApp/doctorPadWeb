@@ -25,7 +25,7 @@ class AddHospitalSuccessfully extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/successfully.png'),
+                  Image.asset('assets/images/successfully.png'),
                   Padding(padding: EdgeInsets.all(10)),
                   Text(
                     'Added Hospital Successfully',

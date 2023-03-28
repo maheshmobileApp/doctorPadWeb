@@ -33,7 +33,7 @@ class SidepanelWidgets extends StatelessWidget {
           SizedBox(height: 30,width: 20,),
           GestureDetector(
             child: Image.asset(
-              'assets/view_doctor.png',
+              'assets/images/view_doctor.png',
             ),
             onTap: () => context.go(RoutesList.doctorWebView),
           ),

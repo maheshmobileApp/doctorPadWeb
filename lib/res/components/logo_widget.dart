@@ -8,7 +8,7 @@ class LogoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Image.asset(
-        'assets/doctpad.png',
+        'assets/images/doctpad.png',
         height:height ?? 100,
         width: 100,
       ),
