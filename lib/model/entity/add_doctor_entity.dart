@@ -10,7 +10,8 @@ class AddDoctorEntity {
       this.doctorRegistrationNumber,
       this.emailId,
       this.mobileNo,
-      this.name, required String password});
+      this.name,
+      required String password});
 
   AddDoctorEntity.fromJson(Map<String, dynamic> json) {
     createdBy = json['created_by'];

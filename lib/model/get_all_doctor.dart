@@ -30,6 +30,7 @@ class GetAllDoctor {
   }
 }
 
+
 class Body {
   String? id;
   bool? isActive;

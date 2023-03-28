@@ -8,6 +8,7 @@ import '../repository/add_doctor_repository.dart';
 import '../res/constants/routes_constants.dart';
 
 class DoctorViewModel with ChangeNotifier {
+  
   final _addDoctorRepository = AddDoctorRepository();
 
   Future<void> addDoctor(BuildContext context,

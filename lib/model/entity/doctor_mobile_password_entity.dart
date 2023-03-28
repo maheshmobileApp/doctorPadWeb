@@ -5,6 +5,7 @@ class DoctorMobilePasswordEntity {
 
   DoctorMobilePasswordEntity(param0, param1, {this.mobileNo, this.password, required String mobileNumber});
 
+
   DoctorMobilePasswordEntity.fromJson(Map<String, dynamic> json) {
     mobileNo = json['mobile_no'];
     password = json['password'];

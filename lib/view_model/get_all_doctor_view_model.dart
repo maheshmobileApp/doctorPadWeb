@@ -9,6 +9,7 @@ class GetAllDoctorViewModel with ChangeNotifier {
   final _getAllDoctorRepository = GetAllDoctorRepository();
 
   Future<void> getAllDoctor(
+    
   ) async {
     final result = await _getAllDoctorRepository.getAllDoctor();
   }

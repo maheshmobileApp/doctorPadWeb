@@ -25,7 +25,7 @@ class LocalNotificationService {
           android: AndroidNotificationDetails(
         "easyapproach",
         "easyapproach channel",
-        "",
+      
         importance: Importance.max,
         priority: Priority.high,
       ));

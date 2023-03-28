@@ -14,6 +14,7 @@ class DoctorMobilePasswordViewModel with ChangeNotifier {
         password,
         mobileNumber, mobileNumber: '',
 
+
         ) as AddDoctorEntity
       );
    if (result.status == 200) {

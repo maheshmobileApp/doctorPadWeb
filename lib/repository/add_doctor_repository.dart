@@ -14,6 +14,7 @@ final _baseClient = BaseApiClient();
    return AddDoctorRes.fromJson(respnse);  
   }
   
+  
 }
 
 class GetAllDoctorRepository {
