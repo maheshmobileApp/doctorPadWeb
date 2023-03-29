@@ -29,6 +29,7 @@ class DoctorAddDetails extends StatelessWidget {
                   children: [
                     SearchTextfield(
                       icon: Icons.person,
+                
                       hintText: 'Name Of The Doctor',
                     ),
                     Padding(padding: EdgeInsets.all(8)),
