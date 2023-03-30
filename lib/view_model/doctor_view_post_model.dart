@@ -3,7 +3,6 @@ import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../model/entity/add_doctor_entity.dart';
 import '../model/entity/doctor_mobile_password_entity.dart';
 import '../repository/doctor_repository.dart';

@@ -68,15 +68,11 @@ class AddHospitalBranchViewModel with ChangeNotifier {
       createdBy: createdBy,
       hospitalId: hospitalId,
       name: name,
-       
       prescriptionImageUrl: prescriptionImageUrl,
-      specializationIds: specializationIds
-
-      
-    ));
-    if (result.status == 200)
+      specializationIds: specializationIds));
+    if (result.isActive == 200)
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: TextField(result.message ?? ''),
+        content:  Text(result.toString()),
         backgroundColor: AppColors.app_bg_color,
       ));
   }

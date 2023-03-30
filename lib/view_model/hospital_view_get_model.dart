@@ -16,7 +16,7 @@ class GetAllHospitalSpeViewModel with ChangeNotifier {
 class GetAllHospitalsViewModel with ChangeNotifier {
   final _getAllHospitalsRepository = GetAllHospitalRepository();
   Future<void> getAllHospitals() async {
-    final result = await _getAllHospitalsRepository.toString();
+    final result = await _getAllHospitalsRepository.getAllHospitals();
   }
 }
 
@@ -26,7 +26,6 @@ class GetAllHospitalsViewModel with ChangeNotifier {
 class GetAllHospitalBranchesViewModel with ChangeNotifier {
   final _getAllHospitalBranchesRepository = GetAllHospitalBranchesRepository();
   Future<void> getAllHospitals() async {
-    final result =
-        await _getAllHospitalBranchesRepository.getAllHoapitalBranches();
+    final result = await _getAllHospitalBranchesRepository.getAllHoapitalBranches();
   }
 }
