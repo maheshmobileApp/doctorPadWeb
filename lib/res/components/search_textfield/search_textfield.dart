@@ -43,11 +43,11 @@ class SearchTextfield extends StatelessWidget {
             color: AppColors.color1,
           ),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
+          // focusedBorder: UnderlineInputBorder(
+          //   borderSide: BorderSide(color: Colors.white),
+          // ),
           prefixIcon: Padding(
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
             child: Icon(

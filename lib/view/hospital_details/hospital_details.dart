@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
@@ -6,8 +7,10 @@ import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/constants/routes_constants.dart';
+
 class HospitalDetails extends StatelessWidget {
-  const HospitalDetails({Key? key}) : super(key: key);
+  HospitalDetails({Key? key}) : super(key: key);
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,47 +18,90 @@ class HospitalDetails extends StatelessWidget {
         SidepanelWidgets(),
         Column(
           children: [
-            OptionWidgets(isAcceptTermsAndConditions: false,onTap: (){},text: 'Add Hospitals',),
+            OptionWidgets(
+              isAcceptTermsAndConditions: false,
+              onTap: () {},
+              text: 'Add Hospitals',
+            ),
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: 500,
-              width: 400,
-              padding: EdgeInsets.all( 45),
-              decoration: BoxDecoration(
-                  color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
-              child: Column(
-                children: [
-                  SearchTextfield(
-                    icon: Icons.home,
-                   // image: Image.asset('assets/icons/home.png'),
-                    hintText:  'Name Of The Hospital',
+            Form(
+              key: _formKey,
+              child: Container(
+                height: 500,
+                width: 400,
+                padding: EdgeInsets.all(45),
+                decoration: BoxDecoration(
+                    color: AppColors.backgroundcolori,
+                    borderRadius: BorderRadius.circular(16)),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SearchTextfield(
+                        icon: Icons.home,
+                        hintText: 'Name Of The Hospital',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Enter Name Of The Hospital';
+                          }
+                        },
+                        keyboardType: TextInputType.name,
+                      ),
+                      Padding(padding: EdgeInsets.all(10)),
+                      SearchTextfield(
+                        icon: Icons.contact_phone_outlined,
+                        hintText: 'Address',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Enter Name Of The Address';
+                          }
+                        },
+                        keyboardType: TextInputType.text,
+                      ),
+                      Padding(padding: EdgeInsets.all(10)),
+                      SearchTextfield(
+                          icon: Icons.call,
+                          hintText: "Contact number",
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Contact number';
+                            } else if (!phonenovalid(value)) {
+                              return 'Enter Valid Mobile number';
+                            }
+                          },
+                          keyboardType: TextInputType.number),
+                      Padding(padding: EdgeInsets.all(10)),
+                      SearchTextfield(
+                        icon: Icons.email,
+                        hintText: 'Email id',
+                        validator: (value){
+                          print(value);
+                          if(value!.isEmpty){
+                          return "Please Enter Email";
+                       }else if(!RegExp(r'\S+@\S+\.\S+').hasMatch(value))
+                      {
+                      return "Please Enter a Valid Email";
+                    }
+                     return null;
+                      },
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      Padding(padding: EdgeInsets.all(25)),
+                      AppButton(
+                          text: 'ADD  HOSPITAL',
+                          color: AppColors.backgroundcolori,
+                          myEdgeInsets:
+                              EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                          primaryColor: AppColors.color1,
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              context.go(RoutesList.addHospitalSuccessfully);
+                            }
+                          }),
+                    ],
                   ),
-                  Padding(padding: EdgeInsets.all(10)),
-                  SearchTextfield(
-                    icon: Icons.contact_phone_outlined,
-                    hintText: 'Address',
-                  ),
-                  Padding(padding: EdgeInsets.all(10)),
-                  SearchTextfield(
-                    icon: Icons.call,
-                    hintText: "Contact number",
-                  ),
-                  Padding(padding: EdgeInsets.all(10)),
-                  SearchTextfield(
-                    icon: Icons.email,
-                    hintText:  'Email id',
-                  ),
-                  Padding(padding: EdgeInsets.all(25)),
-                  AppButton(text:'ADD  HOSPITAL', color:   AppColors.backgroundcolori,
-                      myEdgeInsets: EdgeInsets.symmetric(horizontal:40,vertical:5),
-                      primaryColor:   AppColors.color1,
-                      onPressed: () {
-                    context.go(RoutesList.addHospitalSuccessfully);
-                  }
-                  ),
-                ],
+                ),
               ),
             ),
           ],

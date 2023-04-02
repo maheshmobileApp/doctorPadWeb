@@ -13,6 +13,8 @@ import '../model/hospital_details/get_all_hospital_specialites.dart';
 
 //get
 class GetAllHospitalSpecialitesRepository {
+
+  
   final _baseClient = BaseApiClient();
   Future<GetAllHospitalSpecialites> getAllHospitalSpecialites() async {
     final respnse = await _baseClient.getCall(
