@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/constants/routes_constants.dart';
+import '../../view_model/login_view_mode.dart';
 class DoctorWebView extends StatelessWidget {
-  void FunctionString;
   final List dummyList = List.generate(10, (index) {
     return {
       "title": "Doctor Details",
@@ -13,6 +14,7 @@ class DoctorWebView extends StatelessWidget {
     };
   });
   DoctorWebView({Key? key}) : super(key: key);
+    
   @override
   Widget build(BuildContext context) {
     return Scaffold(
