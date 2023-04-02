@@ -2,6 +2,7 @@ import 'package:cgg_base_project/res/components/button_component.dart';
 import 'package:cgg_base_project/res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
@@ -29,8 +30,10 @@ class HospitalWebDetails extends StatelessWidget {
             Form(
               key: _formKey,
               child: Container(
-                height: 480,
-                width: 400,
+                  height:  MediaQuery.of(context).size.height/1.2,
+                  width:  MediaQuery.of(context).size.width/2.8,
+                // height: 480,
+                // width: 400,
                 padding: EdgeInsets.all(45),
                 decoration: BoxDecoration(
                     color: AppColors.backgroundcolori,

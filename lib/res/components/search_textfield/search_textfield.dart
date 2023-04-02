@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../app_colors.dart';
 
 class SearchTextfield extends StatelessWidget {
@@ -10,24 +12,25 @@ class SearchTextfield extends StatelessWidget {
   final Color? color;
   final Image? image;
   final FontStyle? fontStyle;
- // final  TextEditingController controller;
-  const SearchTextfield(
-      {Key? key,
-      this.icon,
-      this.hintText,
-      this.prefixIcon,
-      this.keyboardType,
-      this.validator,
-      this.color,
-      this.image,
-      // required this.controller
-      this.fontStyle,
-      })
-      : super(key: key);
+ final dynamic ?SvgPicture;
+  // final  TextEditingController controller;
+  SearchTextfield({
+    Key? key,
+    this.icon,
+    this.hintText,
+    this.prefixIcon,
+    this.keyboardType,
+    this.validator,
+    this.color,
+    this.image,
+    this.SvgPicture,
+    // required this.controller
+    this.fontStyle,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-     // controller: controller,
+        // controller: controller,
         cursorHeight: 20,
         cursorRadius: Radius.zero,
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -36,7 +39,7 @@ class SearchTextfield extends StatelessWidget {
           border: InputBorder.none,
           contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           hintText: hintText,
-          
+
           hintStyle: TextStyle(
             fontFamily: 'Muli',
             fontSize: 14,
@@ -51,7 +54,7 @@ class SearchTextfield extends StatelessWidget {
           prefixIcon: Padding(
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
             child: Icon(
-              icon ?? Icons.help_outline,
+              icon ?? Icons.home,
               color: color ?? Colors.white,
             ),
           ),

@@ -32,9 +32,11 @@ class DoctorDetails extends StatelessWidget {
               Form(
                 key: _formKey,
                 child: Container(
-                  height: 500,
+                    height:  MediaQuery.of(context).size.height/1.2,
+                  width:  MediaQuery.of(context).size.width/2.8,
+                 // height: 500,
                   //height: MediaQuery.of(context).size.height - 100,
-                  width: 300,
+                 // width: 300,
                   padding: EdgeInsets.all(45),
                   decoration: BoxDecoration(
                       color: AppColors.backgroundcolori,

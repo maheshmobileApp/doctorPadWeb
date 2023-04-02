@@ -9,7 +9,10 @@ class SidepanelWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    Container(
+    return   
+     Container(
+        // height:  MediaQuery.of(context).size.height/0.1,
+        // width:  MediaQuery.of(context).size.width/12,
       width: 120,
       height: 1080,
       alignment: Alignment.topLeft,
@@ -28,7 +31,7 @@ class SidepanelWidgets extends StatelessWidget {
           Text(
             'View Hospitals',
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: AppColors.color1,fontSize: 10,fontFamily: 'Muli'),
+            style: TextStyle(color: AppColors.color1,fontSize: 8,fontFamily: 'Muli'),
           ),
           SizedBox(height: 30,width: 20,),
           GestureDetector(
@@ -52,6 +55,6 @@ class SidepanelWidgets extends StatelessWidget {
         ],
       ),
       color: AppColors.backgroundcolori
-    );
+       );
   }
 }

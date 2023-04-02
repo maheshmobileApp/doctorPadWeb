@@ -45,7 +45,7 @@ class HospitalView extends StatelessWidget {
 
             Container(
               height: MediaQuery.of(context).size.height - 100,
-              width: MediaQuery.of(context).size.width - 150,
+               width: MediaQuery.of(context).size.width - 150,
               padding: EdgeInsets.all(25),
               child: ListView.builder(
                 itemCount: dummyList.length,

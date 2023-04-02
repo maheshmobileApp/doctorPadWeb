@@ -22,9 +22,11 @@ class OptionWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 75,
-      width: MediaQuery.of(context).size.width - 120,
+     return Container(
+    //     height:  MediaQuery.of(context).size.height/20,
+    //       width:  MediaQuery.of(context).size.width/4,
+     height: 75,
+     width: MediaQuery.of(context).size.width - 120,
       alignment: Alignment.center,
       color: AppColors.color9,
       padding: EdgeInsets.only(left: 25, right: 25),

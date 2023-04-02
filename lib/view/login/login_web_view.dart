@@ -15,78 +15,85 @@ class LoginWebView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.backgroundcolori  ,
-        body:Form(
+        backgroundColor: AppColors.backgroundcolori,
+        body: Form(
           key: _formKey,
           child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerRight,
-                  end: Alignment.centerLeft,
-                  colors: [
-                    AppColors.app_bg_color,
-                    AppColors.backgroundcolori
-                  ]
-              )
-            ),
+                gradient: LinearGradient(
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
+                    colors: [
+                  AppColors.app_bg_color,
+                  AppColors.backgroundcolori
+                ])),
             child: Center(
-              child: Container(
-                height: 420,
-                width: 450,
-                decoration: BoxDecoration(
-                    color: AppColors.color1, borderRadius: BorderRadius.circular(16)),
-                child: Column(
-                  children: [
-                    _sizedBox(height: 20),
-                    LogoWidget(),
-                    _sizedBox(height: 23),
-                    LoginTextFeild(
-                      hintText: 'User Mobile number',
-                      keyboardType: TextInputType.numberWithOptions(decimal: true,signed: true),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter Mobile number';
-                        } else if (!phonenovalid(value)) {
-                          return 'Enter Valid Mobile number';
-                        }
-                      },
-                    ),
-                    _sizedBox(height: 10),
-                    LoginTextFeild(
-                      icon: Icons.lock,
-                      hintText: 'Password',
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter Password';
-                        }
-                      },
-                    ),
-                    _sizedBox(height: 30),
-                    AppButton(text:'LOGIN', onPressed: () {
-                      // if(_formKey.currentState!.validate()){
-                      //   context.go(RoutesList.hospitalView);
-                      // }
-                      context.go(RoutesList.hospitalView);
-                    }),
-                     _sizedBox(height: 15),
-                    Text('Forgot Password?',style: TextStyle(
-                        color:   AppColors.backgroundcolori,
-                    ),),
-                    _sizedBox(height: 15),
-                  ],
+              child: SingleChildScrollView(
+                child: Container(
+                  height: MediaQuery.of(context).size.height / (1.5),
+                  width: MediaQuery.of(context).size.width / 2.9,
+                  decoration: BoxDecoration(
+                      color: AppColors.color1,
+                      borderRadius: BorderRadius.circular(16)),
+                  child: Column(
+                    children: [
+                      _sizedBox(height: 20),
+                      LogoWidget(),
+                      _sizedBox(height: 23),
+                      LoginTextFeild(
+                        hintText: 'User Mobile number',
+                        keyboardType: TextInputType.numberWithOptions(
+                            decimal: true, signed: true),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Enter Mobile number';
+                          } else if (!phonenovalid(value)) {
+                            return 'Enter Valid Mobile number';
+                          }
+                        },
+                      ),
+                      _sizedBox(height: 10),
+                      LoginTextFeild(
+                        icon: Icons.lock,
+                        hintText: 'Password',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Enter Password';
+                          }
+                        },
+                      ),
+                      _sizedBox(height: 30),
+                      AppButton(
+                          text: 'LOGIN',
+                          onPressed: () {
+                            // if(_formKey.currentState!.validate()){
+                            //   context.go(RoutesList.hospitalView);
+                            // }
+                            context.go(RoutesList.hospitalView);
+                          }),
+                      _sizedBox(height: 15),
+                      Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: AppColors.backgroundcolori,
+                        ),
+                      ),
+                      _sizedBox(height: 15),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
-    
       ),
     );
   }
-SizedBox _sizedBox({double? height, double? width}){
+
+  SizedBox _sizedBox({double? height, double? width}) {
     return SizedBox(
       height: height,
       width: width,
     );
-}
+  }
 }

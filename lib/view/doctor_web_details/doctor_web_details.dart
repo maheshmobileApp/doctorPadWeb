@@ -24,8 +24,10 @@ class DoctorAddDetails extends StatelessWidget {
               child: Form(
                 key: _formKey,
                 child:Container(
-                  height: 520,
-                  width: 400,
+                    height:  MediaQuery.of(context).size.height/1.2,
+                  width:  MediaQuery.of(context).size.width/2.8,
+                  // height: 520,
+                  // width: 400,
                   padding: EdgeInsets.all( 30),
                   decoration: BoxDecoration(
                       color:  AppColors.backgroundcolori, borderRadius: BorderRadius.circular(16)),
