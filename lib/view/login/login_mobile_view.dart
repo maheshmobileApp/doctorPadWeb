@@ -1,21 +1,24 @@
-import 'package:cgg_base_project/res/app_colors.dart';
-import 'package:cgg_base_project/res/components/button_component.dart';
-import 'package:cgg_base_project/res/constants/routes_constants.dart';
-import 'package:cgg_base_project/utils/regex.dart';
+import 'package:cgg_base_project/res/components/logo_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:go_router/go_router.dart';
-import '../../res/components/login_textfeild.dart';
-import '../../res/components/logo_widget.dart';
 
-class LoginWebView extends StatelessWidget {
-  LoginWebView({super.key});
+import '../../res/app_colors.dart';
+import '../../res/components/button_component.dart';
+import '../../res/components/login_textfeild.dart';
+import '../../res/constants/routes_constants.dart';
+import '../../utils/regex.dart';
+
+class LoginMobile extends StatelessWidget {
+   LoginMobile({super.key});
 
   final _formKey = GlobalKey<FormState>();
     TextEditingController _mobileController =
       TextEditingController(text: "");
   TextEditingController _passwordController =
       TextEditingController(text: "");
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,9 +38,10 @@ class LoginWebView extends StatelessWidget {
             child: Center(
               child: SingleChildScrollView(
                 child: Container(
-                  height: MediaQuery.of(context).size.height / (1.5),
-                  width: MediaQuery.of(context).size.width / 2.9,
-                  
+                  // height: MediaQuery.of(context).size.height / (1.5),
+                  // width: MediaQuery.of(context).size.width / 2.9,
+                      height: MediaQuery.of(context).size.height .toDouble(),
+                  width: MediaQuery.of(context).size.width.toDouble(),
                   decoration: BoxDecoration(
                       color: AppColors.color1,
                       borderRadius: BorderRadius.circular(16)),
@@ -105,3 +109,5 @@ class LoginWebView extends StatelessWidget {
     );
   }
 }
+
+  

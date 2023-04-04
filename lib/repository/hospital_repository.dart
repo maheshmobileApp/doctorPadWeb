@@ -11,70 +11,45 @@ import 'package:flutter/material.dart';
 
 import '../model/hospital_details/get_all_hospital_specialites.dart';
 
-//get
-class GetAllHospitalSpecialitesRepository {
 
-  
+class HospitalRepository {
   final _baseClient = BaseApiClient();
   Future<GetAllHospitalSpecialites> getAllHospitalSpecialites() async {
     final respnse = await _baseClient.getCall(
         'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities');
     return GetAllHospitalSpecialites.fromJson(respnse);
   }
-}
-
-///Add Hospital Speciality/post
-class AddHospitalSpecialityRepository {
-  final _baseClient = BaseApiClient();
-  Future<AddHospitalSpeciality> addHospitalSpeciality(
+    Future<AddHospitalSpeciality> addHospitalSpeciality(
       AddHospitalSpecialityEntity addHospitalSpecialityEntity) async {
     final respnse = await _baseClient.postCall(
         'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities',
         payload: addHospitalSpecialityEntity.toJson());
     return AddHospitalSpeciality.fromJson(respnse);
   }
-}
-
-/////Get All Hospital,/get
-class GetAllHospitalRepository {
-  final _baseClient = BaseApiClient();
-  Future<GetAllHospitals> getAllHospitals() async {
+   Future<GetAllHospitals> getAllHospitals() async {
     final respnse = await _baseClient.getCall(
         'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities');
     return GetAllHospitals.fromJson(respnse);
   }
-}
-
-///Get Add Hospital /post
-
-class AddHospitalRepository {
-  final _baseClient = BaseApiClient();
-  Future<AddHospital> addHospital(AddHospitalEntity addHospitalEntity) async {
+   Future<AddHospital> addHospital(AddHospitalEntity addHospitalEntity) async {
     final respnse = await _baseClient.postCall(
         'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals',
         payload: addHospitalEntity.toJson());
     return AddHospital.fromJson(respnse);
   }
-}
-
-///Get all hospital branches /get
-class GetAllHospitalBranchesRepository {
-  final _baseClient = BaseApiClient();
-  Future<GetAllHoapitalBranches> getAllHoapitalBranches() async {
+   Future<GetAllHoapitalBranches> getAllHoapitalBranches() async {
     final respnse = await _baseClient.getCall(
         'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals_branch');
     return GetAllHoapitalBranches.fromJson(respnse);
   }
-}
-
-/////Add hospital branchs /post
-class AddHospitalBranchRepository {
-  final _baseClient = BaseApiClient();
-  Future<AddHospitalBranch> addHospitalBranch(
+   Future<AddHospitalBranch> addHospitalBranch(
       AddHospitalBranchEntity addHospitalBranchEntity) async {
     final respnse = await _baseClient.postCall(
         'https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals_branch  ',
         payload: addHospitalBranchEntity.toJson());
     return AddHospitalBranch.fromJson(respnse);
   }
+   
+   
 }
+
