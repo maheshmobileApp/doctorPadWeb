@@ -6,7 +6,7 @@ import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
-import '../../res/components/text_field/text_field.dart';
+
 import '../../res/constants/routes_constants.dart';
 class DoctorAddDetails extends StatelessWidget {
    DoctorAddDetails({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class DoctorAddDetails extends StatelessWidget {
                 key: _formKey,
                 child:Container(
                     height:  MediaQuery.of(context).size.height/1.2,
-                  width:  MediaQuery.of(context).size.width/2.8,
+                  width:  MediaQuery.of(context).size.width/3,
                   // height: 520,
                   // width: 400,
                   padding: EdgeInsets.all( 30),
@@ -68,7 +68,8 @@ class DoctorAddDetails extends StatelessWidget {
                             return 'Enter Valid Mobile number';
                           }
                         },
-                        keyboardType: TextInputType.number
+                        keyboardType: TextInputType.number, 
+                        
                         ),
                         Padding(padding: EdgeInsets.all(8),),
                         SearchTextfield(

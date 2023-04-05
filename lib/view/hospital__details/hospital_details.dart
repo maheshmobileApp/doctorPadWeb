@@ -31,7 +31,7 @@ class HospitalWebDetails extends StatelessWidget {
               key: _formKey,
               child: Container(
                   height:  MediaQuery.of(context).size.height/1.2,
-                  width:  MediaQuery.of(context).size.width/2.8,
+                  width:  MediaQuery.of(context).size.width/3,
                 // height: 480,
                 // width: 400,
                 padding: EdgeInsets.all(45),
@@ -73,7 +73,9 @@ class HospitalWebDetails extends StatelessWidget {
                               return 'Enter Valid Mobile number';
                             }
                           },
-                          keyboardType: TextInputType.number),
+                          keyboardType: TextInputType.number,
+                        
+                          ),
                       Padding(padding: EdgeInsets.all(20)),
                       SearchTextfield(
                         icon: Icons.email,
