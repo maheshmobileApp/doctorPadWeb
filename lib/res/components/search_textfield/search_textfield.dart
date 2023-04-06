@@ -52,7 +52,7 @@ class SearchTextfield extends StatelessWidget {
           ),
           prefixIcon:   Padding(
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
-            child: Icon(
+           child: Icon(
               icon ?? Icons.home,
               color: color ?? Colors.white,
               

@@ -28,7 +28,7 @@ class HospitalRepository {
   }
    Future<GetAllHospitals> getAllHospitals() async {
     final respnse = await _baseClient.getCall(
-        'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities');
+        'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals');
     return GetAllHospitals.fromJson(respnse);
   }
    Future<AddHospital> addHospital(AddHospitalEntity addHospitalEntity) async {

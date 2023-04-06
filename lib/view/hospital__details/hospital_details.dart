@@ -8,6 +8,7 @@ import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/constants/routes_constants.dart';
+import '../../view_model/hospital_viewmodel.dart';
 
 class HospitalWebDetails extends StatelessWidget {
    HospitalWebDetails({Key? key}) : super(key: key);
@@ -125,4 +126,5 @@ class HospitalWebDetails extends StatelessWidget {
       ]),
     );
   }
+ 
 }

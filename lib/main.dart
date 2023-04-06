@@ -2,6 +2,7 @@ import 'package:cgg_base_project/res/constants/go_router.dart';
 import 'package:cgg_base_project/view/login/login_web_view.dart';
 import 'package:cgg_base_project/view/login_view.dart';
 import 'package:cgg_base_project/view_model/doctor_view_model.dart';
+import 'package:cgg_base_project/view_model/hospital_viewmodel.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => GetAllDoctorViewModel()),
+        ChangeNotifierProvider(create: (_) => GetAllHospitalViewModel()),
       ],
       child: MaterialApp.router(
         title: 'Flutter Demo',

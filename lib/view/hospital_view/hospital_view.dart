@@ -1,24 +1,33 @@
 import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/constants/routes_constants.dart';
+import '../../view_model/hospital_viewmodel.dart';
 
-class HospitalView extends StatelessWidget {
-  final List dummyList = List.generate(10, (index) {
-    return {
-      "title": "Hospital Details",
-      "subtitle": "Name\nDetails ",
-    };
-  });
+class HospitalView extends StatefulWidget {
 
-  HospitalView({Key? key}) : super(key: key);
+  HospitalView({super.key});
+
+  @override
+  State<HospitalView> createState() => _HospitalViewState();
+}
+
+class _HospitalViewState extends State<HospitalView> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<GetAllHospitalViewModel>();
+
     return Scaffold(
-      body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      body:  viewModel.isLoading == true
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+      
+     : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
         SidepanelWidgets(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,48 +57,59 @@ class HospitalView extends StatelessWidget {
                width: MediaQuery.of(context).size.width - 150,
               padding: EdgeInsets.all(25),
               child: ListView.builder(
-                itemCount: dummyList.length,
-                itemBuilder: (context, index) => Card(
-                  elevation: 4,
-                  margin: EdgeInsets.only(
-                    top: 26,
-                    left: 200,
-                    right: 250,
-                  ),
-                  child: ListTile(
-                    leading: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.color1, width: 3),
-                        color: AppColors.backgroundcolori,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 6),
-                        child: Text(
-                          'Hospital\nLogo',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: AppColors.color1,
-                              fontSize: 8,
-                              fontFamily: 'Muli'),
-                        ),
-                      ),
-                    ),
-                    title: Text(
-                      dummyList[index]["title"],
-                      style: TextStyle(fontFamily: 'Muli', fontSize: 12),
-                    ),
-                    subtitle: Text(
-                      dummyList[index]["subtitle"],
-                      style: TextStyle(fontFamily: 'Muli', fontSize: 12),
-                    ),
-                  ),
-                ),
+                itemCount: viewModel.hospitals?.body?.length,
+                itemBuilder: (context, index) {
+                        final hospitalData = viewModel.hospitals?.body![index];
+                        return Card(
+                          elevation: 4,
+                          margin: EdgeInsets.only(
+                            top: 26,
+                            left: 200,
+                            right: 250,
+                          ),
+                          child: ListTile(
+                            leading: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.color1, width: 3),
+                                color: AppColors.backgroundcolori,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 10),
+                                child: Image.asset(
+                                  'assets/images/hospital_logo.png',
+                                  color: AppColors.color1,
+                                ),
+                              ),
+                            ),
+                            title: Text(
+                              hospitalData?.name ?? "",
+                              style:
+                                  TextStyle(fontFamily: 'Muli', fontSize: 12),
+                            ),
+                            subtitle: Text(
+                              hospitalData?.email?? "",
+                              style:
+                                  TextStyle(fontFamily: 'Muli', fontSize: 12),
+                            ),
+                            //trailing: const Icon(Icons.add_a_photo),
+                          ),
+                        );
+                      },
+               
+              
               ),
             ),
           ],
         ),
       ]),
     );
+  }
+     @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read< GetAllHospitalViewModel>().getAllHospitals();
   }
 }
