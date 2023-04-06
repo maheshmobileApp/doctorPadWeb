@@ -43,7 +43,7 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: RoutesList.doctorWebView,
       builder: (BuildContext context, GoRouterState state) {
-        return  DoctorWebView();
+        return  DoctorsWebView();
       },
     ),
     GoRoute(

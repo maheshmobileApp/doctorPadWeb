@@ -2,15 +2,22 @@ import 'package:cgg_base_project/repository/doctor_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../model/get_all_doctor.dart';
+
 class GetAllDoctorViewModel with ChangeNotifier {
   final _getAllDoctorRepository = GetAllDoctorRepository();
+  GetAllDoctor? doctors;
+  bool isLoading = true;
 
-  GetAllDoctorViewModel() {
-    getAllDoctor();
-  }
+  // GetAllDoctorViewModel() {
+  //   getAllDoctor();
+  // }
 
   Future<void> getAllDoctor() async {
-    final result = await _getAllDoctorRepository.toString();
+    final result = await _getAllDoctorRepository.getAllDoctor();
+    doctors = result;
+    isLoading = false;
+    notifyListeners();
   }
 }
 

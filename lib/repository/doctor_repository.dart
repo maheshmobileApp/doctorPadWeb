@@ -27,7 +27,7 @@ class GetAllDoctorRepository {
   final _baseClient = BaseApiClient();
   Future<GetAllDoctor> getAllDoctor() async {
     final respnse = await _baseClient
-        .getCall('https://doctopad-a2d-dev.el.r.appspot.com/api/v1/doctors');
+        .getCall('api/v1/doctors');
     return GetAllDoctor.fromJson(respnse);
   }
 }
