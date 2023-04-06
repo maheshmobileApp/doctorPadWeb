@@ -12,8 +12,9 @@ class SearchTextfield extends StatelessWidget {
   final Color? color;
   final Image? image;
   final FontStyle? fontStyle;
- final dynamic ?SvgPicture;
-  // final  TextEditingController controller;
+  final dynamic? SvgPicture;
+  final int? maxlength;
+  // final TextEditingController controller;
   SearchTextfield({
     Key? key,
     this.icon,
@@ -24,22 +25,20 @@ class SearchTextfield extends StatelessWidget {
     this.color,
     this.image,
     this.SvgPicture,
-    // required this.controller
+    this.maxlength,
+   // required this.controller,
     this.fontStyle,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        // controller: controller,
         cursorHeight: 20,
         cursorRadius: Radius.zero,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
-          border: InputBorder.none,
           contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           hintText: hintText,
-
           hintStyle: TextStyle(
             fontFamily: 'Muli',
             fontSize: 14,
@@ -48,18 +47,20 @@ class SearchTextfield extends StatelessWidget {
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          // focusedBorder: UnderlineInputBorder(
-          //   borderSide: BorderSide(color: Colors.white),
-          // ),
-          prefixIcon: Padding(
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          prefixIcon:   Padding(
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
             child: Icon(
               icon ?? Icons.home,
               color: color ?? Colors.white,
+              
             ),
           ),
         ),
         keyboardType: keyboardType,
+        maxLength: maxlength,
         validator: validator);
   }
 }

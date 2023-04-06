@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import '../model/get_all_doctor.dart';
 
 class GetAllDoctorViewModel with ChangeNotifier {
-  final _getAllDoctorRepository = GetAllDoctorRepository();
+  final _getAllDoctorRepository = AddDoctorRepository();
   GetAllDoctor? doctors;
   bool isLoading = true;
 
@@ -24,8 +24,8 @@ class GetAllDoctorViewModel with ChangeNotifier {
 ////Get Doctor Specialites get method,
 
 class GetDoctorSpecialites with ChangeNotifier {
-  final _getDoctorSpecialitesRepository = GetDoctorSpecialitesRepository();
-  Future<void> getDoctorSpecialitesRepository() async {
-    final result = await _getDoctorSpecialitesRepository.toString();
-  }
+  // final _getDoctorSpecialitesRepository = GetDoctorSpecialitesRepository();
+  // Future<void> getDoctorSpecialitesRepository() async {
+  //   final result = await _getDoctorSpecialitesRepository.toString();
+  // }
 }

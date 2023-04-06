@@ -5,15 +5,11 @@ import '../model/entity/patient_entity/add_patients_entity.dart';
 import '../repository/patients_repository.dart';
 
 class GetAllPatientsViewModel with ChangeNotifier {
-  final _getAllPatientsRepository = GetAllPatientsRepository();
+  final _patientsRepository = PatientsRepository();
   Future<void> getAllPatients() async {
-    final result = await _getAllPatientsRepository .getAllPatients();
+    final result = await _patientsRepository .getAllPatients();
   }
-}
-//////// Add patients /post
-class AddPatientViewModel with ChangeNotifier {
-  final _addPatientRepository = AddPatientRepository();
-  Future<void> addHospitalBranch(
+   Future<void> addHospitalBranch(
     BuildContext context,
     String? aadhar,
   String? createdBy,
@@ -23,7 +19,7 @@ class AddPatientViewModel with ChangeNotifier {
   String? name,
   String? referredBy,
   ) async {
-    final result = await _addPatientRepository.addPatient(AddPatientEntity(
+    final result = await _patientsRepository.addPatient(AddPatientEntity(
     createdBy: createdBy,
     dob: dob,
     emailId: emailId,
@@ -32,7 +28,7 @@ class AddPatientViewModel with ChangeNotifier {
     referredBy: referredBy  ));
     if (result.isActive == 200)
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content:  Text(result.toString() ?? ''),
+        content:  Text(result.toString() ),
         
       ));
   }

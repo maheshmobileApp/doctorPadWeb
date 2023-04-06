@@ -33,7 +33,7 @@ class DoctorDetails extends StatelessWidget {
                 key: _formKey,
                 child: Container(
                     height:  MediaQuery.of(context).size.height/1.2,
-                  width:  MediaQuery.of(context).size.width/2.8,
+                  width:  MediaQuery.of(context).size.width/3,
                  // height: 500,
                   //height: MediaQuery.of(context).size.height - 100,
                  // width: 300,
