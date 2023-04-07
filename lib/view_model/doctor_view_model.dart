@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../model/entity/add_doctor_entity.dart';
+import '../model/entity/doctor_entity.dart/add_doctor_entity.dart';
 import '../model/get_all_doctor.dart';
 import '../res/app_colors.dart';
 import '../res/constants/routes_constants.dart';

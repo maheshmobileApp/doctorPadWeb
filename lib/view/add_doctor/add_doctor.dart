@@ -11,12 +11,18 @@ import '../../view_model/doctor_view_model.dart';
 
 class DoctorAddDetails extends StatelessWidget {
   DoctorAddDetails({Key? key}) : super(key: key);
+
   TextEditingController _nameOfTheDoctorController = TextEditingController();
+
   TextEditingController _doctorRegistrationNumberController =
       TextEditingController();
+
   TextEditingController _mobileNumberController = TextEditingController();
+
   TextEditingController _doctorSpecialityController = TextEditingController();
+
   TextEditingController _clinicSpecialityController = TextEditingController();
+
   TextEditingController _emailIdController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
@@ -156,9 +162,9 @@ class DoctorAddDetails extends StatelessWidget {
                                 viewModel.addDoctor(
                                   context,
                                   _nameOfTheDoctorController.text,
-                                  '',
                                   _doctorRegistrationNumberController.text,
                                   _emailIdController.text,
+                                  '',
                                   _mobileNumberController.text,
                                 );
                               //  context.go(RoutesList.addDoctorSuccessfully);
