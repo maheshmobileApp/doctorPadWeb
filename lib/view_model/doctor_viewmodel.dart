@@ -13,13 +13,12 @@ class DoctorViewModel with ChangeNotifier {
 
   Future<void> addDoctor(BuildContext context, String doctorNumber,
       String emailId, String mobileNo, String name, String createdBy) async {
-    final result = await _addDoctorRepository.doctorAdd(AddDoctorEntity(
+    final result = await _addDoctorRepository.addDoctor(AddDoctorEntity(
       createdBy: createdBy,
       doctorRegistrationNumber: doctorNumber,
       emailId: emailId,
       mobileNo: mobileNo,
-      name: name,
-      password: '',
+      name: name
     ));
     if (result.status == 200) {
       context.go(RoutesList.addDoctorSuccessfully);

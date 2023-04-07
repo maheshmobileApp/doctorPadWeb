@@ -12,11 +12,11 @@ import '../model/doctor_mobile_password.dart';
 
 class AddDoctorRepository {
   final _baseClient = BaseApiClient();
-  Future<AddDoctorRes> doctorAdd(AddDoctorEntity addDoctorEntity) async {
+  Future<AddDoctor> addDoctor(AddDoctorEntity addDoctorEntity) async {
     final respnse = await _baseClient.postCall(
-        'https://doctopad-a2d-dev.el.r.appspot.com/api/v1/doctors',
+        'api/v1/doctors',
         payload: addDoctorEntity.toJson());
-    return AddDoctorRes.fromJson(respnse);
+    return AddDoctor.fromJson(respnse);
   }
 
   Future<GetAllDoctor> getAllDoctor() async {

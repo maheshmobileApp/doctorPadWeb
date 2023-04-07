@@ -14,7 +14,7 @@ class SearchTextfield extends StatelessWidget {
   final FontStyle? fontStyle;
   final dynamic? SvgPicture;
   final int? maxlength;
-  // final TextEditingController controller;
+  final TextEditingController? controller;
   SearchTextfield({
     Key? key,
     this.icon,
@@ -26,12 +26,13 @@ class SearchTextfield extends StatelessWidget {
     this.image,
     this.SvgPicture,
     this.maxlength,
-   // required this.controller,
+    this.controller,
     this.fontStyle,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:  controller,
         cursorHeight: 20,
         cursorRadius: Radius.zero,
         autovalidateMode: AutovalidateMode.onUserInteraction,

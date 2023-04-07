@@ -76,7 +76,7 @@ class _HospitalViewState extends State<HospitalView> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
+                                    vertical: 5, horizontal: 8),
                                 child: Image.asset(
                                   'assets/images/hospital_logo.png',
                                   color: AppColors.color1,
