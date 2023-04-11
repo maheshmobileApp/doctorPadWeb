@@ -1,6 +1,5 @@
 
 import 'package:cgg_base_project/model/entity/doctor_entity.dart/add_doctor_entity.dart';
-import 'package:cgg_base_project/model/entity/add_doctor_specialites_entity';
 import 'package:cgg_base_project/model/get_all_doctor.dart';
 
 

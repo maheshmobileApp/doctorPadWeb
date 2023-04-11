@@ -138,3 +138,10 @@ class HospitalDetails extends StatelessWidget {
     );
   }
 }
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   context.read<GetAllDoctorViewModel>().getAllDoctor();
+  // }
