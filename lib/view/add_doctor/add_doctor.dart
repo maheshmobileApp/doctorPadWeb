@@ -53,7 +53,7 @@ class DoctorAddDetails extends StatelessWidget {
                   // width: 400,
                   padding: EdgeInsets.all(30),
                   decoration: BoxDecoration(
-                      color: AppColors.backgroundcolori,
+                      color: AppColors.backgroundcolor,
                       borderRadius: BorderRadius.circular(16)),
                   child: SingleChildScrollView(
                     child: Column(
@@ -69,7 +69,8 @@ class DoctorAddDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.name,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _doctorRegistrationNumberController,
                           icon: Icons.contact_phone_outlined,
@@ -83,7 +84,8 @@ class DoctorAddDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.number,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _mobileNumberController,
                           icon: Icons.call,
@@ -97,9 +99,10 @@ class DoctorAddDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.number,
                         ),
-                        Padding(
-                          padding: EdgeInsets.all(8),
-                        ),
+                        // Padding(
+                        //   padding: EdgeInsets.all(8),
+                        // ),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _doctorSpecialityController,
                           icon: Icons.person,
@@ -111,7 +114,8 @@ class DoctorAddDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.text,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _clinicSpecialityController,
                           icon: Icons.home,
@@ -123,7 +127,8 @@ class DoctorAddDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.text,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _emailIdController,
                           icon: Icons.email,
@@ -140,7 +145,8 @@ class DoctorAddDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         AppButton(
                             text: 'BULK UPLOAD',
                             color: Color(0xff11193C),
@@ -150,8 +156,9 @@ class DoctorAddDetails extends StatelessWidget {
                             onPressed: () {
                               // context.go(RoutesList.hospitalDetails);
                             }),
-                        Padding(padding: EdgeInsets.all(8)),
-                        AppButton(
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                         AppButton(
                             text: 'ADD DOCTOR',
                             color: AppColors.backgroundcolori,
                             myEdgeInsets: EdgeInsets.symmetric(

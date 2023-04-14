@@ -36,9 +36,9 @@ class DoctorDetails extends StatelessWidget {
                  // height: 500,
                   //height: MediaQuery.of(context).size.height - 100,
                  // width: 300,
-                  padding: EdgeInsets.all(45),
+                  padding: EdgeInsets.all(40),
                   decoration: BoxDecoration(
-                      color: AppColors.backgroundcolori,
+                      color: AppColors.backgroundcolor,
                       borderRadius: BorderRadius.circular(16)),
                   // alignment: Alignment.topLeft,
                   child: SingleChildScrollView(
@@ -54,7 +54,8 @@ class DoctorDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.name,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           icon: Icons.contact_phone_outlined,
                           hintText: 'Doctor Registration Number',
@@ -67,7 +68,8 @@ class DoctorDetails extends StatelessWidget {
                         },
                           keyboardType: TextInputType.number,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           icon: Icons.call,
                           hintText: "Mobile Number",
@@ -80,7 +82,8 @@ class DoctorDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.number
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           icon: Icons.person,
                           hintText: 'Doctor Speciality',
@@ -91,7 +94,8 @@ class DoctorDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.text,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           icon: Icons.home,
                           hintText: 'Clinic Speciality',
@@ -102,7 +106,8 @@ class DoctorDetails extends StatelessWidget {
                           },
                           keyboardType: TextInputType.text,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           icon: Icons.email,
                           hintText: 'Email id',
@@ -118,7 +123,8 @@ class DoctorDetails extends StatelessWidget {
                       },
                         keyboardType: TextInputType.emailAddress,
                         ),
-                        Padding(padding: EdgeInsets.all(8)),
+                        // Padding(padding: EdgeInsets.all(8)),
+                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         AppButton(
                             text: 'Back',
                             color: AppColors.backgroundcolori,
