@@ -34,16 +34,16 @@ class GetAllHospitalViewModel with ChangeNotifier {
       name: name,
       phone: phone,
     ));
-       if (result.status == 200) {
-        context.go(RoutesList.addHospitalSuccessfully);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(result.message ?? ''),
-          backgroundColor: AppColors.app_bg_color,
-        ));
-      }
-      notifyListeners();
-     }
+    if (result.status == 200) {
+      context.go(RoutesList.addHospitalSuccessfully);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(result.message ?? ''),
+        backgroundColor: AppColors.app_bg_color,
+      ));
     }
+    notifyListeners();
+  }
+}
 
 //     if (result.status == ApiErrorCodes.success) {
 //       //context.go('/details');

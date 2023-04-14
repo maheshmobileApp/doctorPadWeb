@@ -6,7 +6,6 @@ import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
-import '../../res/components/text_field/text_field.dart';
 import '../../res/constants/routes_constants.dart';
 
 class DoctorDetails extends StatelessWidget {
