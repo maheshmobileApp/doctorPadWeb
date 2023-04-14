@@ -1,9 +1,8 @@
+
 import 'package:cgg_base_project/repository/doctor_repository.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import '../model/doctor_model.dart/doctor_specialites.dart';
 import '../model/entity/doctor_entity.dart/add_doctor_entity.dart';
 import '../model/get_all_doctor.dart';
 import '../res/app_colors.dart';
@@ -26,21 +25,21 @@ class GetAllDoctorViewModel with ChangeNotifier {
   }
 
   final _addDoctorRepository = AddDoctorRepository();
-   Future<void> addDoctor(BuildContext context,
-     String? createdBy,
-     String? doctorRegistrationNumber,
-     String? emailId,
-     String? mobileNo,
-     String? name ) async {
+  Future<void> addDoctor(
+      BuildContext context,
+      String? createdBy,
+      String? doctorRegistrationNumber,
+      String? emailId,
+      String? mobileNo,
+      String? name) async {
     final result = await _addDoctorRepository.addDoctor(AddDoctorEntity(
       createdBy: createdBy,
       doctorRegistrationNumber: doctorRegistrationNumber,
       emailId: emailId,
       mobileNo: mobileNo,
       name: name,
-     
     ));
-     if (result.status == 200) {
+    if (result.status == 200) {
       context.go(RoutesList.addDoctorSuccessfully);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(result.message ?? ''),
@@ -48,14 +47,16 @@ class GetAllDoctorViewModel with ChangeNotifier {
       ));
     }
     notifyListeners();
-   }
-}
+  }
+   final _doctorSpecialitesRepository = AddDoctorRepository();
+  DoctorSpecialites? hospitals;
+  bool isLoad = true;
 
-////Get Doctor Specialites get method,
+  Future<void> getAllHospitals() async {
+    final result = await _doctorSpecialitesRepository.doctorSpecialites();
+    hospitals = result;
+    isLoad = false;
+    notifyListeners();
+  }
 
-class GetDoctorSpecialites with ChangeNotifier {
-  // final _getDoctorSpecialitesRepository = GetDoctorSpecialitesRepository();
-  // Future<void> getDoctorSpecialitesRepository() async {
-  //   final result = await _getDoctorSpecialitesRepository.toString();
-  // }
 }

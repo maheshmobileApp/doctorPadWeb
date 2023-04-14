@@ -43,10 +43,10 @@ class LoginWebView extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                      _sizedBox(height: 20),
+                      _sizedBox(height: MediaQuery.of(context).size.height/ 48, ),
                       Align(alignment: Alignment.topCenter,
                         child: LogoWidget(),),
-                        _sizedBox(height: 23),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 30),
                         Align(
                           alignment: Alignment.center,
                           child: LoginTextFeild(
@@ -63,7 +63,7 @@ class LoginWebView extends StatelessWidget {
                             },
                           ),
                         ),
-                        _sizedBox(height: 10),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 30),
                         Align(
                           alignment: Alignment.center,
                           child: LoginTextFeild(
@@ -78,12 +78,12 @@ class LoginWebView extends StatelessWidget {
                           ),
                         ),
                         
-                        _sizedBox(height: 30),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 13),
                         Align(
                           alignment: Alignment.center,
                           child: AppButton(
                               text: 'LOGIN',
-                              myEdgeInsets: EdgeInsets.symmetric(horizontal: 80,vertical: 17),
+                              myEdgeInsets: EdgeInsets.symmetric(horizontal: 80,vertical: 20),
                               onPressed: () {
                                 // if(_formKey.currentState!.validate()){
                                 //   context.go(RoutesList.hospitalView);
@@ -91,7 +91,7 @@ class LoginWebView extends StatelessWidget {
                                 context.go(RoutesList.hospitalView);
                               }),
                         ),
-                        _sizedBox(height: 15),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 30),
                         Align(
                           alignment: Alignment.center,
                           child: Text(
@@ -101,7 +101,7 @@ class LoginWebView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        _sizedBox(height: 15),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 30),
                       ],
                     ),
                   ),
