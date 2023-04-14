@@ -54,7 +54,7 @@ class SidepanelWidgets extends StatelessWidget {
           Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli'),),
         ],
       ),
-      color: AppColors.backgroundcolori
+      color: AppColors.backgroundcolor
        );
   }
 }

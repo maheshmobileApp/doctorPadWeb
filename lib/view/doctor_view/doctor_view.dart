@@ -80,7 +80,7 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: AppColors.color1, width: 3),
-                                color: AppColors.backgroundcolori,
+                                color: AppColors.backgroundcolor,
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(

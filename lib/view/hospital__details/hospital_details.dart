@@ -35,9 +35,9 @@ class HospitalWebDetails extends StatelessWidget {
                   width:  MediaQuery.of(context).size.width/3,
                 // height: 480,
                 // width: 400,
-                padding: EdgeInsets.all(45),
+                padding: EdgeInsets.all(40),
                 decoration: BoxDecoration(
-                    color: AppColors.backgroundcolori,
+                    color: AppColors.backgroundcolor,
                     borderRadius: BorderRadius.circular(16)),
                 child: SingleChildScrollView(
                   child: Column(
@@ -52,7 +52,8 @@ class HospitalWebDetails extends StatelessWidget {
                         },
                         keyboardType: TextInputType.name,
                       ),
-                      Padding(padding: EdgeInsets.all(20)),
+                      // Padding(padding: EdgeInsets.all(20)),
+                       SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       SearchTextfield(
                         icon: Icons.contact_phone_outlined,
                         hintText: 'Address',
@@ -63,7 +64,8 @@ class HospitalWebDetails extends StatelessWidget {
                         },
                         keyboardType: TextInputType.text,
                       ),
-                      Padding(padding: EdgeInsets.all(20)),
+                      // Padding(padding: EdgeInsets.all(20)),
+                       SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       SearchTextfield(
                           icon: Icons.call,
                           hintText: "Contact Number",
@@ -77,7 +79,8 @@ class HospitalWebDetails extends StatelessWidget {
                           keyboardType: TextInputType.number,
                         
                           ),
-                      Padding(padding: EdgeInsets.all(20)),
+                      // Padding(padding: EdgeInsets.all(20)),
+                       SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       SearchTextfield(
                         icon: Icons.email,
                         hintText: 'Email id',
@@ -93,7 +96,8 @@ class HospitalWebDetails extends StatelessWidget {
                       },
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      Padding(padding: EdgeInsets.all(20)),
+                      // Padding(padding: EdgeInsets.all(20)),
+                       SizedBox(height: MediaQuery.of(context).size.height/ 20,),
                       AppButton(
                           text: 'ADD Doctor To HOSPITAL',
                           color: AppColors.color5,
@@ -104,10 +108,11 @@ class HospitalWebDetails extends StatelessWidget {
                           onPressed: () {
                             //  context.go(RoutesList.hospitalDetails);
                           }),
-                      Padding(padding: EdgeInsets.all(10)),
+                      // Padding(padding: EdgeInsets.all(10)),
+                       SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       AppButton(
                           text: 'Back',
-                          color: AppColors.backgroundcolori,
+                          color: AppColors.backgroundcolor,
                           myEdgeInsets:
                               EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                           primaryColor: AppColors.color1,

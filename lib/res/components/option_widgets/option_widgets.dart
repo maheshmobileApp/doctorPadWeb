@@ -67,6 +67,7 @@ class OptionWidgets extends StatelessWidget {
                     if (isAcceptTermsAndConditions) ...{
                       AppButton(
                           text: title ?? '+ Add Hospital',
+                          primaryColor: AppColors.backgroundcolor,
                           myEdgeInsets: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           borderRadius: BorderRadius.circular(3),
@@ -75,8 +76,10 @@ class OptionWidgets extends StatelessWidget {
                           })
                     },
                     SizedBox(
-                      height: 20,
-                      width: 20,
+                      // height: 20,
+                      // width: 20,
+                      height: MediaQuery.of(context).size.height/ 30,
+                      width: MediaQuery.of(context).size.width/ 30,
                     ),
                     SizedBox(
                         height: 20,
