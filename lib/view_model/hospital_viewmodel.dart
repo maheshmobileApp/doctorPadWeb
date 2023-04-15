@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/model/hospital_details/add_hospital.dart';
 import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/res/components/toast.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,8 @@ class GetAllHospitalViewModel with ChangeNotifier {
   }
 
   final _addHospitalRepository = HospitalRepository();
+  // AddHospital? addHospital;
+ 
   Future<void> addHospital(
     BuildContext context,
     String? createdBy,

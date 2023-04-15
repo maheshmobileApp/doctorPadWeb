@@ -76,20 +76,22 @@ class OptionWidgets extends StatelessWidget {
                           })
                     },
                     SizedBox(
-                      // height: 20,
-                      // width: 20,
-                      height: MediaQuery.of(context).size.height/ 30,
-                      width: MediaQuery.of(context).size.width/ 30,
+                      height: 20,
+                      width: 20,
+                     
                     ),
                     SizedBox(
-                        height: 20,
+                       height: 20,
                         width: 20,
+                    
                         child: Image.asset(
                           'assets/images/user2.png',
+                            height: MediaQuery.of(context).size.height/ 1,
                         )),
                     SizedBox(
                       height: 20,
                       width: 5,
+                  
                     ),
                     Text(
                       'User Name',

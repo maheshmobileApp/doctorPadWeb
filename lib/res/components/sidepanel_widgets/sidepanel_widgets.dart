@@ -13,11 +13,21 @@ class SidepanelWidgets extends StatelessWidget {
      Container(
         // height:  MediaQuery.of(context).size.height/0.1,
         // width:  MediaQuery.of(context).size.width/12,
+        // decoration: BoxDecoration(
+        //      gradient: LinearGradient(
+        //             begin: Alignment.topLeft,
+        //             end: Alignment.topRight,
+        //             colors: [
+        //           AppColors.backgroundcolori,
+        //           AppColors.backgroundcolor
+        //         ])
+        // ),
       width: 120,
       height: 1080,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.all(25),
       child: Column(
+           
         children: [
           LogoWidget(),
           Padding(padding:EdgeInsets.all(25),),
@@ -54,7 +64,16 @@ class SidepanelWidgets extends StatelessWidget {
           Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli'),),
         ],
       ),
-      color: AppColors.backgroundcolor
+     // color: AppColors.backgroundcolor
+        decoration: BoxDecoration(
+             gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.topRight,
+                    colors: [
+                  AppColors.color10,
+                  AppColors.backgroundcolor
+                ])
+        ),
        );
   }
 }
