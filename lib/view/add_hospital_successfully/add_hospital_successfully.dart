@@ -1,3 +1,4 @@
+import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -34,7 +35,7 @@ class AddHospitalSuccessfully extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   AppButton(text:'Back',color: Color(0xffFFFFFF),
                       myEdgeInsets: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
-                      primaryColor: Color(0xff1397DB),
+                      primaryColor: AppColors.backgroundcolori,
                       onPressed: () {
                         context.go(RoutesList.hospitalView);
                       }

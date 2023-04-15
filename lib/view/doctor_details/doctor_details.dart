@@ -38,7 +38,15 @@ class DoctorDetails extends StatelessWidget {
                  // width: 300,
                   padding: EdgeInsets.all(40),
                   decoration: BoxDecoration(
-                      color: AppColors.backgroundcolor,
+                     // color: AppColors.backgroundcolor,
+                     //color: AppColors.backgroundcolor,
+                        gradient: LinearGradient(
+                  begin: Alignment.center,
+                  end: Alignment.centerLeft,
+                  colors: [
+                  AppColors.color10,
+                  AppColors.backgroundcolor
+                ]),
                       borderRadius: BorderRadius.circular(16)),
                   // alignment: Alignment.topLeft,
                   child: SingleChildScrollView(

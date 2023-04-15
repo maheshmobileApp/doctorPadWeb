@@ -8,8 +8,7 @@ import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
-import '../../res/constants/routes_constants.dart';
-import '../../view_model/doctor_view_model.dart';
+
 import '../../view_model/hospital_viewmodel.dart';
 
 class HospitalDetails extends StatelessWidget {
@@ -26,7 +25,11 @@ class HospitalDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllHospitalViewModel>();
     return Scaffold(
-      body: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      body: viewModel.isLoading == true
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+      : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
         SidepanelWidgets(),
         Column(
           children: [
@@ -48,7 +51,14 @@ class HospitalDetails extends StatelessWidget {
                   // width: 400,
                   padding: EdgeInsets.all(40),
                   decoration: BoxDecoration(
-                      color: AppColors.backgroundcolor,
+                     //color: AppColors.backgroundcolor,
+                        gradient: LinearGradient(
+                  begin: Alignment.center,
+                  end: Alignment.centerLeft,
+                  colors: [
+                  AppColors.color10,
+                  AppColors.backgroundcolor
+                ]),
                       borderRadius: BorderRadius.circular(10)),
                   child: SingleChildScrollView(
                     child: Column(
@@ -146,6 +156,7 @@ class HospitalDetails extends StatelessWidget {
   // @override
   // void initState() {
   //   // TODO: implement initState
-  //   super.initState();
+  //   // super.initState();
+  //   // var context;
   //   context.read<GetAllDoctorViewModel>().getAllDoctor();
   // }
