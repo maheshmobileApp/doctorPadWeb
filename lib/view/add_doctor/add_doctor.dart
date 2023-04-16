@@ -61,15 +61,8 @@ class DoctorAddDetails extends StatelessWidget {
                       children: [
                         SearchTextfield(
                           controller: _nameOfTheDoctorController,
-                         //icon: Icons.person,
-                          prefixIcon: SvgPicture.asset('assets/icons/doctor.svg',
-                            height: 20.0,
-                            width: 20.0,
-                            allowDrawingOutsideViewBox: true,
-                           //  height: MediaQuery.of(context).size.height / 200,
-                           // width:
-                           //  fit: BoxFit.scaleDown,
-                          ),
+                         icon: Icons.person,
+
                           hintText: 'Name Of The Doctor',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -84,14 +77,8 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorRegistrationNumberController,
-                         // icon: Icons.contact_phone_outlined,
-                          prefixIcon: SvgPicture.asset('assets/icons/contact.svg',
-                            height: 20.0,
-                            width: 20.0,
-                            allowDrawingOutsideViewBox: true,
-                            // height: MediaQuery.of(context).size.height / 250,
-                            // width: 1,fit: BoxFit.scaleDown,
-                          ),
+                         icon: Icons.contact_phone_outlined,
+
                           hintText: 'Doctor Registration Number',
                           // validator: (value) {
                           //   if (value!.isEmpty) {
@@ -108,14 +95,8 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _mobileNumberController,
-                         // icon: Icons.call,
-                          prefixIcon: SvgPicture.asset('assets/icons/call.svg',
-                            // height:  MediaQuery.of(context).size.height / 350,
-                            // width: 1,fit: BoxFit.contain,
-                            height: 20.0,
-                            width: 20.0,
-                            allowDrawingOutsideViewBox: true,
-                          ),
+                         icon: Icons.call,
+
                           hintText: "Mobile Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -134,14 +115,8 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorSpecialityController,
-                          //icon: Icons.person,
-                          prefixIcon: SvgPicture.asset('assets/icons/doctor.svg',
-                            // height: MediaQuery.of(context).size.height / 250,
-                            // width: 1,fit: BoxFit.contain,
-                            height: 20.0,
-                            width: 20.0,
-                            allowDrawingOutsideViewBox: true,
-                          ),
+                          icon: Icons.person,
+
                           hintText: 'Doctor Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -156,14 +131,8 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _clinicSpecialityController,
-                        //  icon: Icons.home,
-                          prefixIcon: SvgPicture.asset('assets/icons/home.svg',
-                            // height:  MediaQuery.of(context).size.height / 250,
-                            // width:1 ,fit:BoxFit.contain ,
-                            height: 20.0,
-                            width: 20.0,
-                            allowDrawingOutsideViewBox: true,
-                          ),
+                          icon: Icons.local_hospital,
+
                           hintText: 'Clinic Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -178,14 +147,14 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _emailIdController,
-                          //icon: Icons.email,
-                          prefixIcon: SvgPicture.asset('assets/icons/message.svg',
+                          icon: Icons.email,
+                         // prefixIcon: SvgPicture.asset('assets/icons/message.svg',
                             // height:  MediaQuery.of(context).size.height / 250,
-                            // width: 1,fit: BoxFit.contain,
-                            height: 20.0,
-                            width: 20.0,
-                            allowDrawingOutsideViewBox: true,
-                          ),
+                          //   // width: 1,fit: BoxFit.contain,
+                          //   height: 20.0,
+                          //   width: 20.0,
+                          //   allowDrawingOutsideViewBox: true,
+                          // ),
                           hintText: 'Email id',
                           validator: (value) {
                             print(value);
