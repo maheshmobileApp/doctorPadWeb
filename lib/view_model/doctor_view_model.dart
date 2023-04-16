@@ -1,4 +1,3 @@
-
 import 'package:cgg_base_project/repository/doctor_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,13 +24,12 @@ class GetAllDoctorViewModel with ChangeNotifier {
   }
 
   final _addDoctorRepository = AddDoctorRepository();
-  Future<void> addDoctor(
-      BuildContext context,
-      String? createdBy,
+  Future<void> addDoctor(BuildContext context,
+      {String? createdBy,
       String? doctorRegistrationNumber,
       String? emailId,
       String? mobileNo,
-      String? name) async {
+      String? name}) async {
     final result = await _addDoctorRepository.addDoctor(AddDoctorEntity(
       createdBy: createdBy,
       doctorRegistrationNumber: doctorRegistrationNumber,
@@ -48,7 +46,8 @@ class GetAllDoctorViewModel with ChangeNotifier {
     }
     notifyListeners();
   }
-   final _doctorSpecialitesRepository = AddDoctorRepository();
+
+  final _doctorSpecialitesRepository = AddDoctorRepository();
   DoctorSpecialites? hospitals;
   bool isLoad = true;
 
@@ -58,5 +57,4 @@ class GetAllDoctorViewModel with ChangeNotifier {
     isLoad = false;
     notifyListeners();
   }
-
 }

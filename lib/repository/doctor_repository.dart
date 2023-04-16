@@ -7,10 +7,10 @@ import '../model/doctor_model.dart/doctor_specialites.dart';
 
 class AddDoctorRepository {
   final _baseClient = BaseApiClient();
-  Future<AddDoctor> addDoctor(AddDoctorEntity addDoctorEntity) async {
+  Future<AddDoctorResponse> addDoctor(AddDoctorEntity addDoctorEntity) async {
     final respnse = await _baseClient.postCall('api/v1/doctors',
         payload: addDoctorEntity.toJson());
-    return AddDoctor.fromJson(respnse);
+    return AddDoctorResponse.fromJson(respnse);
   }
 
   Future<GetAllDoctor> getAllDoctor() async {

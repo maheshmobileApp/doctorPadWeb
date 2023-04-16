@@ -70,7 +70,9 @@ class DoctorAddDetails extends StatelessWidget {
                           keyboardType: TextInputType.name,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           controller: _doctorRegistrationNumberController,
                           icon: Icons.contact_phone_outlined,
@@ -85,7 +87,9 @@ class DoctorAddDetails extends StatelessWidget {
                           keyboardType: TextInputType.number,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           controller: _mobileNumberController,
                           icon: Icons.call,
@@ -102,7 +106,9 @@ class DoctorAddDetails extends StatelessWidget {
                         // Padding(
                         //   padding: EdgeInsets.all(8),
                         // ),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           controller: _doctorSpecialityController,
                           icon: Icons.person,
@@ -115,7 +121,9 @@ class DoctorAddDetails extends StatelessWidget {
                           keyboardType: TextInputType.text,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           controller: _clinicSpecialityController,
                           icon: Icons.home,
@@ -128,7 +136,9 @@ class DoctorAddDetails extends StatelessWidget {
                           keyboardType: TextInputType.text,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           controller: _emailIdController,
                           icon: Icons.email,
@@ -146,7 +156,9 @@ class DoctorAddDetails extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         AppButton(
                             text: 'BULK UPLOAD',
                             color: Color(0xff11193C),
@@ -157,8 +169,10 @@ class DoctorAddDetails extends StatelessWidget {
                               // context.go(RoutesList.hospitalDetails);
                             }),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
-                         AppButton(
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
+                        AppButton(
                             text: 'ADD DOCTOR',
                             color: AppColors.backgroundcolori,
                             myEdgeInsets: EdgeInsets.symmetric(
@@ -166,15 +180,15 @@ class DoctorAddDetails extends StatelessWidget {
                             primaryColor: AppColors.color1,
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                viewModel.addDoctor(
-                                  context,
-                                  _nameOfTheDoctorController.text,
-                                  _doctorRegistrationNumberController.text,
-                                  _emailIdController.text,
-                                  '',
-                                  _mobileNumberController.text,
-                                );
-                              //  context.go(RoutesList.addDoctorSuccessfully);
+                                viewModel.addDoctor(context,
+                                    createdBy: "test",
+                                    emailId: _emailIdController.text,
+                                    mobileNo: _mobileNumberController.text,
+                                    name: _nameOfTheDoctorController.text,
+                                    doctorRegistrationNumber:
+                                        _doctorRegistrationNumberController
+                                            .text);
+                                //  context.go(RoutesList.addDoctorSuccessfully);
                               }
                             }),
                       ],
