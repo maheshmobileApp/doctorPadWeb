@@ -66,7 +66,14 @@ class HospitalDetails extends StatelessWidget {
                       children: [
                         SearchTextfield(
                           controller: _nameOfTheHospitalController,
-                          icon: Icons.home,
+                         // icon: Icons.home,
+                          prefixIcon: SvgPicture.asset('assets/icons/home.svg',
+                            // height:  MediaQuery.of(context).size.height / 250,
+                            // width: 1,fit: BoxFit.contain,
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: 'Name Of The Hospital',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -79,7 +86,14 @@ class HospitalDetails extends StatelessWidget {
                        SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _addressController,
-                          icon: Icons.contact_phone_outlined,
+                          //icon: Icons.contact_phone_outlined,
+                          prefixIcon: SvgPicture.asset('assets/icons/contact.svg',
+                            // height:  MediaQuery.of(context).size.height / 250,
+                            // width: 1,fit: BoxFit.contain,
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: 'Address',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -92,7 +106,12 @@ class HospitalDetails extends StatelessWidget {
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _contactNumberController,
-                          icon: Icons.call,
+                         // icon: Icons.call,
+                          prefixIcon: SvgPicture.asset('assets/icons/call.svg',
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: "Contact number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -107,7 +126,12 @@ class HospitalDetails extends StatelessWidget {
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _emailIdController,
-                          icon: Icons.email,
+                          //icon: Icons.email,
+                           prefixIcon: SvgPicture.asset('assets/icons/message.svg',
+                             height: 20.0,
+                             width: 20.0,
+                             allowDrawingOutsideViewBox: true,
+                           ),
                           hintText: 'Email id',
                           validator: (value) {
                             print(value);

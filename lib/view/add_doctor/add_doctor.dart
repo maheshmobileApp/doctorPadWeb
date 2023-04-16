@@ -1,5 +1,6 @@
 import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
@@ -60,7 +61,15 @@ class DoctorAddDetails extends StatelessWidget {
                       children: [
                         SearchTextfield(
                           controller: _nameOfTheDoctorController,
-                          icon: Icons.person,
+                         //icon: Icons.person,
+                          prefixIcon: SvgPicture.asset('assets/icons/doctor.svg',
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                           //  height: MediaQuery.of(context).size.height / 200,
+                           // width:
+                           //  fit: BoxFit.scaleDown,
+                          ),
                           hintText: 'Name Of The Doctor',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -75,15 +84,22 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorRegistrationNumberController,
-                          icon: Icons.contact_phone_outlined,
+                         // icon: Icons.contact_phone_outlined,
+                          prefixIcon: SvgPicture.asset('assets/icons/contact.svg',
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                            // height: MediaQuery.of(context).size.height / 250,
+                            // width: 1,fit: BoxFit.scaleDown,
+                          ),
                           hintText: 'Doctor Registration Number',
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Doctor Registration Number';
-                            } else if (!phonenovalid(value)) {
-                              return 'Enter Valid Doctor Registration Number';
-                            }
-                          },
+                          // validator: (value) {
+                          //   if (value!.isEmpty) {
+                          //     return 'Enter Doctor Registration Number';
+                          //   } else if (!phonenovalid(value)) {
+                          //     return 'Enter Valid Doctor Registration Number';
+                          //   }
+                          // },
                           keyboardType: TextInputType.number,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
@@ -92,7 +108,14 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _mobileNumberController,
-                          icon: Icons.call,
+                         // icon: Icons.call,
+                          prefixIcon: SvgPicture.asset('assets/icons/call.svg',
+                            // height:  MediaQuery.of(context).size.height / 350,
+                            // width: 1,fit: BoxFit.contain,
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: "Mobile Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -111,7 +134,14 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorSpecialityController,
-                          icon: Icons.person,
+                          //icon: Icons.person,
+                          prefixIcon: SvgPicture.asset('assets/icons/doctor.svg',
+                            // height: MediaQuery.of(context).size.height / 250,
+                            // width: 1,fit: BoxFit.contain,
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: 'Doctor Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -126,7 +156,14 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _clinicSpecialityController,
-                          icon: Icons.home,
+                        //  icon: Icons.home,
+                          prefixIcon: SvgPicture.asset('assets/icons/home.svg',
+                            // height:  MediaQuery.of(context).size.height / 250,
+                            // width:1 ,fit:BoxFit.contain ,
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: 'Clinic Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -141,7 +178,14 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _emailIdController,
-                          icon: Icons.email,
+                          //icon: Icons.email,
+                          prefixIcon: SvgPicture.asset('assets/icons/message.svg',
+                            // height:  MediaQuery.of(context).size.height / 250,
+                            // width: 1,fit: BoxFit.contain,
+                            height: 20.0,
+                            width: 20.0,
+                            allowDrawingOutsideViewBox: true,
+                          ),
                           hintText: 'Email id',
                           validator: (value) {
                             print(value);

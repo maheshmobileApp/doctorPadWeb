@@ -51,14 +51,16 @@ class SearchTextfield extends StatelessWidget {
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          prefixIcon:   Padding(
-            padding: EdgeInsets.only(top: 15), // add padding to adjust icon
-           child: Icon(
-              icon ?? Icons.home,
-              color: color ?? Colors.white,
-              
-            ),
-          ),
+         prefixIcon: prefixIcon,
+         //SvgPicture.asset('assets/icons/home.svg'),
+          // prefixIcon:   Padding(
+          //   padding: EdgeInsets.only(top: 15), // add padding to adjust icon
+          //  child: Icon(
+          //     icon ?? Icons.home,
+          //     color: color ?? Colors.white,
+          //
+          //   ),
+          // ),
         ),
         keyboardType: keyboardType,
         maxLength: maxlength,
