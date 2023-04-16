@@ -9,6 +9,7 @@ import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 
+import '../../res/constants/routes_constants.dart';
 import '../../view_model/hospital_viewmodel.dart';
 
 class HospitalDetails extends StatelessWidget {
@@ -132,12 +133,12 @@ class HospitalDetails extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 viewModel.addHospital(
                                   context,
-                                  _nameOfTheHospitalController.text,
-                                  _addressController.text,
-                                  _contactNumberController.text,
-                                  _emailIdController.text,
+                                  createdBy: "text",
+                                  email: _emailIdController.text,
+                                  name: _nameOfTheHospitalController.text,
+                                  phone: _contactNumberController.text,
                                 );
-                                //context.go(RoutesList.addHospitalSuccessfully);
+                               // context.go(RoutesList.addHospitalSuccessfully);
                               }
                             }),
                       ],

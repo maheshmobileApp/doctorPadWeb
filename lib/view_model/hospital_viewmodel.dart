@@ -26,10 +26,10 @@ class GetAllHospitalViewModel with ChangeNotifier {
  
   Future<void> addHospital(
     BuildContext context,
-    String? createdBy,
+  { String? createdBy,
     String? email,
     String? name,
-    String? phone,
+    String? phone,}
   ) async {
     final result = await _addHospitalRepository.addHospital(AddHospitalEntity(
       createdBy: createdBy,

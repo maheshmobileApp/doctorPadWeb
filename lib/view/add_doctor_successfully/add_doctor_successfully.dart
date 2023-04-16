@@ -36,7 +36,7 @@ class AddDoctorSuccessfully extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   AppButton(text:'Back',color:  AppColors.color1,
                       myEdgeInsets: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
-                      primaryColor:  AppColors.backgroundcolori,
+                      primaryColor:  AppColors.color10,
                       onPressed: () {
                         context.go(RoutesList.doctorWebView);
                       }
