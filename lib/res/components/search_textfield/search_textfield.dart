@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../app_colors.dart';
+
 class SearchTextfield extends StatelessWidget {
   final IconData? icon;
   final String? hintText;
@@ -10,7 +12,11 @@ class SearchTextfield extends StatelessWidget {
   final Color? color;
   final Image? image;
   final FontStyle? fontStyle;
-  const SearchTextfield({Key? key,
+  final dynamic? SvgPicture;
+  final int? maxlength;
+  final TextEditingController? controller;
+  SearchTextfield({
+    Key? key,
     this.icon,
     this.hintText,
     this.prefixIcon,
@@ -18,17 +24,20 @@ class SearchTextfield extends StatelessWidget {
     this.validator,
     this.color,
     this.image,
-    this.fontStyle
+    this.SvgPicture,
+    this.maxlength,
+    this.controller,
+    this.fontStyle,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        cursorHeight:20,
+      controller:  controller,
+        cursorHeight: 20,
         cursorRadius: Radius.zero,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
-          border: InputBorder.none,
           contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           hintText: hintText,
           hintStyle: TextStyle(
@@ -37,18 +46,23 @@ class SearchTextfield extends StatelessWidget {
             color: AppColors.color1,
           ),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
+            borderSide: BorderSide(color: Colors.white),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          prefixIcon: Padding(
+        // prefixIcon: prefixIcon,
+          prefixIcon:   Padding(
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
-            child: Icon(icon??Icons.help_outline,color:color?? Colors.white,),
+           child: Icon(
+              icon ?? Icons.home,
+              color: color ?? Colors.white,
+
+            ),
           ),
         ),
         keyboardType: keyboardType,
-        validator: validator
-    );
+        maxLength: maxlength,
+        validator: validator);
   }
 }

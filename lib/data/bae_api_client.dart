@@ -10,8 +10,8 @@ class ApiErrorCodes {
 class BaseApiClient {
   late final Dio _client = Dio(
     BaseOptions(
-        baseUrl: ApiConstants.baseUrlPQMS,
-        headers: {'clientId': ApiConstants.clientID}),
+      baseUrl: ApiConstants.baseUrlPQMS,
+    ),
   );
 
   Future<dynamic> getCall(String url,
@@ -58,7 +58,6 @@ class BaseApiClient {
   }
 
   //login->passing the email and password to viewmodel, viewmodel call the repository - > base client
-
 }
 
 

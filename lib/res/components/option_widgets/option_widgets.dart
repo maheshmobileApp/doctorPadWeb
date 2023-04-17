@@ -22,9 +22,11 @@ class OptionWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 75,
-      width: MediaQuery.of(context).size.width - 120,
+     return Container(
+    //     height:  MediaQuery.of(context).size.height/20,
+    //       width:  MediaQuery.of(context).size.width/4,
+     height: 75,
+     width: MediaQuery.of(context).size.width - 120,
       alignment: Alignment.center,
       color: AppColors.color9,
       padding: EdgeInsets.only(left: 25, right: 25),
@@ -65,6 +67,7 @@ class OptionWidgets extends StatelessWidget {
                     if (isAcceptTermsAndConditions) ...{
                       AppButton(
                           text: title ?? '+ Add Hospital',
+                          primaryColor: AppColors.backgroundcolor,
                           myEdgeInsets: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           borderRadius: BorderRadius.circular(3),
@@ -75,16 +78,20 @@ class OptionWidgets extends StatelessWidget {
                     SizedBox(
                       height: 20,
                       width: 20,
+                     
                     ),
                     SizedBox(
-                        height: 20,
+                       height: 20,
                         width: 20,
+                    
                         child: Image.asset(
-                          'assets/user2.png',
+                          'assets/images/user2.png',
+                            height: MediaQuery.of(context).size.height/ 1,
                         )),
                     SizedBox(
                       height: 20,
                       width: 5,
+                  
                     ),
                     Text(
                       'User Name',

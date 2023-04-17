@@ -9,12 +9,25 @@ class SidepanelWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    Container(
+    return   
+     Container(
+        // height:  MediaQuery.of(context).size.height/0.1,
+        // width:  MediaQuery.of(context).size.width/12,
+        // decoration: BoxDecoration(
+        //      gradient: LinearGradient(
+        //             begin: Alignment.topLeft,
+        //             end: Alignment.topRight,
+        //             colors: [
+        //           AppColors.backgroundcolori,
+        //           AppColors.backgroundcolor
+        //         ])
+        // ),
       width: 120,
       height: 1080,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.all(25),
       child: Column(
+           
         children: [
           LogoWidget(),
           Padding(padding:EdgeInsets.all(25),),
@@ -24,7 +37,7 @@ class SidepanelWidgets extends StatelessWidget {
             ),
             onTap: () => context.go(RoutesList.hospitalView),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: MediaQuery.of(context).size.height/ 100),
           Text(
             'View Hospitals',
             textDirection: TextDirection.ltr,
@@ -33,25 +46,34 @@ class SidepanelWidgets extends StatelessWidget {
           SizedBox(height: 30,width: 20,),
           GestureDetector(
             child: Image.asset(
-              'assets/view_doctor.png',
+              'assets/images/view_doctor.png',
             ),
             onTap: () => context.go(RoutesList.doctorWebView),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: MediaQuery.of(context).size.height/ 100),
           Text(
             'View Doctor',
             textDirection: TextDirection.ltr,
             style: TextStyle(color: AppColors.color1,fontSize: 10 ,fontFamily: 'Muli'),
           ),
-          SizedBox(height: 180,),
+          SizedBox(height: MediaQuery.of(context).size.height/ 4),
           InkWell(
               onTap: () => context.go(RoutesList.loginWebView),
               child: Icon(Icons.logout_outlined, color:AppColors.color1, size: 40,)),
-          SizedBox(height: 10,),
+          SizedBox(height: MediaQuery.of(context).size.height/ 50),
           Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli'),),
         ],
       ),
-      color: AppColors.backgroundcolori
-    );
+     // color: AppColors.backgroundcolor
+        decoration: BoxDecoration(
+             gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.topRight,
+                    colors: [
+                  AppColors.color10,
+                  AppColors.backgroundcolor
+                ])
+        ),
+       );
   }
 }

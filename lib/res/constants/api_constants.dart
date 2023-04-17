@@ -1,6 +1,7 @@
 class ApiConstants {
   ApiConstants._();
-  static const String baseUrlPQMS = "https://pqms-uat.cgg.gov.in/pqms/";
+  static const String baseUrlPQMS = "https://doctopad-a2d-dev.el.r.appspot.com/";
+ // static const String baseUrlPWER = "http://doctopad-a2d-dev.el.r.appspot.com/";
   static const String clientID = "Client123Cgg";
   static const String endPoint_MobileLogin = "mobileLogin";
   static const String endPoint_ImportList = "getIROList";

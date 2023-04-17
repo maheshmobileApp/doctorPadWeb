@@ -1,6 +1,8 @@
 import 'package:cgg_base_project/res/constants/go_router.dart';
 import 'package:cgg_base_project/view/login/login_web_view.dart';
 import 'package:cgg_base_project/view/login_view.dart';
+import 'package:cgg_base_project/view_model/doctor_view_model.dart';
+import 'package:cgg_base_project/view_model/hospital_viewmodel.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -10,6 +12,7 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 import 'view/doctor_web_details/doctor_web_details.dart';
+import 'view/add_doctor/add_doctor.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
@@ -35,6 +38,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
+        ChangeNotifierProvider(create: (_) => GetAllDoctorViewModel()),
+        ChangeNotifierProvider(create: (_) => GetAllHospitalViewModel()),
       ],
       child: MaterialApp.router(
         title: 'DRPad',
