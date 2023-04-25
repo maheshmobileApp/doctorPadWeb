@@ -11,7 +11,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
-import 'view/doctor_web_details/doctor_web_details.dart';
+// import 'view/doctor_web_details/doctor_web_details.dart';
 import 'view/add_doctor/add_doctor.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
