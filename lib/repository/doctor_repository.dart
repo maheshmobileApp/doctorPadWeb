@@ -48,3 +48,7 @@ class AddDoctorRepository {
 //     return AddDoctorSpecialites.fromJson(respnse);
 //   }
 }
+/*
+Firebase issue
+https://stackoverflow.com/questions/37369778/firebase-login-using-power-shell
+ */
