@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
+import '../../res/components/icon.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -66,8 +67,7 @@ class HospitalDetails extends StatelessWidget {
                       children: [
                         SearchTextfield(
                           controller: _nameOfTheHospitalController,
-                         icon: Icons.local_hospital,
-
+                         icon: MyFlutterApp.home,
                           hintText: 'Name Of The Hospital',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -80,8 +80,7 @@ class HospitalDetails extends StatelessWidget {
                        SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _addressController,
-                          icon: Icons.contact_phone_outlined,
-
+                          icon: MyFlutterApp.contact,
                           hintText: 'Address',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -94,8 +93,7 @@ class HospitalDetails extends StatelessWidget {
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _contactNumberController,
-                          icon: Icons.call,
-
+                          icon: MyFlutterApp.call,
                           hintText: "Contact number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -110,7 +108,7 @@ class HospitalDetails extends StatelessWidget {
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
                           controller: _emailIdController,
-                          icon: Icons.email,
+                          icon: MyFlutterApp.message,
 
                           hintText: 'Email id',
                           validator: (value) {

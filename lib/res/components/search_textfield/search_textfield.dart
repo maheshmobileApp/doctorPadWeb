@@ -1,9 +1,7 @@
+import 'package:cgg_base_project/res/components/icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../app_colors.dart';
-
 class SearchTextfield extends StatelessWidget {
   final IconData? icon;
   final String? hintText;
@@ -31,6 +29,7 @@ class SearchTextfield extends StatelessWidget {
     this.controller,
     this.fontStyle, 
     this.inputFormatters,
+     
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -59,7 +58,7 @@ class SearchTextfield extends StatelessWidget {
           prefixIcon:   Padding(
             padding: EdgeInsets.only(top: 15), // add padding to adjust icon
            child: Icon(
-              icon ?? Icons.home,
+              icon ?? MyFlutterApp.call,
               color: color ?? Colors.white,
 
             ),

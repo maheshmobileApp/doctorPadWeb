@@ -1,9 +1,9 @@
   import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
+import '../../res/components/icon.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -14,18 +14,12 @@ class DoctorAddDetails extends StatelessWidget {
   DoctorAddDetails({Key? key}) : super(key: key);
 
   TextEditingController _nameOfTheDoctorController = TextEditingController();
-
   TextEditingController _doctorRegistrationNumberController =
       TextEditingController();
-
   TextEditingController _mobileNumberController = TextEditingController();
-
   TextEditingController _doctorSpecialityController = TextEditingController();
-
   TextEditingController _clinicSpecialityController = TextEditingController();
-
   TextEditingController _emailIdController = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -61,8 +55,7 @@ class DoctorAddDetails extends StatelessWidget {
                       children: [
                         SearchTextfield(
                           controller: _nameOfTheDoctorController,
-                         icon: Icons.person,
-
+                         icon: MyFlutterApp.doctor,
                           hintText: 'Name Of The Doctor',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -77,8 +70,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorRegistrationNumberController,
-                         icon: Icons.contact_phone_outlined,
-
+                         icon: MyFlutterApp.contact,
                           hintText: 'Doctor Registration Number',
                           // validator: (value) {
                           //   if (value!.isEmpty) {
@@ -95,7 +87,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _mobileNumberController,
-                         icon: Icons.call,
+                         icon:MyFlutterApp.call,
                           hintText: "Mobile Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -114,7 +106,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorSpecialityController,
-                          icon: Icons.person,
+                          icon: MyFlutterApp.doctor,
                           hintText: 'Doctor Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -129,7 +121,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _clinicSpecialityController,
-                          icon: Icons.local_hospital,
+                          icon:MyFlutterApp.home,
                           hintText: 'Clinic Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -144,14 +136,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _emailIdController,
-                          icon: Icons.email,
-                         // prefixIcon: SvgPicture.asset('assets/icons/message.svg',
-                            // height:  MediaQuery.of(context).size.height / 250,
-                          //   // width: 1,fit: BoxFit.contain,
-                          //   height: 20.0,
-                          //   width: 20.0,
-                          //   allowDrawingOutsideViewBox: true,
-                          // ),
+                          icon: MyFlutterApp.message,
                           hintText: 'Email id',
                           validator: (value) {
                             print(value);
