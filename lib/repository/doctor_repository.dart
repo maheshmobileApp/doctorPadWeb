@@ -1,5 +1,6 @@
 import 'package:cgg_base_project/model/entity/doctor_entity.dart/add_doctor_entity.dart';
 import 'package:cgg_base_project/model/get_all_doctor.dart';
+import 'package:dio/dio.dart';
 
 import '../data/bae_api_client.dart';
 import '../model/add_doctor_res.dart';
@@ -15,6 +16,16 @@ class AddDoctorRepository {
 
   Future<GetAllDoctor> getAllDoctor() async {
     final respnse = await _baseClient.getCall('api/v1/doctors');
+    final response = await Dio().get(
+        "https://api.sportsdata.io/v3/nfl/scores/json/Rookies/2022?key=2e3a5a52b7c047359ebb58c8b6c7590f");
+    print("response $response");
+
+    //https://api.sportsdata.io/v3/nfl/scores/json/Rookies/2022?key=2e3a5a52b7c047359ebb58c8b6c7590f
+    //    late final Dio _client = Dio(
+    //   BaseOptions(
+    //     baseUrl: ApiConstants.baseUrlPQMS,
+    //   ),
+    // );
     return GetAllDoctor.fromJson(respnse);
   }
 
@@ -37,3 +48,7 @@ class AddDoctorRepository {
 //     return AddDoctorSpecialites.fromJson(respnse);
 //   }
 }
+/*
+Firebase issue
+https://stackoverflow.com/questions/37369778/firebase-login-using-power-shell
+ */
