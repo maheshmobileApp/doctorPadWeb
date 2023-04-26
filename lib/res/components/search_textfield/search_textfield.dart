@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../app_colors.dart';
@@ -15,6 +16,7 @@ class SearchTextfield extends StatelessWidget {
   final dynamic? SvgPicture;
   final int? maxlength;
   final TextEditingController? controller;
+    final List<TextInputFormatter>? inputFormatters;
   SearchTextfield({
     Key? key,
     this.icon,
@@ -27,12 +29,14 @@ class SearchTextfield extends StatelessWidget {
     this.SvgPicture,
     this.maxlength,
     this.controller,
-    this.fontStyle,
+    this.fontStyle, 
+    this.inputFormatters,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller:  controller,
+        inputFormatters: inputFormatters,
         cursorHeight: 20,
         cursorRadius: Radius.zero,
         autovalidateMode: AutovalidateMode.onUserInteraction,

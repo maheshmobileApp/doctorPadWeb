@@ -30,7 +30,7 @@ class LoginWebView extends StatelessWidget {
                     end: Alignment.centerLeft,
                     colors: [
                   AppColors.app_bg_color,
-                  AppColors.backgroundcolori
+                  AppColors.color12
                 ])),
             child: Center(
               child: SingleChildScrollView(
@@ -97,7 +97,7 @@ class LoginWebView extends StatelessWidget {
                           child: Text(
                             'Forgot Password?',
                             style: TextStyle(
-                              color: AppColors.backgroundcolori,
+                              color: AppColors.color10,
                             ),
                           ),
                         ),

@@ -33,7 +33,7 @@ class LoginTextFeild extends StatelessWidget {
               ),
               CircleAvatar(
                 radius: 20,
-                backgroundColor: AppColors.backgroundcolori,
+                backgroundColor: AppColors.color12,
                 child: Icon(icon ?? Icons.person, color: AppColors.color1),
               ),
             ],

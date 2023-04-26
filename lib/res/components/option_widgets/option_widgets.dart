@@ -81,12 +81,16 @@ class OptionWidgets extends StatelessWidget {
                      
                     ),
                     SizedBox(
+                      // height: MediaQuery.of(context).size.height/ 1,
                        height: 20,
                         width: 20,
                     
                         child: Image.asset(
                           'assets/images/user2.png',
-                            height: MediaQuery.of(context).size.height/ 1,
+                            height: MediaQuery.of(context).size.height/ 2,
+                             width: MediaQuery.of(context).size.width/ 10,
+                            
+
                         )),
                     SizedBox(
                       height: 20,

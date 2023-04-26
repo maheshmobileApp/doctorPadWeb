@@ -18,10 +18,10 @@ class AddDoctorRepository {
     return GetAllDoctor.fromJson(respnse);
   }
 
-  Future<DoctorSpecialites> doctorSpecialites() async {
+  Future<DoctorSpecialitiesRes >doctorSpecialitiesRes () async {
     final respnse = await _baseClient.getCall(
-        'http://doctopad-a2d-dev.el.r.appspot.com/api/v1/doctor_specialities');
-    return DoctorSpecialites.fromJson(respnse);
+        'api/v1/doctor_specialities');
+    return DoctorSpecialitiesRes .fromJson(respnse);
   }
   // Future<GetDoctorSpecialites> getDoctorSpecialites() async {
   //   final respnse = await _baseClient.getCall(

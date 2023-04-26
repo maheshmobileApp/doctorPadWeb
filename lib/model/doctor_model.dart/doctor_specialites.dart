@@ -1,12 +1,13 @@
-class DoctorSpecialites {
+class DoctorSpecialitiesRes {
   String? message;
   int? status;
   String? mediaBasePath;
   List<Body>? body;
 
-  DoctorSpecialites({this.message, this.status, this.mediaBasePath, this.body});
+  DoctorSpecialitiesRes(
+      {this.message, this.status, this.mediaBasePath, this.body});
 
-  DoctorSpecialites.fromJson(Map<String, dynamic> json) {
+  DoctorSpecialitiesRes.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     status = json['status'];
     mediaBasePath = json['media_base_path'];
@@ -41,12 +42,12 @@ class Body {
 
   Body(
       {this.id,
-      this.isActive,
-      this.createdDateTime,
-      this.modifiedDateTime,
-      this.modifiedBy,
-      this.createdBy,
-      this.specialityName});
+        this.isActive,
+        this.createdDateTime,
+        this.modifiedDateTime,
+        this.modifiedBy,
+        this.createdBy,
+        this.specialityName});
 
   Body.fromJson(Map<String, dynamic> json) {
     id = json['id'];

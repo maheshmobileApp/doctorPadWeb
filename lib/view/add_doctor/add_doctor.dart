@@ -1,4 +1,4 @@
-import 'package:cgg_base_project/utils/regex.dart';
+  import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -96,7 +96,6 @@ class DoctorAddDetails extends StatelessWidget {
                         SearchTextfield(
                           controller: _mobileNumberController,
                          icon: Icons.call,
-
                           hintText: "Mobile Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -116,7 +115,6 @@ class DoctorAddDetails extends StatelessWidget {
                         SearchTextfield(
                           controller: _doctorSpecialityController,
                           icon: Icons.person,
-
                           hintText: 'Doctor Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -132,7 +130,6 @@ class DoctorAddDetails extends StatelessWidget {
                         SearchTextfield(
                           controller: _clinicSpecialityController,
                           icon: Icons.local_hospital,
-
                           hintText: 'Clinic Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {

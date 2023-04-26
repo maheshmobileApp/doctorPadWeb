@@ -47,14 +47,14 @@ class GetAllDoctorViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  final _doctorSpecialitesRepository = AddDoctorRepository();
-  DoctorSpecialites? hospitals;
-  bool isLoad = true;
+  // final _doctorSpecialitesRepository = AddDoctorRepository();
+  // DoctorSpecialitiesRes? hospitals;
+  // bool isLoad = true;
 
-  Future<void> getAllHospitals() async {
-    final result = await _doctorSpecialitesRepository.doctorSpecialites();
-    hospitals = result;
-    isLoad = false;
-    notifyListeners();
-  }
+  // Future<void> getAllHospitals() async {
+  //   final result = await _doctorSpecialitesRepository.doctorSpecialitiesRes();
+  //   hospitals = result;
+  //   isLoad = false;
+  //   notifyListeners();
+  // }
 }

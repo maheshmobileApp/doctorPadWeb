@@ -20,7 +20,7 @@ class AppButton extends StatelessWidget {
       padding: myEdgeInsets ?? EdgeInsets.symmetric(horizontal: 100,vertical: 20),
         shape: RoundedRectangleBorder(
           borderRadius:borderRadius?? BorderRadius.circular(50),
-        ), primary:primaryColor?? AppColors.backgroundcolori),
+        ), primary:primaryColor?? AppColors.color12),
       child:Text(text,style:TextStyle( fontSize: 12 ,fontFamily:'Muli',color:color?? AppColors.color1) ,)
     );
   }

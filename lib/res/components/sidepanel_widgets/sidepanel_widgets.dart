@@ -31,7 +31,14 @@ class SidepanelWidgets extends StatelessWidget {
         children: [
           LogoWidget(),
           Padding(padding:EdgeInsets.all(25),),
-          GestureDetector(
+         // Container(
+                // height:75,
+                // width: 1200,
+                // color:Colors.red,
+                // child: Column(
+      
+          //children:[ 
+            GestureDetector(
             child: Image.asset(
               'assets/icons/home.png',
             ),
@@ -43,12 +50,17 @@ class SidepanelWidgets extends StatelessWidget {
             textDirection: TextDirection.ltr,
             style: TextStyle(color: AppColors.color1,fontSize: 10,fontFamily: 'Muli'),
           ),
+        //  ]
+         // )
+          //),
           SizedBox(height: 30,width: 20,),
           GestureDetector(
             child: Image.asset(
               'assets/images/view_doctor.png',
             ),
-            onTap: () => context.go(RoutesList.doctorWebView),
+            onTap: (
+            
+            ) => context.go(RoutesList.doctorWebView),
           ),
           SizedBox(height: MediaQuery.of(context).size.height/ 100),
           Text(
