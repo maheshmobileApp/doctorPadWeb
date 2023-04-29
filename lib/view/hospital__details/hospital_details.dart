@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
+import '../../res/components/icon.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/constants/routes_constants.dart';
@@ -23,7 +24,7 @@ class HospitalWebDetails extends StatelessWidget {
             OptionWidgets(
               isAcceptTermsAndConditions: false,
               onTap: () {},
-              text: 'Add Hospitals',
+              text: ' Hospitals details',
             ),
             SizedBox(
               height: 20,
@@ -51,7 +52,7 @@ class HospitalWebDetails extends StatelessWidget {
                   child: Column(
                     children: [
                       SearchTextfield(
-                        icon: Icons.home,
+                        icon:MyFlutterApp.home,
                         hintText: 'Name Of The Hospital',
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -63,7 +64,7 @@ class HospitalWebDetails extends StatelessWidget {
                       // Padding(padding: EdgeInsets.all(20)),
                        SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       SearchTextfield(
-                        icon: Icons.contact_phone_outlined,
+                        icon:MyFlutterApp.contact,
                         hintText: 'Address',
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -75,7 +76,7 @@ class HospitalWebDetails extends StatelessWidget {
                       // Padding(padding: EdgeInsets.all(20)),
                        SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       SearchTextfield(
-                          icon: Icons.call,
+                          icon:MyFlutterApp.call,
                           hintText: "Contact Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -90,7 +91,7 @@ class HospitalWebDetails extends StatelessWidget {
                       // Padding(padding: EdgeInsets.all(20)),
                        SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                       SearchTextfield(
-                        icon: Icons.email,
+                        icon:MyFlutterApp.message,
                         hintText: 'Email id',
                          validator: (value){
                           print(value);

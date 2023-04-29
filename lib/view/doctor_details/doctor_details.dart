@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
+import '../../res/components/icon.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
@@ -53,7 +54,7 @@ class DoctorDetails extends StatelessWidget {
                     child: Column(
                       children: [
                         SearchTextfield(
-                          icon: Icons.person,
+                          icon: MyFlutterApp.doctor,
                           hintText: 'Name Of The Doctor',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -65,7 +66,7 @@ class DoctorDetails extends StatelessWidget {
                         // Padding(padding: EdgeInsets.all(8)),
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
-                          icon: Icons.contact_phone_outlined,
+                          icon:MyFlutterApp.contact,
                           hintText: 'Doctor Registration Number',
                            validator: (value) {
                           if (value!.isEmpty) {
@@ -79,7 +80,7 @@ class DoctorDetails extends StatelessWidget {
                         // Padding(padding: EdgeInsets.all(8)),
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
-                          icon: Icons.call,
+                          icon: MyFlutterApp.call,
                           hintText: "Mobile Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -93,7 +94,7 @@ class DoctorDetails extends StatelessWidget {
                         // Padding(padding: EdgeInsets.all(8)),
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
-                          icon: Icons.person,
+                          icon: MyFlutterApp.doctor,
                           hintText: 'Doctor Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -105,7 +106,7 @@ class DoctorDetails extends StatelessWidget {
                         // Padding(padding: EdgeInsets.all(8)),
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
-                          icon: Icons.home,
+                          icon: MyFlutterApp.home,
                           hintText: 'Clinic Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -117,7 +118,7 @@ class DoctorDetails extends StatelessWidget {
                         // Padding(padding: EdgeInsets.all(8)),
                          SizedBox(height: MediaQuery.of(context).size.height/ 30,),
                         SearchTextfield(
-                          icon: Icons.email,
+                          icon:MyFlutterApp.message,
                           hintText: 'Email id',
                            validator: (value){
                           print(value);
