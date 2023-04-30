@@ -79,11 +79,11 @@ final GoRouter routes = GoRouter(
         return   LoginMobile();
       },
     ),
-     GoRoute(
-      path: RoutesList.hospitalSpec,
-      builder: (BuildContext context, GoRouterState state) {
-        return  HospitalSpec();
-      },
-    ),
+    //  GoRoute(
+    //   path: RoutesList.hospitalSpec,
+    //   builder: (BuildContext context, GoRouterState state) {
+    //     return  HospitalSpec();
+    //   },
+    // ),
   ],
 );
