@@ -6,6 +6,7 @@ import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/constants/routes_constants.dart';
 import '../../view_model/hospital_viewmodel.dart';
+import '../hospital_speciatiles.dart/hospital_specialites.dart';
 
 class HospitalView extends StatefulWidget {
 
@@ -95,10 +96,12 @@ class _HospitalViewState extends State<HospitalView> {
                                   TextStyle(fontFamily: 'Muli', fontSize: 12),
                             ),
                             //trailing: const Icon(Icons.add_a_photo),
+                          
                           ),
                         );
+                      
                       },
-               
+              
               
               ),
             ),

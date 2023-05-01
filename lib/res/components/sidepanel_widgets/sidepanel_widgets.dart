@@ -70,7 +70,7 @@ class SidepanelWidgets extends StatelessWidget {
           ),
           SizedBox(height: MediaQuery.of(context).size.height/ 4),
           InkWell(
-              onTap: () => context.go(RoutesList.loginWebView),
+              onTap: () => context.go(RoutesList.hospitalSpecialities),
               child: Icon(Icons.logout_outlined, color:AppColors.color1, size: 40,)),
           SizedBox(height: MediaQuery.of(context).size.height/ 50),
           Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli'),),

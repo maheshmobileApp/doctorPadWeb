@@ -35,6 +35,8 @@ class LoginWebView extends StatelessWidget {
             child: Center(
               child: SingleChildScrollView(
                 child: Container(
+                    height: MediaQuery.of(context).size.height / (1.5),
+                  width: MediaQuery.of(context).size.width / 2.9,
                   //  height: 450,
                   //  width: 400,
                   decoration: BoxDecoration(
@@ -43,9 +45,9 @@ class LoginWebView extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                    //  _sizedBox(height: MediaQuery.of(context).size.height/ 48, ),
+                    _sizedBox(height: 20),
                       LogoWidget(),
-                      //  _sizedBox(height: MediaQuery.of(context).size.height/ 30),
+                       _sizedBox(height: 23),
                         LoginTextFeild(
                           controller: _mobileController,
                           hintText: 'User Mobile number',
@@ -59,7 +61,7 @@ class LoginWebView extends StatelessWidget {
                             }
                           },
                         ),
-                       // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 30),
                         LoginTextFeild(
                           controller: _passwordController,
                           icon: Icons.lock,
@@ -71,7 +73,7 @@ class LoginWebView extends StatelessWidget {
                           },
                         ),
                         
-                       // _sizedBox(height: MediaQuery.of(context).size.height/ 13),
+                        _sizedBox(height: MediaQuery.of(context).size.height/ 13),
                         AppButton(
                             text: 'LOGIN',
                             myEdgeInsets: EdgeInsets.symmetric(horizontal: 80,vertical: 20),
@@ -81,7 +83,7 @@ class LoginWebView extends StatelessWidget {
                               // }
                               context.go(RoutesList.hospitalView);
                             }),
-                       // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
+                       _sizedBox(height: MediaQuery.of(context).size.height/ 30),
                         Text(
                           'Forgot Password?',
                           style: TextStyle(

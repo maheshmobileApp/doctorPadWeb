@@ -12,4 +12,7 @@ class RoutesList {
   static const String doctorDetails = "/doctorDetails";
   static const String addHospitalSuccessfully = "/AddHospitalSuccessfully";
   static const String addDoctorSuccessfully = "/AddDoctorSuccessfully";
+   static const String hospitalSpecialities = "/HospitalSpecialites";
+   static const String doctorSpecialities = "/DoctorSpecialites";
 }
+
