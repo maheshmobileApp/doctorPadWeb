@@ -31,128 +31,133 @@ class HospitalDetails extends StatelessWidget {
           ? Center(
               child: CircularProgressIndicator(),
             )
-      : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        SidepanelWidgets(),
-        Column(
-          children: [
-            OptionWidgets(
-              isAcceptTermsAndConditions: false,
-              onTap: () {},
-              text: 'Add Hospitals',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Form(
-              key: _formKey,
-              child: SingleChildScrollView(
-                child: Container(
-                  height: MediaQuery.of(context).size.height / 1.2,
-                  width: MediaQuery.of(context).size.width / 3,
-                  // height: 500,
-                  // width: 400,
-                  padding: EdgeInsets.all(40),
-                  decoration: BoxDecoration(
-                     //color: AppColors.backgroundcolor,
-                        gradient: LinearGradient(
-                  begin: Alignment.center,
-                  end: Alignment.centerLeft,
-                  colors: [
-                  AppColors.color10,
-                  AppColors.backgroundcolor
-                ]),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        SearchTextfield(
-                          controller: _nameOfTheHospitalController,
-                         icon: MyFlutterApp.home,
-                          hintText: 'Name Of The Hospital',
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Name Of The Hospital';
-                            }
-                          },
-                          keyboardType: TextInputType.name,
+          : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              SidepanelWidgets(),
+              Column(
+                children: [
+                  HeadderWidget(
+                    onTap: () {},
+                    text: 'Add Hospitals',
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Form(
+                    key: _formKey,
+                    child: SingleChildScrollView(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height / 1.2,
+                        width: MediaQuery.of(context).size.width / 3,
+                        // height: 500,
+                        // width: 400,
+                        padding: EdgeInsets.all(40),
+                        decoration: BoxDecoration(
+                            //color: AppColors.backgroundcolor,
+                            gradient: LinearGradient(
+                                begin: Alignment.center,
+                                end: Alignment.centerLeft,
+                                colors: [
+                                  AppColors.color10,
+                                  AppColors.backgroundcolor
+                                ]),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              SearchTextfield(
+                                controller: _nameOfTheHospitalController,
+                                icon: MyFlutterApp.home,
+                                hintText: 'Name Of The Hospital',
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter Name Of The Hospital';
+                                  }
+                                },
+                                keyboardType: TextInputType.name,
+                              ),
+                              // Padding(padding: EdgeInsets.all(10)),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 30,
+                              ),
+                              SearchTextfield(
+                                controller: _addressController,
+                                icon: MyFlutterApp.contact,
+                                hintText: 'Address',
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter Name Of The Address';
+                                  }
+                                },
+                                keyboardType: TextInputType.text,
+                              ),
+                              // Padding(padding: EdgeInsets.all(10)),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 30,
+                              ),
+                              SearchTextfield(
+                                controller: _contactNumberController,
+                                icon: MyFlutterApp.call,
+                                hintText: "Contact number",
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter Contact number';
+                                  } else if (!phonenovalid(value)) {
+                                    return 'Enter Valid Mobile number';
+                                  }
+                                },
+                                keyboardType: TextInputType.number,
+                              ),
+                              // Padding(padding: EdgeInsets.all(10)),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 30,
+                              ),
+                              SearchTextfield(
+                                controller: _emailIdController,
+                                icon: MyFlutterApp.message,
+                                hintText: 'Email id',
+                                validator: (value) {
+                                  print(value);
+                                  if (value!.isEmpty) {
+                                    return "Please Enter Email";
+                                  } else if (!RegExp(r'\S+@\S+\.\S+')
+                                      .hasMatch(value)) {
+                                    return "Please Enter a Valid Email";
+                                  }
+                                  return null;
+                                },
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                              // Padding(padding: EdgeInsets.all(25)),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 8,
+                              ),
+                              AppButton(
+                                  text: 'ADD  HOSPITAL',
+                                  color: AppColors.backgroundcolori,
+                                  myEdgeInsets: EdgeInsets.symmetric(
+                                      horizontal: 40, vertical: 5),
+                                  primaryColor: AppColors.color1,
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      viewModel.addHospital(
+                                        context,
+                                        createdBy: "text",
+                                        email: _emailIdController.text,
+                                        name: _nameOfTheHospitalController.text,
+                                        phone: _contactNumberController.text,
+                                      );
+                                      // context.go(RoutesList.addHospitalSuccessfully);
+                                    }
+                                  }),
+                            ],
+                          ),
                         ),
-                       // Padding(padding: EdgeInsets.all(10)),
-                       SizedBox(height: MediaQuery.of(context).size.height/ 30,),
-                        SearchTextfield(
-                          controller: _addressController,
-                          icon: MyFlutterApp.contact,
-                          hintText: 'Address',
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Name Of The Address';
-                            }
-                          },
-                          keyboardType: TextInputType.text,
-                        ),
-                        // Padding(padding: EdgeInsets.all(10)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
-                        SearchTextfield(
-                          controller: _contactNumberController,
-                          icon: MyFlutterApp.call,
-                          hintText: "Contact number",
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Contact number';
-                            } else if (!phonenovalid(value)) {
-                              return 'Enter Valid Mobile number';
-                            }
-                          },
-                          keyboardType: TextInputType.number,
-                        ),
-                        // Padding(padding: EdgeInsets.all(10)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
-                        SearchTextfield(
-                          controller: _emailIdController,
-                          icon: MyFlutterApp.message,
-
-                          hintText: 'Email id',
-                          validator: (value) {
-                            print(value);
-                            if (value!.isEmpty) {
-                              return "Please Enter Email";
-                            } else if (!RegExp(r'\S+@\S+\.\S+')
-                                .hasMatch(value)) {
-                              return "Please Enter a Valid Email";
-                            }
-                            return null;
-                          },
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                        // Padding(padding: EdgeInsets.all(25)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 8,),
-                        AppButton(
-                            text: 'ADD  HOSPITAL',
-                            color: AppColors.backgroundcolori,
-                            myEdgeInsets: EdgeInsets.symmetric(
-                                horizontal: 40, vertical: 5),
-                            primaryColor: AppColors.color1,
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                viewModel.addHospital(
-                                  context,
-                                  createdBy: "text",
-                                  email: _emailIdController.text,
-                                  name: _nameOfTheHospitalController.text,
-                                  phone: _contactNumberController.text,
-                                );
-                               // context.go(RoutesList.addHospitalSuccessfully);
-                              }
-                            }),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ),
-          ],
-        )
-      ]),
+                ],
+              )
+            ]),
     );
   }
 }
-

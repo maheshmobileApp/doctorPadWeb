@@ -21,8 +21,7 @@ class DoctorDetails extends StatelessWidget {
         SingleChildScrollView(
           child: Column(
             children: [
-              OptionWidgets(
-                isAcceptTermsAndConditions: false,
+              HeadderWidget(
                 onTap: () {},
                 text: 'Doctor Details',
               ),
@@ -32,22 +31,22 @@ class DoctorDetails extends StatelessWidget {
               Form(
                 key: _formKey,
                 child: Container(
-                    height:  MediaQuery.of(context).size.height/1.2,
-                  width:  MediaQuery.of(context).size.width/3,
-                 // height: 500,
+                  height: MediaQuery.of(context).size.height / 1.2,
+                  width: MediaQuery.of(context).size.width / 3,
+                  // height: 500,
                   //height: MediaQuery.of(context).size.height - 100,
-                 // width: 300,
+                  // width: 300,
                   padding: EdgeInsets.all(40),
                   decoration: BoxDecoration(
-                     // color: AppColors.backgroundcolor,
-                     //color: AppColors.backgroundcolor,
-                        gradient: LinearGradient(
-                  begin: Alignment.center,
-                  end: Alignment.centerLeft,
-                  colors: [
-                  AppColors.color10,
-                  AppColors.backgroundcolor
-                ]),
+                      // color: AppColors.backgroundcolor,
+                      //color: AppColors.backgroundcolor,
+                      gradient: LinearGradient(
+                          begin: Alignment.center,
+                          end: Alignment.centerLeft,
+                          colors: [
+                            AppColors.color10,
+                            AppColors.backgroundcolor
+                          ]),
                       borderRadius: BorderRadius.circular(16)),
                   // alignment: Alignment.topLeft,
                   child: SingleChildScrollView(
@@ -64,35 +63,40 @@ class DoctorDetails extends StatelessWidget {
                           keyboardType: TextInputType.name,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
-                          icon:MyFlutterApp.contact,
+                          icon: MyFlutterApp.contact,
                           hintText: 'Doctor Registration Number',
-                           validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Enter Doctor Registration Number ';
-                          } else if (!phonenovalid(value)) {
-                            return 'Enter Valid Doctor Registration Number';
-                          }
-                        },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Doctor Registration Number ';
+                            } else if (!phonenovalid(value)) {
+                              return 'Enter Valid Doctor Registration Number';
+                            }
+                          },
                           keyboardType: TextInputType.number,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
-                        SearchTextfield(
-                          icon: MyFlutterApp.call,
-                          hintText: "Mobile Number",
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Mobile number';
-                            } else if (!phonenovalid(value)) {
-                              return 'Enter Valid Mobile number';
-                            }
-                          },
-                          keyboardType: TextInputType.number
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
                         ),
+                        SearchTextfield(
+                            icon: MyFlutterApp.call,
+                            hintText: "Mobile Number",
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Enter Mobile number';
+                              } else if (!phonenovalid(value)) {
+                                return 'Enter Valid Mobile number';
+                              }
+                            },
+                            keyboardType: TextInputType.number),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           icon: MyFlutterApp.doctor,
                           hintText: 'Doctor Speciality',
@@ -104,7 +108,9 @@ class DoctorDetails extends StatelessWidget {
                           keyboardType: TextInputType.text,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
                           icon: MyFlutterApp.home,
                           hintText: 'Clinic Speciality',
@@ -116,24 +122,28 @@ class DoctorDetails extends StatelessWidget {
                           keyboardType: TextInputType.text,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         SearchTextfield(
-                          icon:MyFlutterApp.message,
+                          icon: MyFlutterApp.message,
                           hintText: 'Email id',
-                           validator: (value){
-                          print(value);
-                          if(value!.isEmpty){
-                          return "Please Enter Email";
-                       }else if(!RegExp(r'\S+@\S+\.\S+').hasMatch(value))
-                      {
-                      return "Please Enter a Valid Email";
-                    }
-                     return null;
-                      },
-                        keyboardType: TextInputType.emailAddress,
+                          validator: (value) {
+                            print(value);
+                            if (value!.isEmpty) {
+                              return "Please Enter Email";
+                            } else if (!RegExp(r'\S+@\S+\.\S+')
+                                .hasMatch(value)) {
+                              return "Please Enter a Valid Email";
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.emailAddress,
                         ),
                         // Padding(padding: EdgeInsets.all(8)),
-                         SizedBox(height: MediaQuery.of(context).size.height/ 30,),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 30,
+                        ),
                         AppButton(
                             text: 'Back',
                             color: AppColors.backgroundcolori,

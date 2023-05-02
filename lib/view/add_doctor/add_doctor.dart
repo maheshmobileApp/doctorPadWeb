@@ -1,4 +1,4 @@
-  import 'package:cgg_base_project/utils/regex.dart';
+import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
@@ -30,8 +30,7 @@ class DoctorAddDetails extends StatelessWidget {
         SidepanelWidgets(),
         Column(
           children: [
-            OptionWidgets(
-              isAcceptTermsAndConditions: false,
+            HeadderWidget(
               onTap: () {},
               text: 'Add Doctor',
             ),
@@ -55,7 +54,7 @@ class DoctorAddDetails extends StatelessWidget {
                       children: [
                         SearchTextfield(
                           controller: _nameOfTheDoctorController,
-                         icon: MyFlutterApp.doctor,
+                          icon: MyFlutterApp.doctor,
                           hintText: 'Name Of The Doctor',
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -70,7 +69,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _doctorRegistrationNumberController,
-                         icon: MyFlutterApp.contact,
+                          icon: MyFlutterApp.contact,
                           hintText: 'Doctor Registration Number',
                           // validator: (value) {
                           //   if (value!.isEmpty) {
@@ -87,7 +86,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _mobileNumberController,
-                         icon:MyFlutterApp.call,
+                          icon: MyFlutterApp.call,
                           hintText: "Mobile Number",
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -121,7 +120,7 @@ class DoctorAddDetails extends StatelessWidget {
                         ),
                         SearchTextfield(
                           controller: _clinicSpecialityController,
-                          icon:MyFlutterApp.home,
+                          icon: MyFlutterApp.home,
                           hintText: 'Clinic Speciality',
                           validator: (value) {
                             if (value!.isEmpty) {

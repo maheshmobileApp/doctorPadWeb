@@ -11,10 +11,8 @@ class LoginWebView extends StatelessWidget {
   LoginWebView({super.key});
 
   final _formKey = GlobalKey<FormState>();
-    TextEditingController _mobileController =
-      TextEditingController(text: "");
-  TextEditingController _passwordController =
-      TextEditingController(text: "");
+  TextEditingController _mobileController = TextEditingController(text: "");
+  TextEditingController _passwordController = TextEditingController(text: "");
 
   @override
   Widget build(BuildContext context) {
@@ -24,74 +22,82 @@ class LoginWebView extends StatelessWidget {
         body: Form(
           key: _formKey,
           child: Container(
+            alignment: Alignment.center,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.centerRight,
                     end: Alignment.centerLeft,
-                    colors: [
-                  AppColors.app_bg_color,
-                  AppColors.color12
-                ])),
+                    colors: [AppColors.app_bg_color, AppColors.color12])),
             child: Center(
-              child: SingleChildScrollView(
-                child: Container(
-                  //  height: 450,
-                  //  width: 400,
-                  decoration: BoxDecoration(
-                      color: AppColors.color1,
-                      borderRadius: BorderRadius.circular(16)),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                    //  _sizedBox(height: MediaQuery.of(context).size.height/ 48, ),
-                      LogoWidget(),
-                      //  _sizedBox(height: MediaQuery.of(context).size.height/ 30),
-                        LoginTextFeild(
-                          controller: _mobileController,
-                          hintText: 'User Mobile number',
-                          keyboardType: TextInputType.numberWithOptions(
-                              decimal: true, signed: true),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Mobile number';
-                            } else if (!phonenovalid(value)) {
-                              return 'Enter Valid Mobile number';
-                            }
-                          },
-                        ),
-                       // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
-                        LoginTextFeild(
-                          controller: _passwordController,
-                          icon: Icons.lock,
-                          hintText: 'Password',
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter Password';
-                            }
-                          },
-                        ),
-                        
-                       // _sizedBox(height: MediaQuery.of(context).size.height/ 13),
-                        AppButton(
-                            text: 'LOGIN',
-                            myEdgeInsets: EdgeInsets.symmetric(horizontal: 80,vertical: 20),
-                            onPressed: () {
-                              // if(_formKey.currentState!.validate()){
-                              //   context.go(RoutesList.hospitalView);
-                              // }
-                              context.go(RoutesList.hospitalView);
-                            }),
-                       // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
-                        Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            color: AppColors.color10,
+              child: Container(
+                height: 500,
+                width: 500,
+                decoration: BoxDecoration(
+                    color: AppColors.color1,
+                    borderRadius: BorderRadius.circular(16)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    _sizedBox(height: 50),
+                    LogoWidget(),
+                    _sizedBox(height: 35),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50, right: 20),
+                      child: Column(
+                        children: [
+                          LoginTextFeild(
+                            controller: _mobileController,
+                            hintText: 'User Mobile number',
+                            keyboardType: TextInputType.numberWithOptions(
+                                decimal: true, signed: true),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Enter Mobile number';
+                              } else if (!phonenovalid(value)) {
+                                return 'Enter Valid Mobile number';
+                              }
+                            },
                           ),
-                        ),
-                       //sizedBox(height: MediaQuery.of(context).size.height/ 30),
-                      ],
+                          _sizedBox(height: 15),
+                          // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
+                          LoginTextFeild(
+                            controller: _passwordController,
+                            icon: Icons.lock,
+                            hintText: 'Password',
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Enter Password';
+                              }
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                    _sizedBox(height: 35),
+                    AppButton(
+                        text: 'LOGIN',
+                        // myEdgeInsets:
+                        //     EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+                        onPressed: () {
+                          // context.pop();
+                          // GoRouter.of(context).replace(RoutesList.hospitalView);
+                          context.go(RoutesList.hospitalView);
+                          // if(_formKey.currentState!.validate()){
+                          //   context.go(RoutesList.hospitalView);
+                          // }
+                          //context.replaceNamed(RoutesList.hospitalView);
+                        }),
+                    _sizedBox(height: 35),
+
+                    Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        color: AppColors.color10,
+                      ),
+                    ),
+                    //sizedBox(height: MediaQuery.of(context).size.height/ 30),
+                  ],
                 ),
               ),
             ),

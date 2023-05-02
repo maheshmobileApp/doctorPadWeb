@@ -6,6 +6,7 @@ import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
+
 class AddDoctorSuccessfully extends StatelessWidget {
   const AddDoctorSuccessfully({Key? key}) : super(key: key);
 
@@ -16,7 +17,10 @@ class AddDoctorSuccessfully extends StatelessWidget {
         SidepanelWidgets(),
         Column(
           children: [
-            OptionWidgets(isAcceptTermsAndConditions: false,onTap: (){},text: 'Add Doctor',),
+            HeadderWidget(
+              onTap: () {},
+              text: 'Add Doctor',
+            ),
             SizedBox(
               height: 20,
             ),
@@ -31,16 +35,22 @@ class AddDoctorSuccessfully extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   Text(
                     'Added Doctor Successfully',
-                    style: TextStyle(fontSize: 20,fontFamily: 'Muli', color:  AppColors.backgroundcolori,),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Muli',
+                      color: AppColors.backgroundcolori,
+                    ),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  AppButton(text:'Back',color:  AppColors.color1,
-                      myEdgeInsets: EdgeInsets.symmetric(horizontal: 50,vertical: 10),
-                      primaryColor:  AppColors.color10,
+                  AppButton(
+                      text: 'Back',
+                      color: AppColors.color1,
+                      myEdgeInsets:
+                          EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                      primaryColor: AppColors.color10,
                       onPressed: () {
                         context.go(RoutesList.doctorWebView);
-                      }
-                  ),
+                      }),
                 ],
               ),
             ),

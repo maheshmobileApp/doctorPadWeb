@@ -34,10 +34,9 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  OptionWidgets(
+                  HeadderWidget(
                     text: 'Doctor View',
                     title: "+ Add Doctor",
-                    isAcceptTermsAndConditions: true,
                     onTap: () {
                       context.go(RoutesList.doctorAddDetails);
                     },
