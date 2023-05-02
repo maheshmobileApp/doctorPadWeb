@@ -112,7 +112,7 @@ class hospitalListCard extends StatelessWidget {
                 ),
                 SmallButton(
                   onPressed: () {
-                    print("add branch button clicked");
+                    print("add button clicked");
                   },
                   title: 'Add Branch',
                 )

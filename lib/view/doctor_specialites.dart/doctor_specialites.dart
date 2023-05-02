@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 
-class HospitalSpecialites extends StatelessWidget {
-   HospitalSpecialites({super.key});
+class DoctorSpecialities extends StatelessWidget {
+  const DoctorSpecialities({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return   Scaffold(
       body: Row(crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SidepanelWidgets(),
         Column(
           children: [
-            // OptionWidgets(
-            //   isAcceptTermsAndConditions: false,
-            //   onTap: () {},
-            //   text: ' Hospitals Specialites',
-            // ),
+            OptionWidgets(
+              isAcceptTermsAndConditions: false,
+              onTap: () {},
+              text: ' Doctror Specialites',
+            ),
             SizedBox(
               height: 20,
             ),
@@ -41,7 +43,7 @@ class HospitalSpecialites extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16)),
                     child: Column(
                       children: [
-                        Text('Hospetial Specialites',style: 
+                        Text('Doctor Specialites',style: 
                         TextStyle(
                           color: AppColors.color1,
                           fontSize:18,
@@ -60,7 +62,7 @@ class HospitalSpecialites extends StatelessWidget {
                              showDialog(
                                       context: context,
                                       builder: (ctx) => AlertDialog(
-                                        title: const Text("Hospital Specialites"),
+                                        title: const Text("Doctor Specialites"),
                                         //content: const Text("heart"),
                                         actions: <Widget>[
                                           TextButton(
