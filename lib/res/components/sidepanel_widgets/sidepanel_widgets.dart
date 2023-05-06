@@ -1,91 +1,102 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:cgg_base_project/res/components/logo_widget.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import '../../constants/routes_constants.dart';
+import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
+
 class SidepanelWidgets extends StatelessWidget {
   const SidepanelWidgets({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return   
-     Container(
-        // height:  MediaQuery.of(context).size.height/0.1,
-        // width:  MediaQuery.of(context).size.width/12,
-        // decoration: BoxDecoration(
-        //      gradient: LinearGradient(
-        //             begin: Alignment.topLeft,
-        //             end: Alignment.topRight,
-        //             colors: [
-        //           AppColors.backgroundcolori,
-        //           AppColors.backgroundcolor
-        //         ])
-        // ),
+    return Container(
       width: 120,
       height: 1080,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.all(25),
       child: Column(
-           
         children: [
           LogoWidget(),
-          Padding(padding:EdgeInsets.all(25),),
-         // Container(
-                // height:75,
-                // width: 1200,
-                // color:Colors.red,
-                // child: Column(
-      
-          //children:[ 
-            GestureDetector(
-            child: Image.asset(
-              'assets/icons/home.png',
-            ),
-            onTap: () => context.go(RoutesList.hospitalView),
+          Padding(
+            padding: EdgeInsets.all(25),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height/ 100),
-          Text(
-            'View Hospitals',
-            textDirection: TextDirection.ltr,
-            style: TextStyle(color: AppColors.color1,fontSize: 10,fontFamily: 'Muli'),
-          ),
-        //  ]
-         // )
-          //),
-          SizedBox(height: 30,width: 20,),
-          GestureDetector(
-            child: Image.asset(
-              'assets/images/view_doctor.png',
-            ),
-            onTap: (
-            
-            ) => context.go(RoutesList.doctorWebView),
-          ),
-          SizedBox(height: MediaQuery.of(context).size.height/ 100),
-          Text(
-            'View Doctor',
-            textDirection: TextDirection.ltr,
-            style: TextStyle(color: AppColors.color1,fontSize: 10 ,fontFamily: 'Muli'),
-          ),
-          SizedBox(height: MediaQuery.of(context).size.height/ 4),
+          MenuItemWidget(
+              title: "View Hospitals",
+              icon: "assets/icons/home.png",
+              options: DashBoardMenuOptions.HOSPITALS),
+          SizedBox(height: 50),
+          MenuItemWidget(
+              title: "View Doctors",
+              icon: "assets/images/view_doctor.png",
+              options: DashBoardMenuOptions.DOCTORS),
+          SizedBox(height: 50),
+          MenuItemWidget(
+              title: "Specialities",
+              icon: "assets/images/view_doctor.png",
+              options: DashBoardMenuOptions.SPECALITIES),
+          SizedBox(height: 50),
           InkWell(
-              onTap: () => context.go(RoutesList.hospitalSpecialities),
-              child: Icon(Icons.logout_outlined, color:AppColors.color1, size: 40,)),
-          SizedBox(height: MediaQuery.of(context).size.height/ 50),
-          Text('Logout', style: TextStyle(color:AppColors.color1,fontFamily: 'Muli'),),
+              onTap: () => context
+                  .read<DashBoardViewModel>()
+                  .selectTheSideMenu(DashBoardMenuOptions.SPECALITIES),
+              child: Icon(
+                Icons.logout_outlined,
+                color: AppColors.color1,
+                size: 40,
+              )),
+          SizedBox(height: 15),
+          Text(
+            'Logout',
+            style: menuTitleStyle,
+          ),
         ],
       ),
-     // color: AppColors.backgroundcolor
-        decoration: BoxDecoration(
-             gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.topRight,
-                    colors: [
-                  AppColors.color10,
-                  AppColors.backgroundcolor
-                ])
-        ),
-       );
+      // color: AppColors.backgroundcolor
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.topRight,
+              colors: [AppColors.color10, AppColors.backgroundcolor])),
+    );
   }
 }
+
+class MenuItemWidget extends StatelessWidget {
+  const MenuItemWidget({
+    Key? key,
+    required this.title,
+    required this.icon,
+    required this.options,
+  }) : super(key: key);
+  final String title;
+  final String icon;
+  final DashBoardMenuOptions options;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GestureDetector(
+          child: Image.asset(
+            icon,
+          ),
+          onTap: () =>
+              context.read<DashBoardViewModel>().selectTheSideMenu(options),
+        ),
+        SizedBox(height: 15),
+        Text(
+          title,
+          textDirection: TextDirection.ltr,
+          style: menuTitleStyle,
+        ),
+      ],
+    );
+  }
+}
+
+TextStyle menuTitleStyle = TextStyle(
+    color: AppColors.color1,
+    fontSize: 15,
+    fontFamily: 'Muli',
+    fontWeight: FontWeight.w700);

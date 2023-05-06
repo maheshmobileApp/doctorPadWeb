@@ -1,4 +1,3 @@
-
 import 'package:cgg_base_project/res/constants/routes_constants.dart';
 import 'package:cgg_base_project/view/hospital__details/hospital_details.dart';
 import 'package:cgg_base_project/view/hospital_view/hospital_view.dart';
@@ -18,88 +17,85 @@ import '../../view/add_hospital/add_hospital.dart';
 import '../../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../../view/login/login_mobile_view.dart';
 
-final GoRouter routes = GoRouter(
-  initialLocation: RoutesList.dashBoardScreen,
-  routes: <RouteBase>[
-    //DashBoardView
-    GoRoute(
-      path: RoutesList.loginWebView,
-      builder: (BuildContext context, GoRouterState state) {
-        return LoginWebView();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.dashBoardScreen,
-      builder: (BuildContext context, GoRouterState state) {
-        return DashBoardView();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.hospitalView,
-      builder: (BuildContext context, GoRouterState state) {
-        return HospitalView();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.hospitalWebDetails,
-      builder: (BuildContext context, GoRouterState state) {
-        return HospitalWebDetails();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.hospitalDetails,
-      builder: (BuildContext context, GoRouterState state) {
-        return HospitalDetails();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.doctorWebView,
-      builder: (BuildContext context, GoRouterState state) {
-        return DoctorsWebView();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.doctorAddDetails,
-      builder: (BuildContext context, GoRouterState state) {
-        return DoctorAddDetails();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.doctorDetails,
-      builder: (BuildContext context, GoRouterState state) {
-        return DoctorDetails();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.addDoctorSuccessfully,
-      builder: (BuildContext context, GoRouterState state) {
-        return AddDoctorSuccessfully();
-      },
-    ),
-    GoRoute(
-      path: RoutesList.addHospitalSuccessfully,
-      builder: (BuildContext context, GoRouterState state) {
-        return AddHospitalSuccessfully();
-      },
-    ),
-    GoRoute(
+final GoRouter routes =
+    GoRouter(initialLocation: RoutesList.dashBoardScreen, routes: <RouteBase>[
+  //DashBoardView
+  GoRoute(
+    path: RoutesList.loginWebView,
+    builder: (BuildContext context, GoRouterState state) {
+      return LoginWebView();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.dashBoardScreen,
+    builder: (BuildContext context, GoRouterState state) {
+      return DashBoardView();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.hospitalView,
+    builder: (BuildContext context, GoRouterState state) {
+      return HospitalView();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.hospitalWebDetails,
+    builder: (BuildContext context, GoRouterState state) {
+      return AddHospitalForm();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.hospitalDetails,
+    builder: (BuildContext context, GoRouterState state) {
+      return AddHospitalsForms();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.doctorWebView,
+    builder: (BuildContext context, GoRouterState state) {
+      return DoctorsWebView();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.doctorAddDetails,
+    builder: (BuildContext context, GoRouterState state) {
+      return AddDoctorForm();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.doctorDetails,
+    builder: (BuildContext context, GoRouterState state) {
+      return DoctorDetails();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.addDoctorSuccessfully,
+    builder: (BuildContext context, GoRouterState state) {
+      return AddDoctorSuccessfully();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.addHospitalSuccessfully,
+    builder: (BuildContext context, GoRouterState state) {
+      return AddHospitalSuccessfully();
+    },
+  ),
+  GoRoute(
       path: RoutesList.loginMobile,
       builder: (BuildContext context, GoRouterState state) {
         return LoginMobile();
-        return   LoginMobile();
-      }
-     ),
-      GoRoute(
-      path: RoutesList.hospitalSpecialities,
-      builder: (BuildContext context, GoRouterState state) {
-        return  HospitalSpecialites();
-      },
-    ),
-     GoRoute(
-      path: RoutesList.doctorSpecialities,
-      builder: (BuildContext context, GoRouterState state) {
-        return  DoctorSpecialities();
-      },
-    ),
-  ]
-);
+        return LoginMobile();
+      }),
+  GoRoute(
+    path: RoutesList.hospitalSpecialities,
+    builder: (BuildContext context, GoRouterState state) {
+      return HospitalSpecialites();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.doctorSpecialities,
+    builder: (BuildContext context, GoRouterState state) {
+      return DoctorSpecialities();
+    },
+  ),
+]);

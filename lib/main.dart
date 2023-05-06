@@ -1,6 +1,7 @@
 import 'package:cgg_base_project/res/constants/go_router.dart';
 import 'package:cgg_base_project/view/login/login_web_view.dart';
 import 'package:cgg_base_project/view/login_view.dart';
+import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
 import 'package:cgg_base_project/view_model/doctor_view_model.dart';
 import 'package:cgg_base_project/view_model/hospital_viewmodel.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => GetAllDoctorViewModel()),
         ChangeNotifierProvider(create: (_) => GetAllHospitalViewModel()),
+        ChangeNotifierProvider(create: (_) => DashBoardViewModel()),
       ],
       child: MaterialApp.router(
         title: 'DRPad',

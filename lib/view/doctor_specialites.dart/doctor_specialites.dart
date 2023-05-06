@@ -18,11 +18,11 @@ class DoctorSpecialities extends StatelessWidget {
           SidepanelWidgets(),
         Column(
           children: [
-            OptionWidgets(
-              isAcceptTermsAndConditions: false,
-              onTap: () {},
-              text: ' Doctror Specialites',
-            ),
+            // OptionWidgets(
+            //   isAcceptTermsAndConditions: false,
+            //   onTap: () {},
+            //   text: ' Doctror Specialites',
+            // ),
             SizedBox(
               height: 20,
             ),

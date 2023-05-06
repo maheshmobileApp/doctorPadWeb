@@ -1,27 +1,150 @@
+import 'package:cgg_base_project/model/hospital_details/add_hospital.dart';
+import 'package:cgg_base_project/responsive.dart';
+import 'package:cgg_base_project/view/add_hospital/add_hospital.dart';
+import 'package:cgg_base_project/view/doctor_details/doctor_details.dart';
+import 'package:cgg_base_project/view/hospital__details/hospital_details.dart';
+import 'package:cgg_base_project/view/hospital_speciatiles.dart/add_specilites.dart';
+import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
 import 'package:cgg_base_project/view/hospital_view/hospital_view.dart';
+import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 import 'package:sidebarx/sidebarx.dart';
 
+import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
+import '../../view_model/hospital_viewmodel.dart';
+import '../add_doctor/add_doctor.dart';
+import '../doctor_view/doctor_view.dart';
 
 class DashBoardView extends StatelessWidget {
   const DashBoardView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          Container(
-            width: 200,
-            color: Colors.red,
-            child: SidepanelWidgets(),
+    final viewModel = context.watch<DashBoardViewModel>();
+    return Responsive(
+        mobile: Container(
+          color: Colors.red,
+        ),
+        desktop: Scaffold(
+          body: Row(
+            children: [
+              Container(
+                width: 200,
+                child: SidepanelWidgets(),
+              ),
+              Expanded(
+                  child: Column(
+                children: [
+                  Container(
+                      height: 100, child: headerWidget(viewModel, context)),
+                  Expanded(
+                    child: Container(
+                      child: loadWidgets(viewModel),
+                    ),
+                  )
+                  //HospitalView()
+                ],
+              ))
+            ],
           ),
-          Expanded(child: HospitalView())
-        ],
-      ),
+        ));
+  }
+
+  Widget headerWidget(DashBoardViewModel viewModel, BuildContext context) {
+    var button_title = "";
+    var header_title = "";
+    switch (viewModel.selectedMenum) {
+      case DashBoardMenuOptions.HOSPITALS:
+        button_title = "Add Hospitals";
+        header_title = "Hospitals";
+        break;
+      case DashBoardMenuOptions.DOCTORS:
+        button_title = "Add Doctors";
+        header_title = "Doctors";
+        break;
+      case DashBoardMenuOptions.SPECALITIES:
+        button_title = "Add Specilities";
+        header_title = "Specilities";
+        break;
+      default:
+    }
+    return HeadderWidget(
+      title: button_title,
+      text: header_title,
+      onTap: () {
+        switch (viewModel.selectedMenum) {
+          case DashBoardMenuOptions.HOSPITALS:
+            showAddHospital(context);
+            break;
+          case DashBoardMenuOptions.DOCTORS:
+            showAddDoctor(context);
+            break;
+          case DashBoardMenuOptions.SPECALITIES:
+            showSpeciality(context);
+            break;
+          default:
+        }
+      },
     );
   }
+
+  showAddDoctor(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content: SizedBox(width: 550, height: 600, child: AddDoctorForm()));
+      },
+    );
+  }
+
+  showAddHospital(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content:
+                SizedBox(width: 600, height: 450, child: AddHospitalsForms()));
+      },
+    );
+  }
+
+  showSpeciality(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content:
+                SizedBox(width: 350, height: 250, child: AddSpecilities()));
+      },
+    );
+  }
+
+  Widget loadWidgets(DashBoardViewModel viewModel) {
+    switch (viewModel.selectedMenum) {
+      case DashBoardMenuOptions.HOSPITALS:
+        return HospitalView();
+      case DashBoardMenuOptions.DOCTORS:
+        return DoctorsWebView();
+      case DashBoardMenuOptions.SPECALITIES:
+        return HospitalSpecialites();
+      default:
+    }
+    return Container();
+  }
 }
+/*
+ HeadderWidget(
+                  text: "Hospitals View",
+                  onTap: () {
+                    context.go(RoutesList.hospitalDetails);
+                  },
+                ),
+ */

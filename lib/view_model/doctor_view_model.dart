@@ -12,9 +12,10 @@ class GetAllDoctorViewModel with ChangeNotifier {
   GetAllDoctor? doctors;
   bool isLoading = true;
 
-  // GetAllDoctorViewModel() {
-  //   getAllDoctor();
-  // }
+  GetAllDoctorViewModel() {
+     getAllDoctor();
+    print("called GetAllDoctorViewModel view mode");
+  }
 
   Future<void> getAllDoctor() async {
     final result = await _getAllDoctorRepository.getAllDoctor();

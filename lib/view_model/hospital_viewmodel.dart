@@ -1,4 +1,3 @@
-
 import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/model/hospital_details/hospitail_specialites.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
@@ -14,12 +13,16 @@ import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 
-
 class GetAllHospitalViewModel with ChangeNotifier {
   final _getAllHospitalRepository = HospitalRepository();
   GetAllHospitals? hospitals;
-  bool isLoading = true;
+  bool isLoading = false;
 
+  List<String> specilitiesList = [];
+
+  GetAllHospitalViewModel() {
+    getAllHospitals();
+  }
   Future<void> getAllHospitals() async {
     final result = await _getAllHospitalRepository.getAllHospitals();
     hospitals = result;
@@ -29,14 +32,14 @@ class GetAllHospitalViewModel with ChangeNotifier {
 
   final _addHospitalRepository = HospitalRepository();
   // AddHospital? addHospital;
- 
+
   Future<void> addHospital(
-    BuildContext context,
-  { String? createdBy,
+    BuildContext context, {
+    String? createdBy,
     String? email,
     String? name,
-    String? phone,}
-  ) async {
+    String? phone,
+  }) async {
     final result = await _addHospitalRepository.addHospital(AddHospitalEntity(
       createdBy: createdBy,
       email: email,
@@ -51,16 +54,20 @@ class GetAllHospitalViewModel with ChangeNotifier {
       ));
     }
     notifyListeners();
-  // }
-  // final _hospitalSpecialitiesRepository = HospitalRepository();
-  // HospitalSpecialities? specialities;
-  // bool isLoadin = true;
-  // Future<void> HospitalSpecialities (int specialities) async {
-  //   final result = await _getAllHospitalRepository.hospitalSpecialities();
-  //   specialities = result as int;
-  //   isLoading = false;
-  //   notifyListeners();
-  // }
-}
+    // }
+    // final _hospitalSpecialitiesRepository = HospitalRepository();
+    // HospitalSpecialities? specialities;
+    // bool isLoadin = true;
+    // Future<void> HospitalSpecialities (int specialities) async {
+    //   final result = await _getAllHospitalRepository.hospitalSpecialities();
+    //   specialities = result as int;
+    //   isLoading = false;
+    //   notifyListeners();
+    // }
+  }
 
+  void getSpecilitiesList() {
+    specilitiesList = ["1", "2", "3"];
+    notifyListeners();
+  }
 }

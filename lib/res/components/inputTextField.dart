@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class AppInputTextField extends StatelessWidget {
-  const AppInputTextField(
+  AppInputTextField(
       {super.key,
       required this.prefixIcon,
       required this.controller,
@@ -11,21 +11,26 @@ class AppInputTextField extends StatelessWidget {
       this.textColor = Colors.grey,
       this.isSecured,
       this.onTap,
-      this.isVisible});
+      this.isVisible,
+      this.validator,
+      this.keyboardType});
   final Widget prefixIcon;
   final TextEditingController controller;
   final String hintText;
   final Color? textColor;
   final bool? isSecured;
   final bool? isVisible;
-
+  final String? Function(String?)? validator;
   final void Function()? onTap;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
+        keyboardType: keyboardType,
         controller: controller,
+        validator: validator,
         obscureText: this.isVisible ?? false,
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
@@ -46,7 +51,7 @@ class AppInputTextField extends StatelessWidget {
             color: textColor,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(8.0),
           ),
         ),
       ),

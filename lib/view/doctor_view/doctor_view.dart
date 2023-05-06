@@ -10,15 +10,11 @@ import '../../view_model/login_view_mode.dart';
 
 class DoctorsWebView extends StatefulWidget {
   const DoctorsWebView({super.key});
-
   @override
   State<DoctorsWebView> createState() => _DoctorsWebViewState();
 }
 
 class _DoctorsWebViewState extends State<DoctorsWebView> {
-  // var doctorsView =
-  //       Provider.of<GetAllDoctorViewModel>(context);
-
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllDoctorViewModel>();
@@ -28,87 +24,50 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              SidepanelWidgets(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  HeadderWidget(
-                    text: 'Doctor View',
-                    title: "+ Add Doctor",
-                    onTap: () {
-                      context.go(RoutesList.doctorAddDetails);
-                    },
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 220,
-                          top: 10,
+          : Container(
+              child: GridView.count(
+                crossAxisCount: 4,
+                childAspectRatio: (1 / .2),
+                children:
+                    List.generate(viewModel.doctors!.body!.length, (index) {
+                  final doctorData = viewModel.doctors?.body![index];
+                  return Card(
+                    elevation: 4,
+                    child: ListTile(
+                      leading: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.color1, width: 3),
+                          color: AppColors.backgroundcolor,
                         ),
-                        child: Text(
-                          'Doctor List ',
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontFamily: 'Muli',
-                              fontWeight: FontWeight.bold),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 15),
+                          child: Image.asset(
+                            'assets/images/doctor.png',
+                            color: AppColors.color1,
+                          ),
                         ),
                       ),
+                      title: Text(
+                        doctorData?.name ?? "",
+                        style: TextStyle(
+                            fontFamily: 'Muli',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(
+                        doctorData?.emailId ?? "",
+                        style: TextStyle(
+                            fontFamily: 'Muli',
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      //trailing: const Icon(Icons.add_a_photo),
                     ),
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height - 100,
-                    width: MediaQuery.of(context).size.width - 150,
-                    padding: EdgeInsets.all(25),
-                    child: ListView.builder(
-                      itemCount: viewModel.doctors?.body?.length,
-                      itemBuilder: (context, index) {
-                        final doctorData = viewModel.doctors?.body![index];
-                        return Card(
-                          elevation: 4,
-                          margin: EdgeInsets.only(
-                            top: 26,
-                            left: 200,
-                            right: 250,
-                          ),
-                          child: ListTile(
-                            leading: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: AppColors.color1, width: 3),
-                                color: AppColors.backgroundcolor,
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 8, horizontal: 15),
-                                child: Image.asset(
-                                  'assets/images/doctor.png',
-                                  color: AppColors.color1,
-                                ),
-                              ),
-                            ),
-                            title: Text(
-                              doctorData?.name ?? "",
-                              style:
-                                  TextStyle(fontFamily: 'Muli', fontSize: 12),
-                            ),
-                            subtitle: Text(
-                              doctorData?.emailId ?? "",
-                              style:
-                                  TextStyle(fontFamily: 'Muli', fontSize: 12),
-                            ),
-                            //trailing: const Icon(Icons.add_a_photo),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              )
-            ]),
+                  );
+                }),
+              ),
+            ),
     );
   }
 
@@ -116,6 +75,5 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.read<GetAllDoctorViewModel>().getAllDoctor();
   }
 }

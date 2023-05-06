@@ -26,33 +26,18 @@ class _HospitalViewState extends State<HospitalView> {
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                HeadderWidget(
-                  text: "Hospitals View",
-                  onTap: () {
-                    context.go(RoutesList.hospitalDetails);
-                  },
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height - 100,
-                  // width: MediaQuery.of(context).size.width - 150,
-                  padding: EdgeInsets.all(25),
-                  child: GridView.builder(
-                    itemCount: viewModel.hospitals?.body?.length,
-                    itemBuilder: (context, index) {
-                      final hospitalData = viewModel.hospitals?.body![index];
-                      return hospitalListCard(hospitalData: hospitalData);
-                    },
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 5,
-                        crossAxisSpacing: 4.0,
-                        mainAxisSpacing: 10),
-                  ),
-                ),
-              ],
+          : Container(
+              child: GridView.builder(
+                itemCount: viewModel.hospitals?.body?.length,
+                itemBuilder: (context, index) {
+                  final hospitalData = viewModel.hospitals?.body![index];
+                  return hospitalListCard(hospitalData: hospitalData);
+                },
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5,
+                    crossAxisSpacing: 4.0,
+                    mainAxisSpacing: 10),
+              ),
             ),
     );
   }
@@ -60,7 +45,7 @@ class _HospitalViewState extends State<HospitalView> {
   @override
   void initState() {
     super.initState();
-    context.read<GetAllHospitalViewModel>().getAllHospitals();
+    // context.read<GetAllHospitalViewModel>().getAllHospitals();
   }
 }
 

@@ -1,90 +1,22 @@
+import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_speciality_list_tile.dart';
 import 'package:flutter/material.dart';
-
-import '../../res/app_colors.dart';
-import '../../res/components/button_component.dart';
-import '../../res/components/option_widgets/option_widgets.dart';
-import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
+import 'package:provider/provider.dart';
+import '../../view_model/hospital_viewmodel.dart';
 
 class HospitalSpecialites extends StatelessWidget {
-   HospitalSpecialites({super.key});
-
+  HospitalSpecialites({super.key});
+  TextEditingController _specilyControll = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Row(crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SidepanelWidgets(),
-        Column(
-          children: [
-            // OptionWidgets(
-            //   isAcceptTermsAndConditions: false,
-            //   onTap: () {},
-            //   text: ' Hospitals Specialites',
-            // ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-                  height:  MediaQuery.of(context).size.height/1.2,
-                  width:  MediaQuery.of(context).size.width/3,
-                    padding: EdgeInsets.all(40),
-                decoration: BoxDecoration(
-                   // color: AppColors.backgroundcolor,
-                   //color: AppColors.backgroundcolor,
-                        gradient: LinearGradient(
-                  begin: Alignment.center,
-                  end: Alignment.centerLeft,
-                  colors: [
-                  AppColors.color10,
-                  AppColors.backgroundcolor
-                ]),
-                    borderRadius: BorderRadius.circular(16)),
-                    child: Column(
-                      children: [
-                        Text('Hospetial Specialites',style: 
-                        TextStyle(
-                          color: AppColors.color1,
-                          fontSize:18,
-                          fontFamily: 'Muli'
-                          ),),
-                        SizedBox(height: 20,),
-                    Container(
-                      child: Center(
-                        child: AppButton(
-                            text: 'Submit',
-                            color: AppColors.backgroundcolori,
-                            myEdgeInsets:
-                                EdgeInsets.symmetric(horizontal: 80, vertical: 10),
-                            primaryColor: AppColors.color1,
-                            onPressed: () {
-                             showDialog(
-                                      context: context,
-                                      builder: (ctx) => AlertDialog(
-                                        title: const Text("Hospital Specialites"),
-                                        //content: const Text("heart"),
-                                        actions: <Widget>[
-                                          TextButton(
-                                           onPressed: () {
-                                          Navigator.of(ctx).pop();
-                                                  },
-                                           child: Container(
-                                    color: AppColors.color1,
-                                     padding: const EdgeInsets.all(14),
-                                      child: const Text("Submit"),
-                                        ),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                            }),
-                      ),
-                    )
-                    ]),
-            ),
-            
-          ])
-        ]),
-    );
-   
-}
+    final viewModel = context.watch<GetAllHospitalViewModel>();
+    viewModel.getSpecilitiesList();
+    return Container(
+        child: GridView.count(
+            crossAxisCount: 5,
+            childAspectRatio: (1 / .2),
+            children: List.generate(viewModel.specilitiesList.length, (index) {
+              final hospitalData = viewModel.specilitiesList[index];
+              return SpecialityListTile(name: hospitalData);
+            })));
+  }
 }
