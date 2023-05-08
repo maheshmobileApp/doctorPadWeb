@@ -9,14 +9,14 @@ class HospitalSpecialites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllHospitalViewModel>();
-    viewModel.getSpecilitiesList();
+    // viewModel.getSpecilitiesList();
     return Container(
         child: GridView.count(
             crossAxisCount: 5,
             childAspectRatio: (1 / .2),
-            children: List.generate(viewModel.specilitiesList.length, (index) {
-              final hospitalData = viewModel.specilitiesList[index];
-              return SpecialityListTile(name: hospitalData);
+            children: List.generate(viewModel.specilityList!.length, (index) {
+              final hospitalData = viewModel.specilityList![index];
+              return SpecialityListTile(name: hospitalData.specialityName);
             })));
   }
 }

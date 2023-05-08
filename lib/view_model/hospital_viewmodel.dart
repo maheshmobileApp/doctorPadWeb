@@ -1,6 +1,7 @@
 import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/model/hospital_details/hospitail_specialites.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
+import 'package:cgg_base_project/view_model/hospitalSpecialityModel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,16 +13,17 @@ import '../res/constants/routes_constants.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
+import 'package:dio/dio.dart';
 
 class GetAllHospitalViewModel with ChangeNotifier {
   final _getAllHospitalRepository = HospitalRepository();
   GetAllHospitals? hospitals;
   bool isLoading = false;
-
-  List<String> specilitiesList = [];
+  List<Specilities>? specilityList = [];
 
   GetAllHospitalViewModel() {
     getAllHospitals();
+    getSpecilitiesList();
   }
   Future<void> getAllHospitals() async {
     final result = await _getAllHospitalRepository.getAllHospitals();
@@ -66,8 +68,48 @@ class GetAllHospitalViewModel with ChangeNotifier {
     // }
   }
 
-  void getSpecilitiesList() {
-    specilitiesList = ["1", "2", "3"];
+  void getSpecilitiesList() async {
+    //https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities
+
+    final dio = Dio();
+    final result = await dio.get(
+        "https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities");
+    final hosptialModel = HospitalSpecialitiesModel.fromJson(result.data);
+    specilityList = hosptialModel.specilityList;
     notifyListeners();
   }
+
+  addSpecility(String name) async {
+    final body = {"created_by": "mahesh", "speciality_name": name};
+    final dio = Dio();
+    final result = await dio.post(
+        "https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities",
+        data: body);
+    if (result.statusCode == 200) {
+      //success
+      getSpecilitiesList();
+    } else {
+      //fail
+    }
+  }
+
+  addBranch(){
+    
+  }
 }
+
+
+/*
+
+https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities
+POST
+BODY
+
+{
+  "created_by": "string",
+  "speciality_name": "string"
+}
+
+
+
+ */

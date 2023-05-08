@@ -2,6 +2,7 @@ import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:cgg_base_project/res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import 'package:cgg_base_project/res/components/small_button_widget.dart';
+import 'package:cgg_base_project/view/add_branch/add_branch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -97,7 +98,18 @@ class hospitalListCard extends StatelessWidget {
                 ),
                 SmallButton(
                   onPressed: () {
-                    print("add button clicked");
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) {
+                          return AlertDialog(
+                              content: SizedBox(
+                                  width: 550,
+                                  height: 600,
+                                  child: AddBranchData()));
+                        },
+                      );
+                    
                   },
                   title: 'Add Branch',
                 )

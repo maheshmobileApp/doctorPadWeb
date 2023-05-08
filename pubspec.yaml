@@ -51,6 +51,7 @@ dependencies:
   flutter_local_notifications:
   flutter_svg: ^2.0.5
   sidebarx: ^0.15.0
+  flutter_multi_select_items: ^0.4.2
 
 dev_dependencies:
   flutter_test:
