@@ -52,6 +52,8 @@ dependencies:
   flutter_svg: ^2.0.5
   sidebarx: ^0.15.0
   flutter_multi_select_items: ^0.4.2
+  image_picker_web: ^3.0.0+1
+  dotted_border: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:

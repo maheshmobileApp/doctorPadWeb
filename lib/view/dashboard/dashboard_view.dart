@@ -1,21 +1,14 @@
-import 'package:cgg_base_project/model/hospital_details/add_hospital.dart';
 import 'package:cgg_base_project/responsive.dart';
 import 'package:cgg_base_project/view/add_hospital/add_hospital.dart';
-import 'package:cgg_base_project/view/doctor_details/doctor_details.dart';
-import 'package:cgg_base_project/view/hospital__details/hospital_details.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/add_specilites.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
 import 'package:cgg_base_project/view/hospital_view/hospital_view.dart';
 import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
-import 'package:sidebarx/sidebarx.dart';
 
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
-import '../../view_model/hospital_viewmodel.dart';
 import '../add_doctor/add_doctor.dart';
 import '../doctor_view/doctor_view.dart';
 
@@ -98,7 +91,7 @@ class DashBoardView extends StatelessWidget {
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-            content: SizedBox(width: 550, height: 600, child: AddDoctorForm()));
+            content: SizedBox(width: 500, height: 650, child: AddDoctorForm()));
       },
     );
   }
@@ -110,7 +103,7 @@ class DashBoardView extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
             content:
-                SizedBox(width: 600, height: 450, child: AddHospitalsForms()));
+                SizedBox(width: 500, height: 500, child: AddHospitalsForms()));
       },
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/model/hospital_details/hospitail_specialites.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
@@ -14,12 +16,14 @@ import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import 'package:dio/dio.dart';
+import 'package:image_picker_web/image_picker_web.dart';
 
 class GetAllHospitalViewModel with ChangeNotifier {
   final _getAllHospitalRepository = HospitalRepository();
   GetAllHospitals? hospitals;
   bool isLoading = false;
   List<Specilities>? specilityList = [];
+  MediaInfo? selectedImage;
 
   GetAllHospitalViewModel() {
     getAllHospitals();
@@ -29,6 +33,11 @@ class GetAllHospitalViewModel with ChangeNotifier {
     final result = await _getAllHospitalRepository.getAllHospitals();
     hospitals = result;
     isLoading = false;
+    notifyListeners();
+  }
+
+  updateTheImage(MediaInfo? file) {
+    selectedImage = file;
     notifyListeners();
   }
 
@@ -93,9 +102,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
     }
   }
 
-  addBranch(){
-    
-  }
+  addBranch() {}
 }
 
 

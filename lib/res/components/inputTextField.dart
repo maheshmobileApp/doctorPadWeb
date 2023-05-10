@@ -28,48 +28,49 @@ class AppInputTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          this.title != null
-              ? Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Text(this.title ?? ""),
-                )
-              : Text(""),
-          TextFormField(
-            keyboardType: keyboardType,
-            controller: controller,
-            validator: validator,
-            obscureText: this.isVisible ?? false,
-            decoration: InputDecoration(
-              prefixIcon: prefixIcon,
-              suffixIcon: this.isSecured == true
-                  ? GestureDetector(
-                      onTap: () {
-                        this.onTap!();
-                      },
-                      child: Icon(this.isVisible == true
-                          ? Icons.remove_red_eye_outlined
-                          : Icons.read_more_outlined),
-                    )
-                  : null,
-              hintText: hintText,
-              hintStyle: TextStyle(
-                fontSize: 14.0,
-                fontFamily: "poppins",
-                color: textColor,
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        this.title != null
+            ? Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Text(this.title ?? "",
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              )
+            : Text("",style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold
+            ),),
+        TextFormField(
+          keyboardType: keyboardType,
+          controller: controller,
+          validator: validator,
+          obscureText: this.isVisible ?? false,
+          decoration: InputDecoration(
+            prefixIcon: prefixIcon,
+            suffixIcon: this.isSecured == true
+                ? GestureDetector(
+                    onTap: () {
+                      this.onTap!();
+                    },
+                    child: Icon(this.isVisible == true
+                        ? Icons.remove_red_eye_outlined
+                        : Icons.read_more_outlined),
+                  )
+                : null,
+            hintText: hintText,
+            hintStyle: TextStyle(
+              fontSize: 14.0,
+              fontFamily: "poppins",
+              color: textColor,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.0),
             ),
           ),
-        ],
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 15.0),
-      margin: EdgeInsets.symmetric(vertical: 12.0),
+        ),
+      ],
     );
   }
 }

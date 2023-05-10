@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
 import '../../view_model/hospital_viewmodel.dart';
+import 'image_sclection_screen.dart';
 
 class AddBranchData extends StatelessWidget {
   AddBranchData({super.key});
@@ -20,58 +21,71 @@ class AddBranchData extends StatelessWidget {
     final viewModel = context.watch<GetAllHospitalViewModel>();
     return Form(
       key: _formKey,
-      child: Container(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.topRight,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child:
-                      SizedBox(height: 35, width: 75, child: Icon(Icons.close)),
+      child: SingleChildScrollView(
+        child: Container(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SizedBox(
+                        height: 35, width: 75, child: Icon(Icons.close)),
+                  ),
                 ),
-              ),
-              AppInputTextField(
-                controller: _branchNameControl,
-                hintText: "Enter Branch Name",
-                title: "Branch Name",
-              ),
-              AppInputTextField(
-                controller: _branchAddressControl,
-                hintText: "Enter Branch Address",
-                title: "Branch Address",
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 15),
-                child: Text("Select The Specialities"),
-              ),
-              selectSpecilization(viewModel),
-              prescriptionImage(),
-              SizedBox(
-                height: 30,
-              ),
-              AppButton(
-                  text: 'ADD Branch',
-                  color: AppColors.backgroundcolori,
-                  primaryColor: AppColors.color1,
-                  onPressed: () {
-                    // if (_formKey.currentState!.validate()) {
-                    //   viewModel.addDoctor(context,
-                    //       createdBy: "test",
-                    //       emailId: _emailIdController.text,
-                    //       mobileNo: _mobileNumberController.text,
-                    //       name: _nameOfTheDoctorController.text,
-                    //       doctorRegistrationNumber:
-                    //           _doctorRegistrationNumberController.text);
-                    //   //  context.go(RoutesList.addDoctorSuccessfully);
-                    // }
-                  }),
-            ]),
+                AppInputTextField(
+                  controller: _branchNameControl,
+                  hintText: "Enter Branch Name",
+                  title: "Branch Name",
+                ),
+                _sizedBox(height: 10),
+                AppInputTextField(
+                  controller: _branchAddressControl,
+                  hintText: "Enter Branch Address",
+                  title: "Branch Address",
+                ),
+                _sizedBox(height: 10),
+                Text("Select The Specialities",
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                _sizedBox(height: 10),
+                selectSpecilization(viewModel),
+                _sizedBox(height: 10),
+                prescriptionImage(),
+                SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: AppButton(
+                      text: 'ADD Branch',
+                      color: AppColors.backgroundcolori,
+                      primaryColor: AppColors.color1,
+                      onPressed: () {
+                        // if (_formKey.currentState!.validate()) {
+                        //   viewModel.addDoctor(context,
+                        //       createdBy: "test",
+                        //       emailId: _emailIdController.text,
+                        //       mobileNo: _mobileNumberController.text,
+                        //       name: _nameOfTheDoctorController.text,
+                        //       doctorRegistrationNumber:
+                        //           _doctorRegistrationNumberController.text);
+                        //    context.go(RoutesList.addDoctorSuccessfully);
+                        // }
+                      }),
+                ),
+              ]),
+        ),
       ),
+    );
+  }
+
+  SizedBox _sizedBox({double? height}) {
+    return SizedBox(
+      height: height,
     );
   }
 
@@ -79,9 +93,13 @@ class AddBranchData extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Container(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text("Upload Prescription"), Container()]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text("Upload Prescription",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          _sizedBox(height: 10),
+          ImageSclectionScreen(),
+          //Container()
+        ]),
       ),
     );
   }

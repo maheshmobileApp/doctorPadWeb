@@ -34,7 +34,8 @@ class AddSpecilities extends StatelessWidget {
             ),
           ),
           AppInputTextField(
-              prefixIcon: Icon(MyFlutterApp.doctor),
+            //  prefixIcon: Icon(MyFlutterApp.doctor),
+            title: 'Speciality',
               controller: _specialityController,
               keyboardType: TextInputType.name,
               validator: (value) {
@@ -45,7 +46,7 @@ class AddSpecilities extends StatelessWidget {
               },
               hintText: "Enter Speciality"),
           SizedBox(
-            height: 20,
+            height: 40,
           ),
           AppButton(
               text: 'ADD Speciality',
