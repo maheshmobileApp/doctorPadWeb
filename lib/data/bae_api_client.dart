@@ -8,7 +8,7 @@ class ApiErrorCodes {
 }
 
 class BaseApiClient {
-  late final Dio _client = Dio(
+  late final Dio client = Dio(
     BaseOptions(
       baseUrl: ApiConstants.baseUrlPQMS,
     ),
@@ -17,7 +17,7 @@ class BaseApiClient {
   Future<dynamic> getCall(String url,
       {String contenType = "application/json"}) async {
     try {
-      var respone = await _client.get(url,
+      var respone = await client.get(url,
           options: Options(headers: {
             'Content-Type': contenType,
           }));
@@ -46,7 +46,7 @@ class BaseApiClient {
   Future<dynamic> postCall(String url,
       {dynamic payload, String contenType = "application/json"}) async {
     try {
-      var respone = await _client.post(url,
+      var respone = await client.post(url,
           options: Options(headers: {
             'Content-Type': contenType,
           }),

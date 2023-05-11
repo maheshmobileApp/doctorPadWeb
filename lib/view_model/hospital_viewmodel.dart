@@ -1,7 +1,7 @@
-import 'dart:html';
-
+import 'package:cgg_base_project/data/bae_api_client.dart';
 import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/model/hospital_details/hospitail_specialites.dart';
+import 'package:cgg_base_project/model/upload_file.dart/upload_file_model.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
 import 'package:cgg_base_project/view_model/hospitalSpecialityModel.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +24,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
   bool isLoading = false;
   List<Specilities>? specilityList = [];
   MediaInfo? selectedImage;
+  HospitalResponseModel? selectedHospital;
 
   GetAllHospitalViewModel() {
     getAllHospitals();
@@ -102,8 +103,42 @@ class GetAllHospitalViewModel with ChangeNotifier {
     }
   }
 
-  addBranch() {}
+  addBranch() async {
+    final prescription_image_url = await uploadPrescription();
+    final payload = {
+      "address": "string",
+      "created_by": "string",
+      "hospital_id": "string",
+      "hospital_reg_number": "string",
+      "name": "string",
+      "prescription_image_url": prescription_image_url,
+      "specialization_ids": [
+        {"id": "string"}
+      ]
+    };
+  }
+
+  Future<String> uploadPrescription() async {
+    //https://doctopad-a2d-dev.el.r.appspot.com/api/v1/file_upload
+//https://doctopad-a2d-dev.el.r.appspot.com/
+    final fileName = selectedImage?.fileName;
+//file.path.split('/').last;
+    FormData data = FormData.fromMap({
+      "file": await MultipartFile.fromString(
+        selectedImage?.base64 ?? "",
+        filename: fileName,
+      ),
+    });
+    final response =
+        await BaseApiClient().client.post("api/v1/file_upload", data: data);
+    if (response.statusCode == 200) {
+      return UploadFileResponse.fromJson(response.data).body?.pathname ?? "";
+    } else {
+      return "";
+    }
+  }
 }
+
 
 
 /*

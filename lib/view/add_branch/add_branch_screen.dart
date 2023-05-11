@@ -65,6 +65,7 @@ class AddBranchData extends StatelessWidget {
                       color: AppColors.backgroundcolori,
                       primaryColor: AppColors.color1,
                       onPressed: () {
+                        viewModel.addBranch();
                         // if (_formKey.currentState!.validate()) {
                         //   viewModel.addDoctor(context,
                         //       createdBy: "test",

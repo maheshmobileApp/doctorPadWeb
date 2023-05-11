@@ -2,7 +2,7 @@ class GetAllHospitals {
   String? message;
   int? status;
   String? mediaBasePath;
-  List<Body>? body;
+  List<HospitalResponseModel>? body;
 
   GetAllHospitals({this.message, this.status, this.mediaBasePath, this.body});
 
@@ -11,9 +11,9 @@ class GetAllHospitals {
     status = json['status'];
     mediaBasePath = json['media_base_path'];
     if (json['body'] != null) {
-      body = <Body>[];
+      body = <HospitalResponseModel>[];
       json['body'].forEach((v) {
-        body!.add(new Body.fromJson(v));
+        body!.add(new HospitalResponseModel.fromJson(v));
       });
     }
   }
@@ -30,7 +30,7 @@ class GetAllHospitals {
   }
 }
 
-class Body {
+class HospitalResponseModel {
   String? id;
   Null? isActive;
   String? createdDateTime;
@@ -41,7 +41,7 @@ class Body {
   String? phone;
   String? email;
 
-  Body(
+  HospitalResponseModel(
       {this.id,
       this.isActive,
       this.createdDateTime,
@@ -52,7 +52,7 @@ class Body {
       this.phone,
       this.email});
 
-  Body.fromJson(Map<String, dynamic> json) {
+  HospitalResponseModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     isActive = json['is_active'];
     createdDateTime = json['created_date_time'];

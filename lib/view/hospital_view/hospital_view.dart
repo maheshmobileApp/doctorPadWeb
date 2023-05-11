@@ -56,7 +56,7 @@ class hospitalListCard extends StatelessWidget {
     required this.hospitalData,
   });
 
-  final Body? hospitalData;
+  final HospitalResponseModel? hospitalData;
 
   @override
   Widget build(BuildContext context) {
@@ -98,18 +98,19 @@ class hospitalListCard extends StatelessWidget {
                 ),
                 SmallButton(
                   onPressed: () {
-                      showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (context) {
-                          return AlertDialog(
-                              content: SizedBox(
-                                  width: 550,
-                                  height: 600,
-                                  child: AddBranchData()));
-                        },
-                      );
-                    
+                    final viewModel = context.watch<GetAllHospitalViewModel>();
+                    viewModel.selectedHospital = hospitalData;
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) {
+                        return AlertDialog(
+                            content: SizedBox(
+                                width: 550,
+                                height: 600,
+                                child: AddBranchData()));
+                      },
+                    );
                   },
                   title: 'Add Branch',
                 )
