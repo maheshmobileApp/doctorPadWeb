@@ -36,8 +36,8 @@ class AddDoctorForm extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: SizedBox(
-                      height: 35, width: 75, child: Icon(Icons.close)),
+                  child:
+                      SizedBox(height: 35, width: 75, child: Icon(Icons.close)),
                 ),
               ),
               AppInputTextField(
@@ -51,11 +51,11 @@ class AddDoctorForm extends StatelessWidget {
                     return null;
                   },
                   hintText: "Enter Name Of The Doctor"),
-                  _sizedBox(height: 10),
+              _sizedBox(height: 10),
               AppInputTextField(
                 title: 'Doctor Registration Number',
                 controller: _doctorRegistrationNumberController,
-               // prefixIcon: Icon(MyFlutterApp.contact),
+                // prefixIcon: Icon(MyFlutterApp.contact),
                 hintText: 'Enter Doctor Registration Number',
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -70,7 +70,7 @@ class AddDoctorForm extends StatelessWidget {
               AppInputTextField(
                 title: 'Mobile Number',
                 controller: _mobileNumberController,
-              //  prefixIcon: Icon(MyFlutterApp.call),
+                //  prefixIcon: Icon(MyFlutterApp.call),
                 hintText: "Enter Mobile Number",
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -85,7 +85,7 @@ class AddDoctorForm extends StatelessWidget {
               AppInputTextField(
                 title: 'Doctor Speciality',
                 controller: _doctorSpecialityController,
-              //  prefixIcon: Icon(MyFlutterApp.doctor),
+                //  prefixIcon: Icon(MyFlutterApp.doctor),
                 hintText: 'Enter Doctor Speciality',
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -98,7 +98,7 @@ class AddDoctorForm extends StatelessWidget {
               AppInputTextField(
                 title: 'Clinic Speciality',
                 controller: _clinicSpecialityController,
-              //  prefixIcon: Icon(MyFlutterApp.home),
+                //  prefixIcon: Icon(MyFlutterApp.home),
                 hintText: 'Enter Clinic Speciality',
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -111,7 +111,7 @@ class AddDoctorForm extends StatelessWidget {
               AppInputTextField(
                 title: 'Email id',
                 controller: _emailIdController,
-              //  prefixIcon: Icon(MyFlutterApp.message),
+                //  prefixIcon: Icon(MyFlutterApp.message),
                 hintText: 'Enter Email id',
                 validator: (value) {
                   print(value);
@@ -125,22 +125,24 @@ class AddDoctorForm extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
               ),
               _sizedBox(height: 20),
-              AppButton(
-                  text: 'ADD DOCTOR',
-                  color: AppColors.backgroundcolori,
-                  primaryColor: AppColors.color1,
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      viewModel.addDoctor(context,
-                          createdBy: "test",
-                          emailId: _emailIdController.text,
-                          mobileNo: _mobileNumberController.text,
-                          name: _nameOfTheDoctorController.text,
-                          doctorRegistrationNumber:
-                              _doctorRegistrationNumberController.text);
-                      //  context.go(RoutesList.addDoctorSuccessfully);
-                    }
-                  }),
+              viewModel.submitting
+                  ? CircularProgressIndicator()
+                  : AppButton(
+                      text: 'ADD DOCTOR',
+                      color: AppColors.backgroundcolori,
+                      primaryColor: AppColors.color1,
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          viewModel.addDoctor(context,
+                              createdBy: "test",
+                              emailId: _emailIdController.text,
+                              mobileNo: _mobileNumberController.text,
+                              name: _nameOfTheDoctorController.text,
+                              doctorRegistrationNumber:
+                                  _doctorRegistrationNumberController.text);
+                          //  context.go(RoutesList.addDoctorSuccessfully);
+                        }
+                      }),
             ],
           ),
         ),

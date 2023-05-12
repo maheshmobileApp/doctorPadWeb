@@ -11,9 +11,10 @@ class GetAllDoctorViewModel with ChangeNotifier {
   final _getAllDoctorRepository = AddDoctorRepository();
   GetAllDoctor? doctors;
   bool isLoading = true;
+  bool submitting = false;
 
   GetAllDoctorViewModel() {
-     getAllDoctor();
+    getAllDoctor();
     print("called GetAllDoctorViewModel view mode");
   }
 
@@ -31,6 +32,8 @@ class GetAllDoctorViewModel with ChangeNotifier {
       String? emailId,
       String? mobileNo,
       String? name}) async {
+    submitting = true;
+    notifyListeners();
     final result = await _addDoctorRepository.addDoctor(AddDoctorEntity(
       createdBy: createdBy,
       doctorRegistrationNumber: doctorRegistrationNumber,
@@ -38,6 +41,8 @@ class GetAllDoctorViewModel with ChangeNotifier {
       mobileNo: mobileNo,
       name: name,
     ));
+    submitting = false;
+    notifyListeners();
     if (result.status == 200) {
       context.go(RoutesList.addDoctorSuccessfully);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

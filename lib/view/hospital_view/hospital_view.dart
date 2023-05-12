@@ -32,7 +32,12 @@ class _HospitalViewState extends State<HospitalView> {
                 itemCount: viewModel.hospitals?.body?.length,
                 itemBuilder: (context, index) {
                   final hospitalData = viewModel.hospitals?.body![index];
-                  return hospitalListCard(hospitalData: hospitalData);
+                  return hospitalListCard(
+                    hospitalData: hospitalData,
+                    onPressed: () {
+                      viewModel.selectedHospital = hospitalData;
+                    },
+                  );
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 5,
@@ -51,13 +56,10 @@ class _HospitalViewState extends State<HospitalView> {
 }
 
 class hospitalListCard extends StatelessWidget {
-  const hospitalListCard({
-    super.key,
-    required this.hospitalData,
-  });
+  hospitalListCard({super.key, required this.hospitalData, this.onPressed});
 
   final HospitalResponseModel? hospitalData;
-
+  void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -98,8 +100,7 @@ class hospitalListCard extends StatelessWidget {
                 ),
                 SmallButton(
                   onPressed: () {
-                    final viewModel = context.watch<GetAllHospitalViewModel>();
-                    viewModel.selectedHospital = hospitalData;
+                    onPressed!();
                     showDialog(
                       context: context,
                       barrierDismissible: false,

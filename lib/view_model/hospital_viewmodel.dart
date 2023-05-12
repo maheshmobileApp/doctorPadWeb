@@ -21,7 +21,7 @@ import 'package:image_picker_web/image_picker_web.dart';
 class GetAllHospitalViewModel with ChangeNotifier {
   final _getAllHospitalRepository = HospitalRepository();
   GetAllHospitals? hospitals;
-  bool isLoading = false;
+  bool isLoading = true;
   List<Specilities>? specilityList = [];
   MediaInfo? selectedImage;
   HospitalResponseModel? selectedHospital;
@@ -91,10 +91,10 @@ class GetAllHospitalViewModel with ChangeNotifier {
 
   addSpecility(String name) async {
     final body = {"created_by": "mahesh", "speciality_name": name};
-    final dio = Dio();
-    final result = await dio.post(
-        "https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities",
-        data: body);
+    // final dio = Dio();
+    final result = await BaseApiClient()
+        .client
+        .post("api/v1/hospital_specialities", data: body);
     if (result.statusCode == 200) {
       //success
       getSpecilitiesList();
@@ -103,19 +103,24 @@ class GetAllHospitalViewModel with ChangeNotifier {
     }
   }
 
-  addBranch() async {
+  addBranch({String? branName, String? branchAddress}) async {
     final prescription_image_url = await uploadPrescription();
     final payload = {
-      "address": "string",
+      "address": branchAddress,
       "created_by": "string",
-      "hospital_id": "string",
-      "hospital_reg_number": "string",
-      "name": "string",
+      "hospital_id": selectedHospital?.id ?? "",
+      "hospital_reg_number": "534233",
+      "name": branName,
       "prescription_image_url": prescription_image_url,
       "specialization_ids": [
         {"id": "string"}
       ]
     };
+    //api/v1/hospitals_branch
+    final response = await BaseApiClient()
+        .client
+        .post("api/v1/hospitals_branch", data: payload);
+    print(response.data);
   }
 
   Future<String> uploadPrescription() async {
@@ -124,15 +129,20 @@ class GetAllHospitalViewModel with ChangeNotifier {
     final fileName = selectedImage?.fileName;
 //file.path.split('/').last;
     FormData data = FormData.fromMap({
-      "file": await MultipartFile.fromString(
-        selectedImage?.base64 ?? "",
+      "file": await MultipartFile.fromBytes(
+        selectedImage!.data!,
         filename: fileName,
       ),
     });
     final response =
         await BaseApiClient().client.post("api/v1/file_upload", data: data);
     if (response.statusCode == 200) {
-      return UploadFileResponse.fromJson(response.data).body?.pathname ?? "";
+      print("response ${response.data}");
+      final result = UploadFileResponse.fromJson(response.data);
+
+      final basePath = result.mediaBasePath ?? "";
+      final imagePath = result.body?.pathname ?? "";
+      return basePath + imagePath;
     } else {
       return "";
     }
