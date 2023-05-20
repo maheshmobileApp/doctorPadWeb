@@ -16,23 +16,24 @@ class AddDoctorRepository {
 
   Future<GetAllDoctor> getAllDoctor() async {
     final respnse = await _baseClient.getCall('api/v1/doctors');
-    final response = await Dio().get(
-        "https://api.sportsdata.io/v3/nfl/scores/json/Rookies/2022?key=2e3a5a52b7c047359ebb58c8b6c7590f");
-    print("response $response");
-
-    //https://api.sportsdata.io/v3/nfl/scores/json/Rookies/2022?key=2e3a5a52b7c047359ebb58c8b6c7590f
-    //    late final Dio _client = Dio(
-    //   BaseOptions(
-    //     baseUrl: ApiConstants.baseUrlPQMS,
-    //   ),
-    // );
     return GetAllDoctor.fromJson(respnse);
   }
 
-  Future<DoctorSpecialitiesRes >doctorSpecialitiesRes () async {
-    final respnse = await _baseClient.getCall(
-        'api/v1/doctor_specialities');
-    return DoctorSpecialitiesRes .fromJson(respnse);
+  Future<GetAllDoctor> getAllDoctorByBranch(String branchID) async {
+    print("branch id $branchID");
+
+    final respnse =
+        await _baseClient.getCall('api/v1/doctors/branch/branch_id=$branchID');
+    print(respnse);
+    if (respnse == null) {
+      return GetAllDoctor(status: 0);
+    }
+    return GetAllDoctor.fromJson(respnse);
+  }
+
+  Future<DoctorSpecialitiesRes> doctorSpecialitiesRes() async {
+    final respnse = await _baseClient.getCall('api/v1/doctor_specialities');
+    return DoctorSpecialitiesRes.fromJson(respnse);
   }
   // Future<GetDoctorSpecialites> getDoctorSpecialites() async {
   //   final respnse = await _baseClient.getCall(

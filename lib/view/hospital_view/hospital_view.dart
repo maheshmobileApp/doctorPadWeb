@@ -3,9 +3,11 @@ import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:cgg_base_project/res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import 'package:cgg_base_project/res/components/small_button_widget.dart';
 import 'package:cgg_base_project/view/add_branch/add_branch_screen.dart';
+import 'package:cgg_base_project/view/hospital_view/hospital_detailView.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../../model/hospital_details/branches_list_model.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/constants/routes_constants.dart';
 import '../../view_model/hospital_viewmodel.dart';
@@ -34,6 +36,16 @@ class _HospitalViewState extends State<HospitalView> {
                   final hospitalData = viewModel.hospitals?.body![index];
                   return hospitalListCard(
                     hospitalData: hospitalData,
+                    viewBraches: () {
+                      viewBranches(context);
+                      viewModel
+                          .getBranchesByHospitalsId(hospitalData?.id ?? "");
+                      // if (value) {
+                      //   viewBranches(context, viewModel.bracnhesList);
+                      // } else {
+                      //   noBranchAlert(context);
+                      // }
+                    },
                     onPressed: () {
                       viewModel.selectedHospital = hospitalData;
                     },
@@ -48,6 +60,43 @@ class _HospitalViewState extends State<HospitalView> {
     );
   }
 
+  noBranchAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Ok"))
+            ],
+            content: SizedBox(
+                width: 200, height: 200, child: Text("No Branches Available")));
+      },
+    );
+  }
+
+  viewBranches(BuildContext context) {
+    context.go(RoutesList.viewBranches);
+    /* final size = MediaQuery.of(context).size;
+    print("logs branches $bracnhesList");
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content: SizedBox(
+                width: size.width - 200,
+                height: size.height - 200,
+                child: HospitalBranchesList(
+                )));
+      },
+    );*/
+  }
+
   @override
   void initState() {
     super.initState();
@@ -56,10 +105,15 @@ class _HospitalViewState extends State<HospitalView> {
 }
 
 class hospitalListCard extends StatelessWidget {
-  hospitalListCard({super.key, required this.hospitalData, this.onPressed});
+  hospitalListCard(
+      {super.key,
+      required this.hospitalData,
+      this.onPressed,
+      this.viewBraches});
 
   final HospitalResponseModel? hospitalData;
   void Function()? onPressed;
+  void Function()? viewBraches;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -94,9 +148,10 @@ class hospitalListCard extends StatelessWidget {
               children: [
                 SmallButton(
                   onPressed: () {
+                    viewBraches!();
                     print("view button clicked");
                   },
-                  title: 'View',
+                  title: 'View Branches',
                 ),
                 SmallButton(
                   onPressed: () {
@@ -146,7 +201,7 @@ class RowWithTitleAndDetials extends StatelessWidget {
           Text(
             title ?? "",
             style: TextStyle(
-                fontFamily: 'Muli', fontSize: 16, fontWeight: FontWeight.bold),
+                fontFamily: 'Muli', fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Text(
             value ?? "",

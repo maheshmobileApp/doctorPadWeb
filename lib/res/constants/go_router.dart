@@ -15,6 +15,7 @@ import '../../view/doctor_view/doctor_view.dart';
 import '../../view/add_hospital/add_hospital.dart';
 
 import '../../view/hospital_speciatiles.dart/hospital_specialites.dart';
+import '../../view/hospital_view/hospital_detailView.dart';
 import '../../view/login/login_mobile_view.dart';
 
 final GoRouter routes =
@@ -77,7 +78,7 @@ final GoRouter routes =
   GoRoute(
     path: RoutesList.addHospitalSuccessfully,
     builder: (BuildContext context, GoRouterState state) {
-      return AddHospitalSuccessfully();
+      return SuccessflullyAlert();
     },
   ),
   GoRoute(
@@ -98,4 +99,11 @@ final GoRouter routes =
       return DoctorSpecialities();
     },
   ),
+  GoRoute(
+    path: RoutesList.viewBranches,
+    builder: (BuildContext context, GoRouterState state) {
+      return HospitalBranchesList();
+    },
+  ),
+  //HospitalBranchesList
 ]);

@@ -24,6 +24,7 @@ class BaseApiClient {
       return respone.data;
     } catch (e) {
       print(e);
+      return null;
     }
 
     /*on SocketException {

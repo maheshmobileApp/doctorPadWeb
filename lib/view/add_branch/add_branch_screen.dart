@@ -108,48 +108,62 @@ class AddBranchData extends StatelessWidget {
   }
 
   Widget selectSpecilization(GetAllHospitalViewModel viewModel) {
-    return Container(
-      child: MultiSelectContainer(
-          itemsDecoration: MultiSelectDecorations(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  AppColors.app_bg_color,
-                  AppColors.backgroundcolor
-                ]),
-                border: Border.all(color: Colors.green[200]!),
-                borderRadius: BorderRadius.circular(5)),
-            selectedDecoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [
-                  AppColors.app_bg_color,
-                  AppColors.backgroundcolor
-                ]),
-                border: Border.all(color: Colors.green[700]!),
-                borderRadius: BorderRadius.circular(5)),
-            disabledDecoration: BoxDecoration(
-                color: Colors.grey,
-                border: Border.all(color: Colors.grey[500]!),
-                borderRadius: BorderRadius.circular(5)),
-          ),
-          prefix: MultiSelectPrefix(
-              selectedPrefix: const Padding(
-                padding: EdgeInsets.only(right: 5),
-                child: Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 14,
-                ),
+    return Column(
+      children: [
+        Container(
+          child: MultiSelectContainer(
+              itemsDecoration: MultiSelectDecorations(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                      AppColors.app_bg_color,
+                      AppColors.backgroundcolor
+                    ]),
+                    border: Border.all(color: Colors.green[200]!),
+                    borderRadius: BorderRadius.circular(5)),
+                selectedDecoration: BoxDecoration(
+                    gradient: const LinearGradient(colors: [
+                      AppColors.app_bg_color,
+                      AppColors.backgroundcolor
+                    ]),
+                    border: Border.all(color: Colors.green[700]!),
+                    borderRadius: BorderRadius.circular(5)),
+                disabledDecoration: BoxDecoration(
+                    color: Colors.grey,
+                    border: Border.all(color: Colors.grey[500]!),
+                    borderRadius: BorderRadius.circular(5)),
               ),
-              disabledPrefix: const Padding(
-                padding: EdgeInsets.only(right: 5),
-                child: Icon(
-                  Icons.do_disturb_alt_sharp,
-                  size: 14,
-                ),
-              )),
-          items: viewModel.specilityList!
-              .map((e) => MultiSelectCard(value: e.id, label: e.specialityName))
-              .toList(),
-          onChange: (allSelectedItems, selectedItem) {}),
+              prefix: MultiSelectPrefix(
+                  selectedPrefix: const Padding(
+                    padding: EdgeInsets.only(right: 5),
+                    child: Icon(
+                      Icons.check,
+                      color: Colors.white,
+                      size: 14,
+                    ),
+                  ),
+                  disabledPrefix: const Padding(
+                    padding: EdgeInsets.only(right: 5),
+                    child: Icon(
+                      Icons.do_disturb_alt_sharp,
+                      size: 14,
+                    ),
+                  )),
+              items: viewModel.specilityList!
+                  .map((e) =>
+                      MultiSelectCard(value: e.id, label: e.specialityName))
+                  .toList(),
+              onChange: (allSelectedItems, selectedItem) {
+                viewModel.selectedSpecility = allSelectedItems;
+                print(allSelectedItems);
+              }),
+        ),
+        viewModel.specilityError.isEmpty && viewModel.isShowError
+            ? Text(
+                "Please Enter Specility",
+                style: TextStyle(color: Colors.red, fontSize: 14),
+              )
+            : SizedBox()
+      ],
     );
   }
 }

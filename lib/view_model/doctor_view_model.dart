@@ -4,14 +4,14 @@ import 'package:go_router/go_router.dart';
 import '../model/doctor_model.dart/doctor_specialites.dart';
 import '../model/entity/doctor_entity.dart/add_doctor_entity.dart';
 import '../model/get_all_doctor.dart';
-import '../res/app_colors.dart';
-import '../res/constants/routes_constants.dart';
+import '../view/add_hospital_successfully/add_hospital_successfully.dart';
 
 class GetAllDoctorViewModel with ChangeNotifier {
   final _getAllDoctorRepository = AddDoctorRepository();
   GetAllDoctor? doctors;
   bool isLoading = true;
   bool submitting = false;
+  bool isFromAssignDoctor = false;
 
   GetAllDoctorViewModel() {
     getAllDoctor();
@@ -23,6 +23,18 @@ class GetAllDoctorViewModel with ChangeNotifier {
     doctors = result;
     isLoading = false;
     notifyListeners();
+  }
+
+  Future<bool> getAllDoctorByBranch(String branchID) async {
+    final result = await _getAllDoctorRepository.getAllDoctorByBranch(branchID);
+    doctors = result;
+    isLoading = false;
+    notifyListeners();
+    if (result.status == 0) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   final _addDoctorRepository = AddDoctorRepository();
@@ -43,14 +55,31 @@ class GetAllDoctorViewModel with ChangeNotifier {
     ));
     submitting = false;
     notifyListeners();
+    Navigator.pop(context);
     if (result.status == 200) {
-      context.go(RoutesList.addDoctorSuccessfully);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(result.message ?? ''),
-        backgroundColor: AppColors.app_bg_color,
-      ));
+      showSuccessMessage(context);
     }
-    notifyListeners();
+    // notifyListeners();
+  }
+
+  showSuccessMessage(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content: SizedBox(
+                width: 300,
+                height: 250,
+                child: SuccessflullyAlert(
+                  title: 'Added Doctor Successfully',
+                  onPressed: () {
+                    Navigator.pop(context);
+                    getAllDoctor();
+                  },
+                )));
+      },
+    );
   }
 
   // final _doctorSpecialitesRepository = AddDoctorRepository();

@@ -37,7 +37,8 @@ class AddHospitalsForms extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: SizedBox(height: 35, width: 75, child: Icon(Icons.close)),
+                child:
+                    SizedBox(height: 35, width: 75, child: Icon(Icons.close)),
               ),
             ),
             Form(
@@ -51,7 +52,7 @@ class AddHospitalsForms extends StatelessWidget {
                       AppInputTextField(
                         title: 'Name Of The Hospital',
                         controller: _nameOfTheHospitalController,
-                      //  prefixIcon: Icon(MyFlutterApp.home),
+                        //  prefixIcon: Icon(MyFlutterApp.home),
                         hintText: 'Enter Name Of The Hospital',
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -64,7 +65,7 @@ class AddHospitalsForms extends StatelessWidget {
                       AppInputTextField(
                         title: 'Address',
                         controller: _addressController,
-                      //  prefixIcon: Icon(MyFlutterApp.contact),
+                        //  prefixIcon: Icon(MyFlutterApp.contact),
                         hintText: 'Enter Address',
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -77,7 +78,7 @@ class AddHospitalsForms extends StatelessWidget {
                       AppInputTextField(
                         title: 'Contact Number',
                         controller: _contactNumberController,
-                      //  prefixIcon: Icon(MyFlutterApp.call),
+                        //  prefixIcon: Icon(MyFlutterApp.call),
                         hintText: "Enter Contact number",
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -92,7 +93,7 @@ class AddHospitalsForms extends StatelessWidget {
                       AppInputTextField(
                         title: 'Email id',
                         controller: _emailIdController,
-                      //  prefixIcon: Icon(MyFlutterApp.message),
+                        //  prefixIcon: Icon(MyFlutterApp.message),
                         hintText: 'Enter Email id',
                         validator: (value) {
                           print(value);
@@ -106,22 +107,24 @@ class AddHospitalsForms extends StatelessWidget {
                         keyboardType: TextInputType.emailAddress,
                       ),
                       _sizedBox(height: 30),
-                      AppButton(
-                          text: 'ADD  HOSPITAL',
-                          color: AppColors.backgroundcolori,
-                          primaryColor: AppColors.color1,
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              viewModel.addHospital(
-                                context,
-                                createdBy: "text",
-                                email: _emailIdController.text,
-                                name: _nameOfTheHospitalController.text,
-                                phone: _contactNumberController.text,
-                              );
-                              // context.go(RoutesList.addHospitalSuccessfully);
-                            }
-                          }),
+                      viewModel.submitting
+                          ? CircularProgressIndicator()
+                          : AppButton(
+                              text: 'ADD  HOSPITAL',
+                              color: AppColors.backgroundcolori,
+                              primaryColor: AppColors.color1,
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  viewModel.addHospital(
+                                    context,
+                                    createdBy: "text",
+                                    email: _emailIdController.text,
+                                    name: _nameOfTheHospitalController.text,
+                                    phone: _contactNumberController.text,
+                                  );
+                                  // context.go(RoutesList.addHospitalSuccessfully);
+                                }
+                              }),
                     ],
                   ),
                 ),
@@ -132,6 +135,7 @@ class AddHospitalsForms extends StatelessWidget {
       ),
     );
   }
+
   SizedBox _sizedBox({double? height}) {
     return SizedBox(
       height: height,

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/option_widgets/option_widgets.dart';
 import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
+import '../../res/components/small_button_widget.dart';
 import '../../res/constants/routes_constants.dart';
 import '../../view_model/doctor_view_model.dart';
 import '../../view_model/login_view_mode.dart';
@@ -62,6 +63,14 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                             fontSize: 15,
                             fontWeight: FontWeight.w500),
                       ),
+                      trailing: viewModel.isFromAssignDoctor
+                          ? SmallButton(
+                              onPressed: () {
+                                print("view button clicked");
+                              },
+                              title: 'Assign',
+                            )
+                          : SizedBox(),
                       //trailing: const Icon(Icons.add_a_photo),
                     ),
                   );
