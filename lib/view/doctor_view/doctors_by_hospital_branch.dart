@@ -9,13 +9,14 @@ import '../../res/constants/routes_constants.dart';
 import '../../view_model/doctor_view_model.dart';
 import '../../view_model/login_view_mode.dart';
 
-class DoctorsWebView extends StatefulWidget {
-  const DoctorsWebView({super.key});
+class DoctorsByAssignDoctorss extends StatefulWidget {
+  const DoctorsByAssignDoctorss({super.key});
   @override
-  State<DoctorsWebView> createState() => _DoctorsWebViewState();
+  State<DoctorsByAssignDoctorss> createState() =>
+      _DoctorsByAssignDoctorssState();
 }
 
-class _DoctorsWebViewState extends State<DoctorsWebView> {
+class _DoctorsByAssignDoctorssState extends State<DoctorsByAssignDoctorss> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllDoctorViewModel>();
@@ -28,9 +29,9 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
               child: GridView.count(
                 crossAxisCount: 4,
                 childAspectRatio: (1 / .2),
-                children:
-                    List.generate(viewModel.doctors!.body!.length, (index) {
-                  final doctorData = viewModel.doctors?.body![index];
+                children: List.generate(viewModel.doctorsByBranch!.body!.length,
+                    (index) {
+                  final doctorData = viewModel.doctorsByBranch?.body![index];
                   return Card(
                     elevation: 4,
                     child: ListTile(
@@ -64,16 +65,8 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                       ),
                       trailing: viewModel.isFromAssignDoctor
                           ? SmallButton(
-                              onPressed: () async {
+                              onPressed: () {
                                 print("view button clicked");
-                                final result =
-                                    await viewModel.assignDoctorsToBranch(
-                                        doctorData?.id ?? "");
-                                if (result) {
-                                  alrtForDoctorAssign(context);
-                                } else {
-                                  Navigator.of(context).pop();
-                                }
                               },
                               title: 'Assign',
                             )
@@ -84,22 +77,6 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                 }),
               ),
             ),
-    );
-  }
-
-  alrtForDoctorAssign(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return AlertDialog(actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("Ok"))
-        ], content: SizedBox(child: Text("Doctor Assigned succefully")));
-      },
     );
   }
 

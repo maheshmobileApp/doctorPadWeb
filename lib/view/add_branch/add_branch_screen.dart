@@ -133,21 +133,23 @@ class AddBranchData extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5)),
               ),
               prefix: MultiSelectPrefix(
-                  selectedPrefix: const Padding(
-                    padding: EdgeInsets.only(right: 5),
-                    child: Icon(
-                      Icons.check,
-                      color: Colors.white,
-                      size: 14,
-                    ),
+                selectedPrefix: const Padding(
+                  padding: EdgeInsets.only(right: 5),
+                  child: Icon(
+                    Icons.check,
+                    color: Colors.white,
+                    size: 14,
                   ),
-                  disabledPrefix: const Padding(
-                    padding: EdgeInsets.only(right: 5),
-                    child: Icon(
-                      Icons.do_disturb_alt_sharp,
-                      size: 14,
-                    ),
-                  )),
+                ),
+                // disabledPrefix: const Padding(
+                //   padding: EdgeInsets.only(right: 5),
+                //   child: Icon(
+                //    // Icons.unche,
+                //     color: Colors.white,
+                //     size: 14,
+                //   ),
+                // )
+              ),
               items: viewModel.specilityList!
                   .map((e) =>
                       MultiSelectCard(value: e.id, label: e.specialityName))

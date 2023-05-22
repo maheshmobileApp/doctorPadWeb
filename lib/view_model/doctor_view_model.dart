@@ -12,6 +12,8 @@ class GetAllDoctorViewModel with ChangeNotifier {
   bool isLoading = true;
   bool submitting = false;
   bool isFromAssignDoctor = false;
+  GetAllDoctor? doctorsByBranch;
+  String selectedBranchID = "";
 
   GetAllDoctorViewModel() {
     getAllDoctor();
@@ -26,8 +28,12 @@ class GetAllDoctorViewModel with ChangeNotifier {
   }
 
   Future<bool> getAllDoctorByBranch(String branchID) async {
+    // await getAllDoctor();
     final result = await _getAllDoctorRepository.getAllDoctorByBranch(branchID);
-    doctors = result;
+    // for (var doctor in result.body  ?? []) {
+
+    // }
+    doctorsByBranch = result;
     isLoading = false;
     notifyListeners();
     if (result.status == 0) {
@@ -35,6 +41,16 @@ class GetAllDoctorViewModel with ChangeNotifier {
     } else {
       return true;
     }
+  }
+
+  Future<bool> assignDoctorsToBranch(String doctorId) async {
+    var payload = {
+      "created_by": "mahesh",
+      "doctor_id": doctorId,
+      "hospital_branch_id": selectedBranchID,
+      "is_active": true
+    };
+    return await _addDoctorRepository.assignDoctors(payload);
   }
 
   final _addDoctorRepository = AddDoctorRepository();

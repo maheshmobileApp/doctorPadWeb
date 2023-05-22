@@ -31,6 +31,17 @@ class AddDoctorRepository {
     return GetAllDoctor.fromJson(respnse);
   }
 
+  Future<bool> assignDoctors(Map payload) async {
+//http://doctopad-a2d-dev.el.r.appspot.com/api/v1/doctors_hospitals_branch
+    try {
+      final respnse = await _baseClient
+          .postCall('api/v1/doctors_hospitals_branch', payload: payload);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   Future<DoctorSpecialitiesRes> doctorSpecialitiesRes() async {
     final respnse = await _baseClient.getCall('api/v1/doctor_specialities');
     return DoctorSpecialitiesRes.fromJson(respnse);

@@ -53,6 +53,8 @@ class HospitalBranchesList extends StatelessWidget {
               assignDoctors: () async {
                 final size = MediaQuery.of(context).size;
                 Provider.of<GetAllDoctorViewModel>(context, listen: false)
+                    .selectedBranchID = branchData?.id ?? "";
+                Provider.of<GetAllDoctorViewModel>(context, listen: false)
                     .isFromAssignDoctor = true;
                 await Provider.of<GetAllDoctorViewModel>(context, listen: false)
                     .getAllDoctor();
@@ -61,27 +63,31 @@ class HospitalBranchesList extends StatelessWidget {
                   barrierDismissible: false,
                   builder: (context) {
                     return AlertDialog(
-                        content: Container(
-                            width: size.width - 200,
-                            height: size.height - 300,
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                      // viewModel.isFromAssignDoctor = false;
-                                    },
-                                    child: SizedBox(
-                                        height: 35,
-                                        width: 75,
-                                        child: Icon(Icons.close)),
-                                  ),
-                                ),
-                                DoctorsWebView(),
-                              ],
-                            )));
+                      content: Container(
+                          // width: size.width - 200,
+                          // height: size.height - 300,
+                          child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                                // viewModel.isFromAssignDoctor = false;
+                              },
+                              child: SizedBox(
+                                  height: 35,
+                                  width: 75,
+                                  child: Icon(Icons.close)),
+                            ),
+                          ),
+                          Container(
+                              width: size.width - 200,
+                              height: size.height - 300,
+                              child: DoctorsWebView()),
+                        ],
+                      )),
+                    );
                   },
                 );
               },
@@ -160,15 +166,15 @@ class BranchListCard extends StatelessWidget {
                 SmallButton(
                   onPressed: () {
                     assignDoctors!();
-                    showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (context) {
-                        return AlertDialog(
-                            content: SizedBox(
-                                width: 550, height: 600, child: Container()));
-                      },
-                    );
+                    // showDialog(
+                    //   context: context,
+                    //   barrierDismissible: false,
+                    //   builder: (context) {
+                    //     return AlertDialog(
+                    //         content: SizedBox(
+                    //             width: 550, height: 600, child: Container()));
+                    //   },
+                    // );
                   },
                   title: 'Assign Doctors',
                 )
