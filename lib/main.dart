@@ -5,8 +5,8 @@ import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
 import 'package:cgg_base_project/view_model/doctor_view_model.dart';
 import 'package:cgg_base_project/view_model/hospital_viewmodel.dart';
 import 'package:cgg_base_project/view_model/login_view_mode.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
@@ -15,19 +15,19 @@ import 'firebase_options.dart';
 // import 'view/doctor_web_details/doctor_web_details.dart';
 import 'view/add_doctor/add_doctor.dart';
 
-Future<void> backgroundHandler(RemoteMessage message) async {
-  print(message.data.toString());
-  print(message.notification!.title);
-}
+// Future<void> backgroundHandler(RemoteMessage message) async {
+//   print(message.data.toString());
+//   print(message.notification!.title);
+// }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   runApp(const MyApp());
-  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+ // FirebaseMessaging.onBackgroundMessage(backgroundHandler);
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LoginViewModel()),
+        // ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => GetAllDoctorViewModel()),
         ChangeNotifierProvider(create: (_) => GetAllHospitalViewModel()),
         ChangeNotifierProvider(create: (_) => DashBoardViewModel()),

@@ -23,6 +23,12 @@ class _HospitalViewState extends State<HospitalView> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllHospitalViewModel>();
+    var size = MediaQuery.of(context).size;
+
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidth = size.width / 2;
+
     return Scaffold(
       drawer: SidepanelWidgets(),
       body: viewModel.isLoading == true
@@ -30,32 +36,35 @@ class _HospitalViewState extends State<HospitalView> {
               child: CircularProgressIndicator(),
             )
           : Container(
-              child: GridView.builder(
-                itemCount: viewModel.hospitals?.body?.length,
-                itemBuilder: (context, index) {
-                  final hospitalData = viewModel.hospitals?.body![index];
-                  return hospitalListCard(
-                    hospitalData: hospitalData,
-                    viewBraches: () {
-                      viewBranches(context);
-                      viewModel
-                          .getBranchesByHospitalsId(hospitalData?.id ?? "");
-                      // if (value) {
-                      //   viewBranches(context, viewModel.bracnhesList);
-                      // } else {
-                      //   noBranchAlert(context);
-                      // }
-                    },
-                    onPressed: () {
-                      viewModel.selectedHospital = hospitalData;
-                    },
-                  );
-                },
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 5,
-                    crossAxisSpacing: 4.0,
-                    mainAxisSpacing: 10),
-              ),
+              child: GridView.count(
+                  //itemCount: viewModel.hospitals?.body?.length,
+                  crossAxisCount: 5,
+                  childAspectRatio: 1,
+                  children: viewModel.hospitals!.body!.map((e) {
+                    return hospitalListCard(
+                      hospitalData: e,
+                      viewBraches: () {
+                        viewBranches(context);
+                        viewModel.getBranchesByHospitalsId(e?.id ?? "");
+                        // if (value) {
+                        //   viewBranches(context, viewModel.bracnhesList);
+                        // } else {
+                        //   noBranchAlert(context);
+                        // }
+                      },
+                      onPressed: () {
+                        viewModel.selectedHospital = e;
+                      },
+                    );
+                  }).toList()
+                  //  viewModel.hospitals?.body!.map((e) {
+                  //  })
+
+                  // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //     crossAxisCount: 5,
+                  //     crossAxisSpacing: 4.0,
+                  //     mainAxisSpacing: 10),
+                  ),
             ),
     );
   }
@@ -133,9 +142,9 @@ class hospitalListCard extends StatelessWidget {
                 // ),
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
+            // SizedBox(
+            //   height: 30,
+            // ),
             RowWithTitleAndDetials(
                 title: "Name:  ", value: hospitalData?.name ?? ""),
             RowWithTitleAndDetials(
