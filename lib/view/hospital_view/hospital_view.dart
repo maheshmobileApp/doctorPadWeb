@@ -36,27 +36,26 @@ class _HospitalViewState extends State<HospitalView> {
               child: CircularProgressIndicator(),
             )
           : Container(
-              child: GridView.count(
+              child: ListView(
                   //itemCount: viewModel.hospitals?.body?.length,
-                  crossAxisCount: 5,
-                  childAspectRatio: 1,
+
                   children: viewModel.hospitals!.body!.map((e) {
-                    return hospitalListCard(
-                      hospitalData: e,
-                      viewBraches: () {
-                        viewBranches(context);
-                        viewModel.getBranchesByHospitalsId(e?.id ?? "");
-                        // if (value) {
-                        //   viewBranches(context, viewModel.bracnhesList);
-                        // } else {
-                        //   noBranchAlert(context);
-                        // }
-                      },
-                      onPressed: () {
-                        viewModel.selectedHospital = e;
-                      },
-                    );
-                  }).toList()
+                return hospitalListCard(
+                  hospitalData: e,
+                  viewBraches: () {
+                    viewBranches(context);
+                    viewModel.getBranchesByHospitalsId(e?.id ?? "");
+                    // if (value) {
+                    //   viewBranches(context, viewModel.bracnhesList);
+                    // } else {
+                    //   noBranchAlert(context);
+                    // }
+                  },
+                  onPressed: () {
+                    viewModel.selectedHospital = e;
+                  },
+                );
+              }).toList()
                   //  viewModel.hospitals?.body!.map((e) {
                   //  })
 
@@ -127,61 +126,57 @@ class hospitalListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 4,
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.color1, width: 3),
-                // color: AppColors.backgroundcolor,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RowWithTitleAndDetials(
+                      title: "Name:  ", value: hospitalData?.name ?? ""),
+                  RowWithTitleAndDetials(
+                      title: "Email: ", value: hospitalData?.email ?? ""),
+                  RowWithTitleAndDetials(
+                      title: "Phone Number:  ", value: hospitalData?.phone ?? ""),
+                  RowWithTitleAndDetials(title: "Address: ", value: ""),
+                ],
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-                // child: Image.asset(
-                //   'assets/images/hospital_icon.jpg',
-                //   color: AppColors.color1,
-                // ),
-              ),
-            ),
-            // SizedBox(
-            //   height: 30,
-            // ),
-            RowWithTitleAndDetials(
-                title: "Name:  ", value: hospitalData?.name ?? ""),
-            RowWithTitleAndDetials(
-                title: "Email: ", value: hospitalData?.email ?? ""),
-            RowWithTitleAndDetials(
-                title: "Phone Number:  ", value: hospitalData?.phone ?? ""),
-            RowWithTitleAndDetials(title: "Address: ", value: ""),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SmallButton(
-                  onPressed: () {
-                    viewBraches!();
-                    print("view button clicked");
-                  },
-                  title: 'View Branches',
-                ),
-                SmallButton(
-                  onPressed: () {
-                    onPressed!();
-                    showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (context) {
-                        return AlertDialog(
-                            content: SizedBox(
-                                width: 550,
-                                height: 600,
-                                child: AddBranchData()));
-                      },
-                    );
-                  },
-                  title: 'Add Branch',
-                )
-              ],
-            )
-          ],
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SmallButton(
+                    
+                    onPressed: () {
+                      viewBraches!();
+                      print("view button clicked");
+                    },
+                    title: 'View Branches',
+                  ),
+                  SizedBox(height: 30,),
+                  SmallButton(
+                    onPressed: () {
+                      onPressed!();
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) {
+                          return AlertDialog(
+                              content: SizedBox(
+                                  width: 550,
+                                  height: 600,
+                                  child: AddBranchData()));
+                        },
+                      );
+                    },
+                    title: 'Add Branch',
+                  )
+                ],
+              )
+            ],
+          ),
         ));
   }
 }
@@ -224,6 +219,23 @@ class RowWithTitleAndDetials extends StatelessWidget {
 }
 
 /*
+
+  Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.color1, width: 3),
+                // color: AppColors.backgroundcolor,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                // child: Image.asset(
+                //   'assets/images/hospital_icon.jpg',
+                //   color: AppColors.color1,
+                // ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 30,
+            // ),
  ListTile(
         leading: Container(
           decoration: BoxDecoration(
