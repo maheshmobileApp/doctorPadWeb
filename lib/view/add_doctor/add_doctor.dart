@@ -1,6 +1,7 @@
 import 'package:cgg_base_project/res/components/inputTextField.dart';
 import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
@@ -8,6 +9,7 @@ import '../../res/components/icon.dart';
 import '../../res/components/search_textfield/search_textfield.dart';
 
 import '../../view_model/doctor_view_model.dart';
+import '../../view_model/hospital_viewmodel.dart';
 
 class AddDoctorForm extends StatelessWidget {
   AddDoctorForm({Key? key}) : super(key: key);
@@ -24,11 +26,15 @@ class AddDoctorForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllDoctorViewModel>();
+    viewModel.specilityList =
+        Provider.of<GetAllHospitalViewModel>(context, listen: false)
+            .specilityList;
     return Scaffold(
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
                 alignment: Alignment.topRight,
@@ -82,31 +88,15 @@ class AddDoctorForm extends StatelessWidget {
                 keyboardType: TextInputType.number,
               ),
               _sizedBox(height: 10),
-              AppInputTextField(
-                title: 'Doctor Speciality',
-                controller: _doctorSpecialityController,
-                //  prefixIcon: Icon(MyFlutterApp.doctor),
-                hintText: 'Enter Doctor Speciality',
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Doctor Speciality';
-                  }
-                },
-                keyboardType: TextInputType.text,
-              ),
+              Text("Select The Doctor Speciality",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               _sizedBox(height: 10),
-              AppInputTextField(
-                title: 'Clinic Speciality',
-                controller: _clinicSpecialityController,
-                //  prefixIcon: Icon(MyFlutterApp.home),
-                hintText: 'Enter Clinic Speciality',
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Clinic Speciality';
-                  }
-                },
-                keyboardType: TextInputType.text,
-              ),
+              selectSpecilization(viewModel, 0),
+              _sizedBox(height: 10),
+              Text("Select The Clinic Speciality",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              _sizedBox(height: 10),
+              selectSpecilization(viewModel, 1),
               _sizedBox(height: 10),
               AppInputTextField(
                 title: 'Email id',
@@ -125,24 +115,24 @@ class AddDoctorForm extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
               ),
               _sizedBox(height: 20),
-              viewModel.submitting
-                  ? CircularProgressIndicator()
-                  : AppButton(
-                      text: 'ADD DOCTOR',
-                      color: AppColors.backgroundcolori,
-                      primaryColor: AppColors.color1,
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          viewModel.addDoctor(context,
-                              createdBy: "test",
-                              emailId: _emailIdController.text,
-                              mobileNo: _mobileNumberController.text,
-                              name: _nameOfTheDoctorController.text,
-                              doctorRegistrationNumber:
-                                  _doctorRegistrationNumberController.text);
-                          //  context.go(RoutesList.addDoctorSuccessfully);
-                        }
-                      }),
+              Center(
+                child: AppButton(
+                    text: 'ADD DOCTOR',
+                    color: AppColors.backgroundcolori,
+                    primaryColor: AppColors.color1,
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        viewModel.addDoctor(context,
+                            createdBy: "test",
+                            emailId: _emailIdController.text,
+                            mobileNo: _mobileNumberController.text,
+                            name: _nameOfTheDoctorController.text,
+                            doctorRegistrationNumber:
+                                _doctorRegistrationNumberController.text);
+                        //  context.go(RoutesList.addDoctorSuccessfully);
+                      }
+                    }),
+              ),
             ],
           ),
         ),
@@ -153,6 +143,59 @@ class AddDoctorForm extends StatelessWidget {
   SizedBox _sizedBox({double? height}) {
     return SizedBox(
       height: height,
+    );
+  }
+
+  Widget selectSpecilization(GetAllDoctorViewModel viewModel, int type) {
+    return Column(
+      children: [
+        Container(
+          child: MultiSelectContainer(
+              itemsDecoration: MultiSelectDecorations(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5)),
+                selectedDecoration: BoxDecoration(
+                    color: AppColors.app_bg_color,
+                    borderRadius: BorderRadius.circular(5)),
+                disabledDecoration: BoxDecoration(
+                    color: Colors.grey, borderRadius: BorderRadius.circular(5)),
+              ),
+              prefix: MultiSelectPrefix(
+                selectedPrefix: const Padding(
+                  padding: EdgeInsets.only(right: 5),
+                  child: Icon(
+                    Icons.check,
+                    color: Colors.white,
+                    size: 14,
+                  ),
+                ),
+              ),
+              textStyles: MultiSelectTextStyles(
+                  disabledTextStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 14),
+                  selectedTextStyle: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 14)),
+              items: viewModel.specilityList!
+                  .map((e) =>
+                      MultiSelectCard(value: e.id, label: e.specialityName))
+                  .toList(),
+              onChange: (allSelectedItems, selectedItem) {
+                if (type == 1) {
+                  //Clinic specilaty
+                  viewModel.selectedHospitalSpecility = allSelectedItems;
+                } else {
+                  //Doctor
+                  viewModel.selectedDoctorSpecility = allSelectedItems;
+                }
+                // viewModel.selectedSpecility = allSelectedItems;
+              }),
+        ),
+      ],
     );
   }
 }

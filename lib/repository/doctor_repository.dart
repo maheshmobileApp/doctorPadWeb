@@ -36,6 +36,7 @@ class AddDoctorRepository {
     try {
       final respnse = await _baseClient
           .postCall('api/v1/doctors_hospitals_branch', payload: payload);
+      print(respnse);
       return true;
     } catch (e) {
       return false;

@@ -1,10 +1,12 @@
 import 'package:cgg_base_project/repository/doctor_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../model/doctor_model.dart/doctor_specialites.dart';
 import '../model/entity/doctor_entity.dart/add_doctor_entity.dart';
 import '../model/get_all_doctor.dart';
 import '../view/add_hospital_successfully/add_hospital_successfully.dart';
+import 'hospitalSpecialityModel.dart';
 
 class GetAllDoctorViewModel with ChangeNotifier {
   final _getAllDoctorRepository = AddDoctorRepository();
@@ -14,7 +16,9 @@ class GetAllDoctorViewModel with ChangeNotifier {
   bool isFromAssignDoctor = false;
   GetAllDoctor? doctorsByBranch;
   String selectedBranchID = "";
-
+  List<Specilities>? specilityList = [];
+  List<String?> selectedHospitalSpecility = [];
+  List<String?> selectedDoctorSpecility = [];
   GetAllDoctorViewModel() {
     getAllDoctor();
     print("called GetAllDoctorViewModel view mode");

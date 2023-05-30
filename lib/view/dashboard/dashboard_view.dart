@@ -103,7 +103,7 @@ class DashBoardView extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
             content:
-                SizedBox(width: 500, height: 500, child: AddHospitalsForms()));
+                SizedBox(width: 500, height: 550, child: AddHospitalsForms()));
       },
     );
   }

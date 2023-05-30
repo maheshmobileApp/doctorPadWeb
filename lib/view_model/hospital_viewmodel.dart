@@ -3,6 +3,7 @@ import 'package:cgg_base_project/model/hospital_details/branches_list_model.dart
 import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
 import 'package:cgg_base_project/model/hospital_details/hospitail_specialites.dart';
 import 'package:cgg_base_project/model/upload_file.dart/upload_file_model.dart';
+import 'package:cgg_base_project/utils/alert_dialog.dart';
 import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
 import 'package:cgg_base_project/view_model/hospitalSpecialityModel.dart';
 import 'package:flutter/material.dart';
@@ -69,24 +70,15 @@ class GetAllHospitalViewModel with ChangeNotifier {
       phone: phone,
     ));
     submitting = false;
-    //notifyListeners();
     Navigator.pop(context);
     if (result.status == 200) {
-      showSuccessMessage(context);
+      showSuccessMessage(context, 'Added Hospital Successfully');
+    } else {
+      showSuccessMessage(context, 'Faild to add Hospital');
     }
-    // }
-    // final _hospitalSpecialitiesRepository = HospitalRepository();
-    // HospitalSpecialities? specialities;
-    // bool isLoadin = true;
-    // Future<void> HospitalSpecialities (int specialities) async {
-    //   final result = await _getAllHospitalRepository.hospitalSpecialities();
-    //   specialities = result as int;
-    //   isLoading = false;
-    //   notifyListeners();
-    // }
   }
 
-  showSuccessMessage(BuildContext context) {
+  showSuccessMessage(BuildContext context, String message) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -96,7 +88,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
                 width: 300,
                 height: 250,
                 child: SuccessflullyAlert(
-                  title: 'Added Hospital Successfully',
+                  title: message,
                   onPressed: () {
                     Navigator.pop(context);
                     getAllHospitals();
@@ -117,7 +109,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  addSpecility(String name) async {
+  addSpecility(String name, BuildContext context) async {
     final body = {"created_by": "mahesh", "speciality_name": name};
     // final dio = Dio();
     final result = await BaseApiClient()
@@ -125,21 +117,26 @@ class GetAllHospitalViewModel with ChangeNotifier {
         .post("api/v1/hospital_specialities", data: body);
     if (result.statusCode == 200) {
       //success
+      Navigator.of(context).pop();
+      showAlertMessage(context, "Specilities added successfully");
       getSpecilitiesList();
     } else {
       //fail
     }
   }
 
-  addBranch({String? branName, String? branchAddress}) async {
+  addBranch(
+      {String? branName, BuildContext? context, String? branchAddress}) async {
+    final fileName = selectedImage?.fileName ?? "";
     if (this.selectedSpecility.isEmpty) {
-      this.isShowError = true;
-      notifyListeners();
+      showAlertMessage(context!, "Please Select Specility");
+      return;
+    } else if (fileName.isEmpty) {
+      showAlertMessage(context!, "Please Select Prescription ");
       return;
     }
     this.isShowError = false;
-    final specilityId = this.selectedSpecility.map((e) => {"id": e});
-
+    final specilityId = this.selectedSpecility.map((e) => {"id": e}).toList();
     final prescription_image_url = await uploadPrescription();
     final payload = {
       "address": branchAddress,
@@ -150,12 +147,18 @@ class GetAllHospitalViewModel with ChangeNotifier {
       "prescription_image_url": prescription_image_url,
       "specialization_ids": specilityId
     };
+
     notifyListeners();
     //api/v1/hospitals_branch
-    final response = await BaseApiClient()
-        .client
-        .post("api/v1/hospitals_branch", data: payload);
-    print(response.data);
+    try {
+      final response = await BaseApiClient()
+          .client
+          .post("api/v1/hospitals_branch", data: payload);
+      print(response.data);
+      showAlertMessage(context!, "Branch Added Successfully!");
+    } catch (e) {
+      showAlertMessage(context!, "Something wenk wrong!");
+    }
   }
 
   Future<String> uploadPrescription() async {

@@ -20,7 +20,7 @@ class HospitalBranchesList extends StatelessWidget {
     final viewModel = context.watch<GetAllHospitalViewModel>();
     return Scaffold(
       body: Container(
-        child: GridView.builder(
+        child: ListView.builder(
           itemCount: viewModel.bracnhesList.length,
           itemBuilder: (context, index) {
             final branchData = viewModel.bracnhesList[index];
@@ -93,11 +93,6 @@ class HospitalBranchesList extends StatelessWidget {
               },
             );
           },
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1.5,
-              crossAxisCount: 5,
-              crossAxisSpacing: 4.0,
-              mainAxisSpacing: 10),
         ),
       ),
     );
@@ -134,27 +129,52 @@ class BranchListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 4,
-        child: Column(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.color1, width: 3),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Container(
+                //   decoration: BoxDecoration(
+                //     border: Border.all(color: AppColors.color1, width: 3),
+                //   ),
+                //   child: Padding(
+                //     padding:
+                //         const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 30,
+                // ),
+                RowWithTitleAndDetials(
+                    title: "Branch Name:  ", value: hospitalData?.name ?? ""),
+                RowWithTitleAndDetials(
+                    title: "Branch Address: ",
+                    value: hospitalData?.address ?? ""),
+              ],
             ),
-            SizedBox(
-              height: 30,
-            ),
-            RowWithTitleAndDetials(
-                title: "Name:  ", value: hospitalData?.name ?? ""),
-            RowWithTitleAndDetials(
-                title: "Address: ", value: hospitalData?.address ?? ""),
             //specilityWidget(),
-            prescriptionImage(hospitalData),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Prescription Image",
+                  style: TextStyle(
+                      fontFamily: 'Muli',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: prescriptionImage(hospitalData),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SmallButton(
                   onPressed: () {
@@ -191,8 +211,10 @@ class BranchListCard extends StatelessWidget {
   Widget prescriptionImage(BrachDetailsModel? branchData) {
     print("image url ${hospitalData?.prescriptionImageUrl}");
     return Container(
+      height: 100,
+      width: 200,
       child: Image.network(
-          "https://storage.googleapis.com/doctopad/Screenshot%202023-03-09%20at%208.10.51%20PM.png"),
+          "https://docs.flutter.dev/assets/images/dash/dash-fainting.gif"),
     );
   }
 }

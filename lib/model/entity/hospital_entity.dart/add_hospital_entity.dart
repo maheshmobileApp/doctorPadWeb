@@ -3,6 +3,7 @@ class AddHospitalEntity {
   String? email;
   String? name;
   String? phone;
+  String? address;
 
   AddHospitalEntity({this.createdBy, this.email, this.name, this.phone});
 
@@ -19,6 +20,8 @@ class AddHospitalEntity {
     data['email'] = this.email;
     data['name'] = this.name;
     data['phone'] = this.phone;
+    data['phone'] = this.phone;
+
     return data;
   }
 }

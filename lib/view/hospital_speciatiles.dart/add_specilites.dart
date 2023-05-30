@@ -34,8 +34,8 @@ class AddSpecilities extends StatelessWidget {
             ),
           ),
           AppInputTextField(
-            //  prefixIcon: Icon(MyFlutterApp.doctor),
-            title: 'Speciality',
+              //  prefixIcon: Icon(MyFlutterApp.doctor),
+              title: 'Speciality',
               controller: _specialityController,
               keyboardType: TextInputType.name,
               validator: (value) {
@@ -46,7 +46,7 @@ class AddSpecilities extends StatelessWidget {
               },
               hintText: "Enter Speciality"),
           SizedBox(
-            height: 40,
+            height: 30,
           ),
           AppButton(
               text: 'ADD Speciality',
@@ -54,7 +54,7 @@ class AddSpecilities extends StatelessWidget {
               primaryColor: AppColors.color1,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  viewModel.addSpecility(_specialityController.text);
+                  viewModel.addSpecility(_specialityController.text, context);
                 }
               }),
         ],

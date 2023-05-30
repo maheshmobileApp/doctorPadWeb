@@ -5,6 +5,8 @@ import 'package:cgg_base_project/res/app_colors.dart';
 import 'package:cgg_base_project/res/components/logo_widget.dart';
 import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
 
+import '../../../view_model/doctor_view_model.dart';
+
 class SidepanelWidgets extends StatelessWidget {
   const SidepanelWidgets({Key? key}) : super(key: key);
 
@@ -78,12 +80,14 @@ class MenuItemWidget extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          child: Image.asset(
-            icon,
-          ),
-          onTap: () =>
-              context.read<DashBoardViewModel>().selectTheSideMenu(options),
-        ),
+            child: Image.asset(
+              icon,
+            ),
+            onTap: () {
+              Provider.of<GetAllDoctorViewModel>(context, listen: false)
+                  .isFromAssignDoctor = false;
+              context.read<DashBoardViewModel>().selectTheSideMenu(options);
+            }),
         SizedBox(height: 15),
         Text(
           title,

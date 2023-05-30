@@ -41,12 +41,24 @@ class AddBranchData extends StatelessWidget {
                   controller: _branchNameControl,
                   hintText: "Enter Branch Name",
                   title: "Branch Name",
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Enter Branch Name';
+                    }
+                    return null;
+                  },
                 ),
                 _sizedBox(height: 10),
                 AppInputTextField(
                   controller: _branchAddressControl,
                   hintText: "Enter Branch Address",
                   title: "Branch Address",
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Enter Branch Address';
+                    }
+                    return null;
+                  },
                 ),
                 _sizedBox(height: 10),
                 Text("Select The Specialities",
@@ -65,19 +77,12 @@ class AddBranchData extends StatelessWidget {
                       color: AppColors.backgroundcolori,
                       primaryColor: AppColors.color1,
                       onPressed: () {
-                        viewModel.addBranch(
-                            branName: _branchNameControl.text,
-                            branchAddress: _branchAddressControl.text);
-                        // if (_formKey.currentState!.validate()) {
-                        //   viewModel.addDoctor(context,
-                        //       createdBy: "test",
-                        //       emailId: _emailIdController.text,
-                        //       mobileNo: _mobileNumberController.text,
-                        //       name: _nameOfTheDoctorController.text,
-                        //       doctorRegistrationNumber:
-                        //           _doctorRegistrationNumberController.text);
-                        //    context.go(RoutesList.addDoctorSuccessfully);
-                        // }
+                        if (_formKey.currentState!.validate()) {
+                          viewModel.addBranch(
+                              context: context,
+                              branName: _branchNameControl.text,
+                              branchAddress: _branchAddressControl.text);
+                        }
                       }),
                 ),
               ]),
@@ -114,23 +119,13 @@ class AddBranchData extends StatelessWidget {
           child: MultiSelectContainer(
               itemsDecoration: MultiSelectDecorations(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [
-                      AppColors.app_bg_color,
-                      AppColors.backgroundcolor
-                    ]),
-                    border: Border.all(color: Colors.green[200]!),
+                    border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(5)),
                 selectedDecoration: BoxDecoration(
-                    gradient: const LinearGradient(colors: [
-                      AppColors.app_bg_color,
-                      AppColors.backgroundcolor
-                    ]),
-                    border: Border.all(color: Colors.green[700]!),
+                    color: AppColors.app_bg_color,
                     borderRadius: BorderRadius.circular(5)),
                 disabledDecoration: BoxDecoration(
-                    color: Colors.grey,
-                    border: Border.all(color: Colors.grey[500]!),
-                    borderRadius: BorderRadius.circular(5)),
+                    color: Colors.grey, borderRadius: BorderRadius.circular(5)),
               ),
               prefix: MultiSelectPrefix(
                 selectedPrefix: const Padding(
@@ -141,30 +136,25 @@ class AddBranchData extends StatelessWidget {
                     size: 14,
                   ),
                 ),
-                // disabledPrefix: const Padding(
-                //   padding: EdgeInsets.only(right: 5),
-                //   child: Icon(
-                //    // Icons.unche,
-                //     color: Colors.white,
-                //     size: 14,
-                //   ),
-                // )
               ),
+              textStyles: MultiSelectTextStyles(
+                  disabledTextStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 14),
+                  selectedTextStyle: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 14)),
               items: viewModel.specilityList!
                   .map((e) =>
                       MultiSelectCard(value: e.id, label: e.specialityName))
                   .toList(),
               onChange: (allSelectedItems, selectedItem) {
                 viewModel.selectedSpecility = allSelectedItems;
-                print(allSelectedItems);
               }),
         ),
-        viewModel.specilityError.isEmpty && viewModel.isShowError
-            ? Text(
-                "Please Enter Specility",
-                style: TextStyle(color: Colors.red, fontSize: 14),
-              )
-            : SizedBox()
+
       ],
     );
   }
