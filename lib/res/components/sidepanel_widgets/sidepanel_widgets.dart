@@ -81,7 +81,7 @@ class MenuItemWidget extends StatelessWidget {
     final viewModel = context.watch<DashBoardViewModel>();
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(8),
           color: selectedColor(viewModel, options)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -111,9 +111,9 @@ class MenuItemWidget extends StatelessWidget {
   selectedColor(
       DashBoardViewModel selectedOption, DashBoardMenuOptions options) {
     if (selectedOption.selectedMenum == options) {
-      return Colors.grey;
+      return Color.fromARGB(255, 57, 175, 234);
     } else {
-      return Colors.white;
+      return null;
     }
   }
 }
