@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
-import '../../res/components/option_widgets/option_widgets.dart';
-import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/components/small_button_widget.dart';
-import '../../res/constants/routes_constants.dart';
 import '../../view_model/doctor_view_model.dart';
-import '../../view_model/login_view_mode.dart';
 
 class DoctorsByAssignDoctorss extends StatefulWidget {
   const DoctorsByAssignDoctorss({super.key});

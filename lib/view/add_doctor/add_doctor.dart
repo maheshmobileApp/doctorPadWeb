@@ -1,13 +1,10 @@
-import 'package:cgg_base_project/res/components/inputTextField.dart';
-import 'package:cgg_base_project/utils/regex.dart';
+import '../../res/components/inputTextField.dart';
+import '../../utils/regex.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
-import '../../res/components/icon.dart';
-import '../../res/components/search_textfield/search_textfield.dart';
-
 import '../../view_model/doctor_view_model.dart';
 import '../../view_model/hospital_viewmodel.dart';
 

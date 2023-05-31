@@ -109,14 +109,14 @@ class MenuItemWidget extends StatelessWidget {
   }
 
   selectedColor(DashBoardViewModel selectedOption) {
-    if (selectedOption.selectedMenum == DashBoardMenuOptions.HOSPITALS) {
-      return Colors.grey;
-    } else if (selectedOption.selectedMenum == DashBoardMenuOptions.DOCTORS) {
-      return Colors.grey;
-    } else if (selectedOption.selectedMenum ==
-        DashBoardMenuOptions.SPECALITIES) {
-      return Colors.grey;
-    } 
+    // if (selectedOption.selectedMenum == DashBoardMenuOptions.HOSPITALS) {
+    //   return Colors.grey;
+    // } else if (selectedOption.selectedMenum == DashBoardMenuOptions.DOCTORS) {
+    //   return Colors.grey;
+    // } else if (selectedOption.selectedMenum ==
+    //     DashBoardMenuOptions.SPECALITIES) {
+    //   return Colors.grey;
+    // }
 
     switch (selectedOption.selectedMenum) {
       case DashBoardMenuOptions.HOSPITALS:

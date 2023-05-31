@@ -1,5 +1,4 @@
-import 'package:cgg_base_project/res/constants/routes_constants.dart';
-import 'package:flutter/cupertino.dart';
+import '../../res/constants/routes_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/app_colors.dart';
