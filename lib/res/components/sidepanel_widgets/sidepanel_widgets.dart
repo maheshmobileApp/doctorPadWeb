@@ -82,7 +82,7 @@ class MenuItemWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: selectedColor(viewModel)),
+          color: selectedColor(viewModel, options)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -108,26 +108,13 @@ class MenuItemWidget extends StatelessWidget {
     );
   }
 
-  selectedColor(DashBoardViewModel selectedOption) {
-    // if (selectedOption.selectedMenum == DashBoardMenuOptions.HOSPITALS) {
-    //   return Colors.grey;
-    // } else if (selectedOption.selectedMenum == DashBoardMenuOptions.DOCTORS) {
-    //   return Colors.grey;
-    // } else if (selectedOption.selectedMenum ==
-    //     DashBoardMenuOptions.SPECALITIES) {
-    //   return Colors.grey;
-    // }
-
-    switch (selectedOption.selectedMenum) {
-      case DashBoardMenuOptions.HOSPITALS:
-        return Colors.grey;
-      case DashBoardMenuOptions.DOCTORS:
-        return Colors.grey;
-      case DashBoardMenuOptions.SPECALITIES:
-        return Colors.grey;
-      default:
+  selectedColor(
+      DashBoardViewModel selectedOption, DashBoardMenuOptions options) {
+    if (selectedOption.selectedMenum == options) {
+      return Colors.grey;
+    } else {
+      return Colors.white;
     }
-    return null;
   }
 }
 
