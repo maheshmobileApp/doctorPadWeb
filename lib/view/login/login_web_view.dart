@@ -82,7 +82,7 @@ class LoginWebView extends StatelessWidget {
                         onPressed: () {
                           // context.pop();
                           // GoRouter.of(context).replace(RoutesList.hospitalView);
-                          context.go(RoutesList.hospitalView);
+                          context.go(RoutesList.dashBoardScreen);
                           // if(_formKey.currentState!.validate()){
                           //   context.go(RoutesList.hospitalView);
                           // }
