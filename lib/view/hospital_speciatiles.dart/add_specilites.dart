@@ -1,15 +1,10 @@
-import 'package:cgg_base_project/view_model/hospital_viewmodel.dart';
-import 'package:flutter/cupertino.dart';
+import '../../view_model/hospital_viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
 
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
-import '../../res/components/icon.dart';
 import '../../res/components/inputTextField.dart';
-import '../../view_model/doctor_view_model.dart';
 
 class AddSpecilities extends StatelessWidget {
   AddSpecilities({super.key});

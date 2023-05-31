@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class SpecialityListTile extends StatelessWidget {
   const SpecialityListTile({super.key, required this.name});

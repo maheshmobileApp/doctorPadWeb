@@ -1,7 +1,8 @@
-import 'package:cgg_base_project/res/components/icon.dart';
+import '../icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../app_colors.dart';
+
 class SearchTextfield extends StatelessWidget {
   final IconData? icon;
   final String? hintText;

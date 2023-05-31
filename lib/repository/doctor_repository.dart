@@ -1,7 +1,5 @@
-import 'package:cgg_base_project/model/entity/doctor_entity.dart/add_doctor_entity.dart';
-import 'package:cgg_base_project/model/get_all_doctor.dart';
-import 'package:dio/dio.dart';
-
+import '../model/entity/doctor_entity.dart/add_doctor_entity.dart';
+import '../model/get_all_doctor.dart';
 import '../data/bae_api_client.dart';
 import '../model/add_doctor_res.dart';
 import '../model/doctor_model.dart/doctor_specialites.dart';

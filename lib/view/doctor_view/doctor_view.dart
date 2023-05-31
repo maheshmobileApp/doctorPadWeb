@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
-import '../../res/components/option_widgets/option_widgets.dart';
-import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
 import '../../res/components/small_button_widget.dart';
-import '../../res/constants/routes_constants.dart';
 import '../../view_model/doctor_view_model.dart';
-import '../../view_model/login_view_mode.dart';
 
 class DoctorsWebView extends StatefulWidget {
   const DoctorsWebView({super.key});
@@ -27,7 +22,7 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
           : Container(
               child: GridView.count(
                 crossAxisCount: 4,
-                childAspectRatio: (1 / .2),
+                childAspectRatio: (1/0.4),
                 children:
                     List.generate(viewModel.doctors!.body!.length, (index) {
                   final doctorData = viewModel.doctors?.body![index];

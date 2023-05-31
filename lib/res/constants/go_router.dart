@@ -19,7 +19,7 @@ import '../../view/hospital_view/hospital_detailView.dart';
 import '../../view/login/login_mobile_view.dart';
 
 final GoRouter routes =
-    GoRouter(initialLocation: RoutesList.dashBoardScreen, routes: <RouteBase>[
+    GoRouter(initialLocation: RoutesList.loginWebView, routes: <RouteBase>[
   //DashBoardView
   GoRoute(
     path: RoutesList.loginWebView,

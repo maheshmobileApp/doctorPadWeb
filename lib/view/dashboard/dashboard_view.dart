@@ -1,9 +1,9 @@
-import 'package:cgg_base_project/responsive.dart';
-import 'package:cgg_base_project/view/add_hospital/add_hospital.dart';
-import 'package:cgg_base_project/view/hospital_speciatiles.dart/add_specilites.dart';
-import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
-import 'package:cgg_base_project/view/hospital_view/hospital_view.dart';
-import 'package:cgg_base_project/view_model/dashboard_view_model.dart';
+import '../../responsive.dart';
+import '../add_hospital/add_hospital.dart';
+import '../hospital_speciatiles.dart/add_specilites.dart';
+import '../hospital_speciatiles.dart/hospital_specialites.dart';
+import '../hospital_view/hospital_view.dart';
+import '../../view_model/dashboard_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

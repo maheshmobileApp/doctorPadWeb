@@ -1,7 +1,5 @@
-import 'package:cgg_base_project/res/components/inputTextField.dart';
+import '../../res/components/inputTextField.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_multi_select_items/flutter_multi_select_items.dart';
 import 'package:provider/provider.dart';
 

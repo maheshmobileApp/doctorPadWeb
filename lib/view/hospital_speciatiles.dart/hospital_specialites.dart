@@ -1,4 +1,4 @@
-import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_speciality_list_tile.dart';
+import 'hospital_speciality_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../view_model/hospital_viewmodel.dart';
@@ -13,7 +13,7 @@ class HospitalSpecialites extends StatelessWidget {
     return Container(
         child: GridView.count(
             crossAxisCount: 5,
-            childAspectRatio: (1 / .2),
+            childAspectRatio: (1 / 0.3),
             children: List.generate(viewModel.specilityList!.length, (index) {
               final hospitalData = viewModel.specilityList![index];
               return SpecialityListTile(name: hospitalData.specialityName);

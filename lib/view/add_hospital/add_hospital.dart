@@ -1,17 +1,9 @@
-import 'package:cgg_base_project/res/components/inputTextField.dart';
-import 'package:cgg_base_project/utils/regex.dart';
+import '../../res/components/inputTextField.dart';
+import '../../utils/regex.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/button_component.dart';
-import '../../res/components/icon.dart';
-import '../../res/components/option_widgets/option_widgets.dart';
-import '../../res/components/search_textfield/search_textfield.dart';
-import '../../res/components/sidepanel_widgets/sidepanel_widgets.dart';
-
-import '../../res/constants/routes_constants.dart';
 import '../../view_model/hospital_viewmodel.dart';
 
 class AddHospitalsForms extends StatelessWidget {
