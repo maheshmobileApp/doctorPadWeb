@@ -21,7 +21,7 @@ class AddDoctorRepository {
     print("branch id $branchID");
 
     final respnse =
-        await _baseClient.getCall('api/v1/doctors/branch/branch_id=$branchID');
+        await _baseClient.getCall('api/v1/doctors/branch?branch_id=$branchID');
     print(respnse);
     if (respnse == null) {
       return GetAllDoctor(status: 0);

@@ -37,11 +37,11 @@ class HospitalBranchesList extends StatelessWidget {
                 if (doctorsGetStatus == true) {
                   showDialog(
                     context: context,
-                    barrierDismissible: false,
+                   // barrierDismissible: false,
                     builder: (context) {
                       return AlertDialog(
                           content: SizedBox(
-                              width: 550,
+                              width: MediaQuery.of(context).size.width * 0.8,
                               height: 600,
                               child: DoctorsWebView()));
                     },
