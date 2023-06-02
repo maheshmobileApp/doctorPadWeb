@@ -1,8 +1,9 @@
 import 'package:cgg_base_project/res/app_colors.dart';
-import 'package:cgg_base_project/res/components/button_component.dart';
-import 'package:cgg_base_project/res/constants/routes_constants.dart';
+import '../../res/components/button_component.dart';
+import '../../res/constants/routes_constants.dart';
 import 'package:cgg_base_project/utils/regex.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../res/components/login_textfeild.dart';
 import '../../res/components/logo_widget.dart';
@@ -51,6 +52,10 @@ class LoginWebView extends StatelessWidget {
                             hintText: 'User Mobile number',
                             keyboardType: TextInputType.numberWithOptions(
                                 decimal: true, signed: true),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            maxLength: 10,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Enter Mobile number';

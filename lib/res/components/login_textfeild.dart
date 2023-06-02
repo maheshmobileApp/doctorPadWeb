@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../app_colors.dart';
 
@@ -9,6 +10,8 @@ class LoginTextFeild extends StatelessWidget {
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
    final TextEditingController controller;
+  final List<TextInputFormatter>? inputFormatters;
+  final int? maxLength;
   LoginTextFeild({
     Key? key,
     this.icon,
@@ -16,6 +19,8 @@ class LoginTextFeild extends StatelessWidget {
     this.prefixIcon,
     this.keyboardType,
     this.validator,
+    this.inputFormatters,
+    this.maxLength,
     required this.controller,
   }) : super(key: key);
 
@@ -48,7 +53,10 @@ class LoginTextFeild extends StatelessWidget {
                 cursorHeight: 20,
                 cursorRadius: Radius.zero,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
+                inputFormatters: inputFormatters,
+                maxLength: maxLength,
                 decoration: InputDecoration(
+                  counterText: '',
                     contentPadding: EdgeInsets.fromLTRB(0, 20, 0, 2),
                     hintText: hintText,
                     hintStyle: TextStyle(

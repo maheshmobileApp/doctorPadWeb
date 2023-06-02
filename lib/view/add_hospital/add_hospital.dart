@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../../res/components/inputTextField.dart';
 import '../../utils/regex.dart';
 import 'package:flutter/material.dart';
@@ -53,24 +55,28 @@ class AddHospitalsForms extends StatelessWidget {
                       keyboardType: TextInputType.name,
                     ),
                     _sizedBox(height: 10),
-                    AppInputTextField(
-                      title: 'Address',
-                      controller: _addressController,
-                      //  prefixIcon: Icon(MyFlutterApp.contact),
-                      hintText: 'Enter Address',
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter Name Of The Address';
-                        }
-                      },
-                      keyboardType: TextInputType.text,
-                    ),
+                    // AppInputTextField(
+                    //   title: 'Address',
+                    //   controller: _addressController,
+                    //   //  prefixIcon: Icon(MyFlutterApp.contact),
+                    //   hintText: 'Enter Address',
+                    //   validator: (value) {
+                    //     if (value!.isEmpty) {
+                    //       return 'Enter Name Of The Address';
+                    //     }
+                    //   },
+                    //   keyboardType: TextInputType.text,
+                    // ),
                     _sizedBox(height: 10),
                     AppInputTextField(
                       title: 'Contact Number',
                       controller: _contactNumberController,
                       //  prefixIcon: Icon(MyFlutterApp.call),
                       hintText: "Enter Contact number",
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                      ],
+                      maxLength: 10,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Enter Contact number';
@@ -78,7 +84,8 @@ class AddHospitalsForms extends StatelessWidget {
                           return 'Enter Valid Mobile number';
                         }
                       },
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.numberWithOptions(
+                          signed: true, decimal: true),
                     ),
                     _sizedBox(height: 10),
                     AppInputTextField(

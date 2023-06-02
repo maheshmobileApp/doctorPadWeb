@@ -1,23 +1,15 @@
-import 'package:cgg_base_project/data/bae_api_client.dart';
-import 'package:cgg_base_project/model/hospital_details/branches_list_model.dart';
-import 'package:cgg_base_project/model/hospital_details/get_all_hospital.dart';
-import 'package:cgg_base_project/model/hospital_details/hospitail_specialites.dart';
-import 'package:cgg_base_project/model/upload_file.dart/upload_file_model.dart';
-import 'package:cgg_base_project/utils/alert_dialog.dart';
-import 'package:cgg_base_project/view/hospital_speciatiles.dart/hospital_specialites.dart';
-import 'package:cgg_base_project/view_model/hospitalSpecialityModel.dart';
+import '../data/bae_api_client.dart';
+import '../model/hospital_details/branches_list_model.dart';
+import '../model/hospital_details/get_all_hospital.dart';
+import '../model/upload_file.dart/upload_file_model.dart';
+import '../utils/alert_dialog.dart';
+import 'hospitalSpecialityModel.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../model/entity/hospital_entity.dart/add_hospital_entity.dart';
 
 import '../repository/hospital_repository.dart';
-import '../res/app_colors.dart';
-import '../res/constants/routes_constants.dart';
 import '../view/add_hospital_successfully/add_hospital_successfully.dart';
-import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
-import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
-import '../view/hospital_speciatiles.dart/hospital_specialites.dart';
 import 'package:dio/dio.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 
@@ -26,6 +18,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
   GetAllHospitals? hospitals;
   bool isLoading = true;
   List<Specilities>? specilityList = [];
+  HospitalSpecialitiesModel? specialities;
   List<String?> selectedSpecility = [];
   List<BrachDetailsModel?> bracnhesList = [];
 
@@ -106,6 +99,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
         "https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities");
     final hosptialModel = HospitalSpecialitiesModel.fromJson(result.data);
     specilityList = hosptialModel.specilityList;
+    specialities = hosptialModel;
     notifyListeners();
   }
 
