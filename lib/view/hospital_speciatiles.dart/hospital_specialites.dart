@@ -10,13 +10,18 @@ class HospitalSpecialites extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllHospitalViewModel>();
     // viewModel.getSpecilitiesList();
-    return Container(
-        child: GridView.count(
-            crossAxisCount: 5,
-            childAspectRatio: (1 / 0.3),
-            children: List.generate(viewModel.specilityList!.length, (index) {
-              final hospitalData = viewModel.specilityList![index];
-              return SpecialityListTile(name: hospitalData.specialityName);
-            })));
+    return viewModel.specialities?.message == "no hospital speciality found"
+        ? Center(
+            child: Text('No Specialities'),
+          )
+        : Container(
+            child: GridView.count(
+                crossAxisCount: 5,
+                childAspectRatio: (1 / 0.3),
+                children:
+                    List.generate(viewModel.specilityList!.length, (index) {
+                  final hospitalData = viewModel.specilityList![index];
+                  return SpecialityListTile(name: hospitalData.specialityName);
+                })));
   }
 }

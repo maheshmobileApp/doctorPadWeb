@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -14,6 +15,8 @@ class AppInputTextField extends StatelessWidget {
       this.onTap,
       this.isVisible,
       this.validator,
+      this.inputFormatters,
+      this.maxLength,
       this.keyboardType});
   final Widget? prefixIcon;
   final TextEditingController controller;
@@ -25,6 +28,8 @@ class AppInputTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function()? onTap;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,10 @@ class AppInputTextField extends StatelessWidget {
           controller: controller,
           validator: validator,
           obscureText: this.isVisible ?? false,
+          inputFormatters: inputFormatters,
+          maxLength: maxLength,
           decoration: InputDecoration(
+            counterText: '',
             prefixIcon: prefixIcon,
             suffixIcon: this.isSecured == true
                 ? GestureDetector(
