@@ -11,6 +11,7 @@ import '../../view_model/doctor_view_model.dart';
 import '../../view_model/hospital_viewmodel.dart';
 import '../doctor_view/doctor_view.dart';
 import 'hospital_view.dart';
+import 'dart:html' as html;
 
 class HospitalBranchesList extends StatelessWidget {
   HospitalBranchesList({super.key});
@@ -37,7 +38,7 @@ class HospitalBranchesList extends StatelessWidget {
                 if (doctorsGetStatus == true) {
                   showDialog(
                     context: context,
-                   // barrierDismissible: false,
+                    // barrierDismissible: false,
                     builder: (context) {
                       return AlertDialog(
                           content: SizedBox(
@@ -160,16 +161,31 @@ class BranchListCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Prescription Image",
-                  style: TextStyle(
-                      fontFamily: 'Muli',
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: prescriptionImage(hospitalData),
+                GestureDetector(
+                  onTap: () {
+                    html.window.open(
+                        hospitalData?.prescriptionImageUrl ?? "", "_blank");
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          // border: Border.all(widt),
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.backgroundcolor),
+                      height: 55,
+                      width: 300,
+                      child: Text(
+                        "View Prescription Image",
+                        style: TextStyle(
+                            fontFamily: 'Muli',
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

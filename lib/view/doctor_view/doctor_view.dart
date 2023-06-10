@@ -26,7 +26,7 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
               : Container(
                   child: GridView.count(
                     crossAxisCount: 4,
-                    childAspectRatio: (1 / 0.4),
+                    childAspectRatio: (1 / 0.3),
                     children:
                         List.generate(viewModel.doctors!.body!.length, (index) {
                       final doctorData = viewModel.doctors?.body![index];

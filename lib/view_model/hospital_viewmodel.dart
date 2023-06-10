@@ -149,6 +149,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
           .client
           .post("api/v1/hospitals_branch", data: payload);
       print(response.data);
+      Navigator.pop(context!);
       showAlertMessage(context!, "Branch Added Successfully!");
     } catch (e) {
       showAlertMessage(context!, "Something wenk wrong!");
@@ -185,15 +186,20 @@ class GetAllHospitalViewModel with ChangeNotifier {
     }
   }
 
-  getBranchesByHospitalsId(String hospitalId) async {
+  Future<bool> getBranchesByHospitalsId(String hospitalId) async {
     final result =
         await _getAllHospitalRepository.getBranchesByHospitalsId(hospitalId);
     if (result.status == 0) {
       bracnhesList = [];
       notifyListeners();
       return false;
+    } else if (result.status == 404) {
+      return false;
     } else {
       bracnhesList = result.body!;
+      if (bracnhesList.isEmpty) {
+        return false;
+      }
       notifyListeners();
       return true;
     }

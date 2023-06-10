@@ -42,14 +42,14 @@ class _HospitalViewState extends State<HospitalView> {
                       children: viewModel.hospitals!.body!.map((e) {
                     return hospitalListCard(
                       hospitalData: e,
-                      viewBraches: () {
-                        viewBranches(context);
-                        viewModel.getBranchesByHospitalsId(e?.id ?? "");
-                        // if (value) {
-                        //   viewBranches(context, viewModel.bracnhesList);
-                        // } else {
-                        //   noBranchAlert(context);
-                        // }
+                      viewBraches: () async {
+                        final value = await viewModel
+                            .getBranchesByHospitalsId(e?.id ?? "");
+                        if (value) {
+                          viewBranches(context);
+                        } else {
+                          noBranchAlert(context);
+                        }
                       },
                       onPressed: () {
                         viewModel.selectedHospital = e;
@@ -73,16 +73,13 @@ class _HospitalViewState extends State<HospitalView> {
       context: context,
       barrierDismissible: false,
       builder: (context) {
-        return AlertDialog(
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text("Ok"))
-            ],
-            content: SizedBox(
-                width: 200, height: 200, child: Text("No Branches Available")));
+        return AlertDialog(actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Ok"))
+        ], content: Text("No Branches Available"));
       },
     );
   }
