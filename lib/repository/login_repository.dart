@@ -11,7 +11,7 @@ import '../model/otp.dart/verify_otp.dart';
 class LoginRepository {
 final _baseClient = BaseApiClient();
  Future<LoginResponse> loginTheUser(LoginPayload payload) async{
-   final respnse = await _baseClient.postCall(ApiConstants.endPoint_MobileLogin,payload: payload.toJson());
+   final respnse = await _baseClient.postCall(ApiConstants.baseUrl,payload: payload.toJson());
    return LoginResponse.fromJson(respnse);  
   }
 

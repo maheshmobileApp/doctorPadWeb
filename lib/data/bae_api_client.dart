@@ -10,7 +10,7 @@ class ApiErrorCodes {
 class BaseApiClient {
   late final Dio client = Dio(
     BaseOptions(
-      baseUrl: ApiConstants.baseUrlPQMS,
+      baseUrl: ApiConstants.baseUrl,
     ),
   );
 

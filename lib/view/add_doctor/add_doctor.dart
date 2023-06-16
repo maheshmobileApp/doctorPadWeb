@@ -25,7 +25,7 @@ class AddDoctorForm extends StatelessWidget {
     final viewModel = context.watch<GetAllDoctorViewModel>();
     viewModel.specilityList =
         Provider.of<GetAllHospitalViewModel>(context, listen: false)
-            .specilityList;
+            .doctorspecilityList;
     return Scaffold(
       body: Form(
         key: _formKey,

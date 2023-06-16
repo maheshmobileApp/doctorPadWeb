@@ -144,7 +144,7 @@ class AddBranchData extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.w800,
                       fontSize: 14)),
-              items: viewModel.specilityList!
+              items: viewModel.hospitalspecilityList!
                   .map((e) =>
                       MultiSelectCard(value: e.id, label: e.specialityName))
                   .toList(),

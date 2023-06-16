@@ -1,3 +1,4 @@
+import '../../view_model/dashboard_view_model.dart';
 import 'hospital_speciality_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +10,12 @@ class HospitalSpecialites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllHospitalViewModel>();
-    // viewModel.getSpecilitiesList();
-    return viewModel.specialities?.message == "no hospital speciality found"
+    final specilityList =
+        viewModel.selectedSpecilty == DashBoardMenuOptions.hOSPITALSPECALITIES
+            ? viewModel.hospitalspecilityList
+            : viewModel.doctorspecilityList;
+    return viewModel.hospitalspecilityList!.isEmpty ==
+            "no hospital speciality found"
         ? Center(
             child: Text('No Specialities'),
           )
@@ -18,9 +23,8 @@ class HospitalSpecialites extends StatelessWidget {
             child: GridView.count(
                 crossAxisCount: 5,
                 childAspectRatio: (1 / 0.3),
-                children:
-                    List.generate(viewModel.specilityList!.length, (index) {
-                  final hospitalData = viewModel.specilityList![index];
+                children: List.generate(specilityList!.length, (index) {
+                  final hospitalData = specilityList![index];
                   return SpecialityListTile(name: hospitalData.specialityName);
                 })));
   }

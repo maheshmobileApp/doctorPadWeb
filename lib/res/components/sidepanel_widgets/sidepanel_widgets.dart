@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../view_model/hospital_viewmodel.dart';
 import '../../app_colors.dart';
 import '../logo_widget.dart';
 import '../../../view_model/dashboard_view_model.dart';
@@ -34,13 +35,13 @@ class SidepanelWidgets extends StatelessWidget {
               options: DashBoardMenuOptions.DOCTORS),
           //SizedBox(height: MediaQuery.of(context).size.height * 0.04),
           MenuItemWidget(
-            title: "Specialities",
+            title: "Hospital Specialities",
             icon: "assets/images/view_doctor.png",
             options: DashBoardMenuOptions.hOSPITALSPECALITIES,
           ),
           //SizedBox(height: MediaQuery.of(context).size.height * 0.04),
           MenuItemWidget(
-            title: "Specialities",
+            title: "Doctor Specialities",
             icon: "assets/images/view_doctor.png",
             options: DashBoardMenuOptions.DOCTORSPECALITIES,
           ),
@@ -59,7 +60,9 @@ class SidepanelWidgets extends StatelessWidget {
                       color: AppColors.color1,
                       size: 40,
                     )),
-                    SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'Logout',
                   style: menuTitleStyle,
@@ -99,6 +102,8 @@ class MenuItemWidget extends StatelessWidget {
         Provider.of<GetAllDoctorViewModel>(context, listen: false)
             .isFromAssignDoctor = false;
         context.read<DashBoardViewModel>().selectTheSideMenu(options);
+        context.read<GetAllHospitalViewModel>().selectedSpecilty = options;
+        context.read<GetAllHospitalViewModel>().getSpecilitiesList();
       },
       child: Container(
         decoration: BoxDecoration(

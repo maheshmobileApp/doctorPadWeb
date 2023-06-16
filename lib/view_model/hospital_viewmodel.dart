@@ -1,8 +1,11 @@
+import 'package:cgg_base_project/res/constants/api_constants.dart';
+
 import '../data/bae_api_client.dart';
 import '../model/hospital_details/branches_list_model.dart';
 import '../model/hospital_details/get_all_hospital.dart';
 import '../model/upload_file.dart/upload_file_model.dart';
 import '../utils/alert_dialog.dart';
+import 'dashboard_view_model.dart';
 import 'hospitalSpecialityModel.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +20,10 @@ class GetAllHospitalViewModel with ChangeNotifier {
   final _getAllHospitalRepository = HospitalRepository();
   GetAllHospitals? hospitals;
   bool isLoading = true;
-  List<Specilities>? specilityList = [];
-  HospitalSpecialitiesModel? specialities;
+  List<Specilities>? doctorspecilityList = [];
+  List<Specilities>? hospitalspecilityList = [];
+
+  // HospitalSpecialitiesModel? specialities;
   List<String?> selectedSpecility = [];
   List<BrachDetailsModel?> bracnhesList = [];
 
@@ -27,6 +32,8 @@ class GetAllHospitalViewModel with ChangeNotifier {
   bool submitting = false;
   String specilityError = "";
   bool isShowError = false;
+  DashBoardMenuOptions selectedSpecilty =
+      DashBoardMenuOptions.hOSPITALSPECALITIES;
 
   GetAllHospitalViewModel() {
     getAllHospitals();
@@ -93,22 +100,30 @@ class GetAllHospitalViewModel with ChangeNotifier {
 
   void getSpecilitiesList() async {
     //https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities
-
+    final requestUrl =
+        selectedSpecilty == DashBoardMenuOptions.hOSPITALSPECALITIES
+            ? "${ApiConstants.baseUrl}api/v1/hospital_specialities"
+            : "${ApiConstants.baseUrl}api/v1/doctor_specialities";
     final dio = Dio();
-    final result = await dio.get(
-        "https://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospital_specialities");
+    final result = await dio.get(requestUrl);
     final hosptialModel = HospitalSpecialitiesModel.fromJson(result.data);
-    specilityList = hosptialModel.specilityList;
-    specialities = hosptialModel;
+    if (selectedSpecilty == DashBoardMenuOptions.hOSPITALSPECALITIES) {
+      hospitalspecilityList = hosptialModel.specilityList;
+    } else {
+      doctorspecilityList = hosptialModel.specilityList;
+    }
+    //specialities = hosptialModel;
     notifyListeners();
   }
 
   addSpecility(String name, BuildContext context) async {
     final body = {"created_by": "mahesh", "speciality_name": name};
     // final dio = Dio();
-    final result = await BaseApiClient()
-        .client
-        .post("api/v1/hospital_specialities", data: body);
+    final requestUrl =
+        selectedSpecilty == DashBoardMenuOptions.hOSPITALSPECALITIES
+            ? "${ApiConstants.baseUrl}api/v1/hospital_specialities"
+            : "${ApiConstants.baseUrl}api/v1/doctor_specialities";
+    final result = await BaseApiClient().client.post(requestUrl, data: body);
     if (result.statusCode == 200) {
       //success
       Navigator.of(context).pop();
