@@ -11,4 +11,4 @@ class DashBoardViewModel extends ChangeNotifier {
   }
 }
 
-enum DashBoardMenuOptions { HOSPITALS, DOCTORS, SPECALITIES }
+enum DashBoardMenuOptions { HOSPITALS, DOCTORS, DOCTORSPECALITIES,hOSPITALSPECALITIES,LOGOUT }

@@ -59,9 +59,13 @@ class DashBoardView extends StatelessWidget {
         button_title = "Add Doctors";
         header_title = "Doctors";
         break;
-      case DashBoardMenuOptions.SPECALITIES:
+      case DashBoardMenuOptions.DOCTORSPECALITIES:
         button_title = "Add Specilities";
-        header_title = "Specilities";
+        header_title = "Doctor Specilities";
+        break;
+      case DashBoardMenuOptions.hOSPITALSPECALITIES:
+        button_title = "Add Specilities";
+        header_title = "Hospital Specilities";
         break;
       default:
     }
@@ -76,7 +80,10 @@ class DashBoardView extends StatelessWidget {
           case DashBoardMenuOptions.DOCTORS:
             showAddDoctor(context);
             break;
-          case DashBoardMenuOptions.SPECALITIES:
+          case DashBoardMenuOptions.DOCTORSPECALITIES:
+            showSpeciality(context);
+            break;
+          case DashBoardMenuOptions.hOSPITALSPECALITIES:
             showSpeciality(context);
             break;
           default:
@@ -103,7 +110,7 @@ class DashBoardView extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
             content:
-                SizedBox(width: 500, height: 550, child: AddHospitalsForms()));
+                SizedBox(width: 500, height: 430, child: AddHospitalsForms()));
       },
     );
   }
@@ -126,7 +133,9 @@ class DashBoardView extends StatelessWidget {
         return HospitalView();
       case DashBoardMenuOptions.DOCTORS:
         return DoctorsWebView();
-      case DashBoardMenuOptions.SPECALITIES:
+      case DashBoardMenuOptions.DOCTORSPECALITIES:
+        return HospitalSpecialites();
+      case DashBoardMenuOptions.hOSPITALSPECALITIES:
         return HospitalSpecialites();
       default:
     }

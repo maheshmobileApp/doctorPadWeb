@@ -189,7 +189,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
   Future<bool> getBranchesByHospitalsId(String hospitalId) async {
     final result =
         await _getAllHospitalRepository.getBranchesByHospitalsId(hospitalId);
-    if (result.status == 0) {
+    if (result.status == 404) {
       bracnhesList = [];
       notifyListeners();
       return false;
@@ -201,6 +201,9 @@ class GetAllHospitalViewModel with ChangeNotifier {
         return false;
       }
       notifyListeners();
+      if (bracnhesList.length == 0) {
+        return false;
+      }
       return true;
     }
   }
