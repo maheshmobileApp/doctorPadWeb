@@ -8,10 +8,13 @@ class SpecialityListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Text(name ?? ""),
-      ),
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(name ?? "",style: TextStyle(
+                fontFamily: 'Muli',
+                fontSize: 18,
+
+                fontWeight: FontWeight.bold),)),
     );
   }
 }

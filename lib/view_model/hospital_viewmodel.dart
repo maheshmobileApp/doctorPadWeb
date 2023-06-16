@@ -149,6 +149,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
           .client
           .post("api/v1/hospitals_branch", data: payload);
       print(response.data);
+      Navigator.pop(context!);
       showAlertMessage(context!, "Branch Added Successfully!");
     } catch (e) {
       showAlertMessage(context!, "Something wenk wrong!");
@@ -192,8 +193,13 @@ class GetAllHospitalViewModel with ChangeNotifier {
       bracnhesList = [];
       notifyListeners();
       return false;
+    } else if (result.status == 404) {
+      return false;
     } else {
       bracnhesList = result.body!;
+      if (bracnhesList.isEmpty) {
+        return false;
+      }
       notifyListeners();
       if (bracnhesList.length == 0) {
         return false;
