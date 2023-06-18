@@ -57,6 +57,8 @@ class HospitalBranchesList extends StatelessWidget {
                     .selectedBranchID = branchData?.id ?? "";
                 Provider.of<GetAllDoctorViewModel>(context, listen: false)
                     .isFromAssignDoctor = true;
+                Provider.of<GetAllDoctorViewModel>(context, listen: false)
+                    .isFromViewDoctorsByBranch = false;
                 await Provider.of<GetAllDoctorViewModel>(context, listen: false)
                     .getAllDoctor();
                 showDialog(

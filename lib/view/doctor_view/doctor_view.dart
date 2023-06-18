@@ -1,3 +1,6 @@
+import 'package:cgg_base_project/model/get_all_doctor.dart';
+import 'package:cgg_base_project/view/doctor_details/doctor_details.dart';
+import 'package:cgg_base_project/view/doctor_view/doctor_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
@@ -14,6 +17,9 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllDoctorViewModel>();
+    final doctors = viewModel.isFromViewDoctorsByBranch
+        ? viewModel.doctorsByBranch
+        : viewModel.doctors;
     return Scaffold(
       body: viewModel.isLoading == true
           ? Center(
@@ -26,13 +32,15 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
               : Container(
                   child: GridView.count(
                     crossAxisCount: 4,
-                    childAspectRatio: (1 / 0.3),
-                    children:
-                        List.generate(viewModel.doctors!.body!.length, (index) {
-                      final doctorData = viewModel.doctors?.body![index];
+                    childAspectRatio: 3.3,
+                    children: List.generate(doctors!.body!.length, (index) {
+                      final doctorData = doctors.body![index];
                       return Card(
                         elevation: 4,
                         child: ListTile(
+                          onTap: () {
+                            showDoctorDetailsView(doctorData);
+                          },
                           leading: Container(
                             decoration: BoxDecoration(
                               border:
@@ -41,7 +49,7 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                             ),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 15),
+                                  vertical: 2, horizontal: 15),
                               child: Image.asset(
                                 'assets/images/doctor.png',
                                 color: AppColors.color1,
@@ -84,6 +92,22 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                     }),
                   ),
                 ),
+    );
+  }
+
+  showDoctorDetailsView(DcotorsDetails? doctorData) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content: SizedBox(
+                width: 400,
+                height: 250,
+                child: DoctorDetailsView(
+                  doctorData: doctorData,
+                )));
+      },
     );
   }
 

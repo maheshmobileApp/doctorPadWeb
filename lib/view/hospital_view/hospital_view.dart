@@ -144,7 +144,7 @@ class hospitalListCard extends StatelessWidget {
                   RowWithTitleAndDetials(
                       title: "Phone Number:  ",
                       value: hospitalData?.phone ?? ""),
-                  RowWithTitleAndDetials(title: "Address: ", value: ""),
+                  //RowWithTitleAndDetials(title: "Address: ", value: ""),
                 ],
               ),
               Column(
@@ -213,6 +213,7 @@ class RowWithTitleAndDetials extends StatelessWidget {
           ),
           Text(
             value ?? "",
+            textAlign: TextAlign.justify,
             style: TextStyle(
                 fontFamily: 'Muli', fontSize: 14, fontWeight: FontWeight.w600),
           )

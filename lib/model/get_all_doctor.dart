@@ -2,7 +2,7 @@ class GetAllDoctor {
   String? message;
   int? status;
   String? mediaBasePath;
-  List<Body>? body;
+  List<DcotorsDetails>? body;
 
   GetAllDoctor({this.message, this.status, this.mediaBasePath, this.body});
 
@@ -11,9 +11,9 @@ class GetAllDoctor {
     status = json['status'];
     mediaBasePath = json['media_base_path'];
     if (json['body'] != null) {
-      body = <Body>[];
+      body = <DcotorsDetails>[];
       json['body'].forEach((v) {
-        body!.add(new Body.fromJson(v));
+        body!.add(new DcotorsDetails.fromJson(v));
       });
     }
   }
@@ -31,7 +31,7 @@ class GetAllDoctor {
 }
 
 
-class Body {
+class DcotorsDetails {
   String? id;
   bool? isActive;
   String? createdDateTime;
@@ -47,7 +47,7 @@ class Body {
   String? isEmailVerified;
   String? isFirstTimeLogin;
 
-  Body(
+  DcotorsDetails(
       {this.id,
       this.isActive,
       this.createdDateTime,
@@ -63,7 +63,7 @@ class Body {
       this.isEmailVerified,
       this.isFirstTimeLogin});
 
-  Body.fromJson(Map<String, dynamic> json) {
+  DcotorsDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     isActive = json['is_active'];
     createdDateTime = json['created_date_time'];

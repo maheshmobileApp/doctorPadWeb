@@ -31,8 +31,8 @@ class LoginWebView extends StatelessWidget {
                     colors: [AppColors.app_bg_color, AppColors.color12])),
             child: Center(
               child: Container(
-                height: 500,
-                width: 500,
+                height: 450,
+                width: 450,
                 decoration: BoxDecoration(
                     color: AppColors.color1,
                     borderRadius: BorderRadius.circular(16)),
@@ -40,46 +40,43 @@ class LoginWebView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _sizedBox(height: 50),
+                    _sizedBox(height: 25),
                     LogoWidget(),
-                    _sizedBox(height: 35),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Column(
-                        children: [
-                          LoginTextFeild(
-                            controller: _mobileController,
-                            hintText: 'User Mobile number',
-                            keyboardType: TextInputType.numberWithOptions(
-                                decimal: true, signed: true),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            maxLength: 10,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Enter Mobile number';
-                              } else if (!phonenovalid(value)) {
-                                return 'Enter Valid Mobile number';
-                              }
-                            },
-                          ),
-                          _sizedBox(height: 15),
-                          // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
-                          LoginTextFeild(
-                            controller: _passwordController,
-                            icon: Icons.lock,
-                            hintText: 'Password',
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Enter Password';
-                              }
-                            },
-                          ),
-                        ],
-                      ),
+                    _sizedBox(height: 25),
+                    Column(
+                      children: [
+                        LoginTextFeild(
+                          controller: _mobileController,
+                          hintText: 'User Mobile number',
+                          keyboardType: TextInputType.numberWithOptions(
+                              decimal: true, signed: true),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                          maxLength: 10,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Mobile number';
+                            } else if (!phonenovalid(value)) {
+                              return 'Enter Valid Mobile number';
+                            }
+                          },
+                        ),
+                        _sizedBox(height: 15),
+                        // _sizedBox(height: MediaQuery.of(context).size.height/ 30),
+                        LoginTextFeild(
+                          controller: _passwordController,
+                          icon: Icons.lock,
+                          hintText: 'Password',
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter Password';
+                            }
+                          },
+                        ),
+                      ],
                     ),
-                    _sizedBox(height: 35),
+                    _sizedBox(height: 25),
                     AppButton(
                         text: 'LOGIN',
                         // myEdgeInsets:
@@ -93,7 +90,7 @@ class LoginWebView extends StatelessWidget {
                           // }
                           //context.replaceNamed(RoutesList.hospitalView);
                         }),
-                    _sizedBox(height: 35),
+                    _sizedBox(height: 25),
 
                     Text(
                       'Forgot Password?',

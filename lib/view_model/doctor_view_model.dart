@@ -14,6 +14,7 @@ class GetAllDoctorViewModel with ChangeNotifier {
   bool isLoading = true;
   bool submitting = false;
   bool isFromAssignDoctor = false;
+  bool isFromViewDoctorsByBranch = false;
   GetAllDoctor? doctorsByBranch;
   String selectedBranchID = "";
   List<Specilities>? specilityList = [];
@@ -37,10 +38,12 @@ class GetAllDoctorViewModel with ChangeNotifier {
     // for (var doctor in result.body  ?? []) {
 
     // }
+    isFromViewDoctorsByBranch = true;
+    isFromAssignDoctor = false;
     doctorsByBranch = result;
     isLoading = false;
     notifyListeners();
-    if (result.status == 0) {
+    if (result.status == 0 || result.status == 404) {
       return false;
     } else {
       return true;
