@@ -47,19 +47,20 @@ class LoginWebView extends StatelessWidget {
                       children: [
                         LoginTextFeild(
                           controller: _mobileController,
-                          hintText: 'User Mobile number',
+                          hintText: 'User Name',
                           keyboardType: TextInputType.numberWithOptions(
                               decimal: true, signed: true),
                           inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly,
+                            //FilteringTextInputFormatter.digitsOnly,
                           ],
                           maxLength: 10,
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'Enter Mobile number';
-                            } else if (!phonenovalid(value)) {
-                              return 'Enter Valid Mobile number';
+                              return 'Enter User Name';
                             }
+                            /*else if (!phonenovalid(value)) {
+                              return 'Enter Valid Mobile number';
+                            } */
                           },
                         ),
                         _sizedBox(height: 15),
@@ -84,10 +85,10 @@ class LoginWebView extends StatelessWidget {
                         onPressed: () {
                           // context.pop();
                           // GoRouter.of(context).replace(RoutesList.hospitalView);
-                          context.go(RoutesList.dashBoardScreen);
-                          // if(_formKey.currentState!.validate()){
-                          //   context.go(RoutesList.hospitalView);
-                          // }
+                          // context.go(RoutesList.dashBoardScreen);
+                          if (_formKey.currentState!.validate()) {
+                            context.go(RoutesList.dashBoardScreen);
+                          }
                           //context.replaceNamed(RoutesList.hospitalView);
                         }),
                     _sizedBox(height: 25),
