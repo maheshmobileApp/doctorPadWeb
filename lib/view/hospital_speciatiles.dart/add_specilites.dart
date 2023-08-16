@@ -8,7 +8,6 @@ import '../../res/components/inputTextField.dart';
 
 class AddSpecilities extends StatelessWidget {
   AddSpecilities({super.key});
-  TextEditingController _specialityController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -31,7 +30,7 @@ class AddSpecilities extends StatelessWidget {
           AppInputTextField(
               //  prefixIcon: Icon(MyFlutterApp.doctor),
               title: 'Speciality',
-              controller: _specialityController,
+              controller: viewModel.specialityController,
               keyboardType: TextInputType.name,
               validator: (value) {
                 if (value!.isEmpty) {
@@ -44,12 +43,19 @@ class AddSpecilities extends StatelessWidget {
             height: 30,
           ),
           AppButton(
-              text: 'ADD Speciality',
+              text: viewModel.isEditSpecility
+                  ? "Update Specility "
+                  : 'ADD Speciality',
               color: AppColors.backgroundcolori,
               primaryColor: AppColors.color1,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  viewModel.addSpecility(_specialityController.text, context);
+                  if (viewModel.isEditSpecility) {
+                    viewModel.editSpecilityData(context);
+                  } else {
+                    viewModel.addSpecility(
+                        viewModel.specialityController.text, context);
+                  }
                 }
               }),
         ],

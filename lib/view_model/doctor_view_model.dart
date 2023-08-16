@@ -20,6 +20,7 @@ class GetAllDoctorViewModel with ChangeNotifier {
   List<Specilities>? specilityList = [];
   List<String?> selectedHospitalSpecility = [];
   List<String?> selectedDoctorSpecility = [];
+    bool isEditDoctor = true;
   GetAllDoctorViewModel() {
     getAllDoctor();
     print("called GetAllDoctorViewModel view mode");

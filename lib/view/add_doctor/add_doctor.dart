@@ -63,9 +63,7 @@ class AddDoctorForm extends StatelessWidget {
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Enter Doctor Registration Number';
-                  } else if (!phonenovalid(value)) {
-                    return 'Enter Valid Doctor Registration Number';
-                  }
+                  } 
                 },
                 keyboardType: TextInputType.number,
               ),

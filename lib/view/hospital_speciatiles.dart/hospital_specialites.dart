@@ -25,7 +25,10 @@ class HospitalSpecialites extends StatelessWidget {
                 childAspectRatio: (1 / 0.3),
                 children: List.generate(specilityList!.length, (index) {
                   final hospitalData = specilityList![index];
-                  return SpecialityListTile(name: hospitalData.specialityName);
+                  return SpecialityListTile(
+                    name: hospitalData.specialityName,
+                    specilities: hospitalData,
+                  );
                 })));
   }
 }

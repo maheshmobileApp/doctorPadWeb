@@ -70,22 +70,37 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500),
                           ),
-                          trailing: viewModel.isFromAssignDoctor
-                              ? SmallButton(
-                                  onPressed: () async {
-                                    print("view button clicked");
-                                    final result =
-                                        await viewModel.assignDoctorsToBranch(
-                                            doctorData?.id ?? "");
-                                    if (result) {
-                                      alrtForDoctorAssign(context);
-                                    } else {
-                                      Navigator.of(context).pop();
-                                    }
-                                  },
-                                  title: 'Assign',
-                                )
-                              : SizedBox(),
+                          trailing: viewModel.isEditDoctor
+                              ? SizedBox(
+                                  width: 25,
+                                  height: 25,
+                                   child: IconButton(
+                                      onPressed: () {
+                                        // Provider.of<GetAllHospitalViewModel>(context,
+                                        //         listen: false)
+                                        //     .setEditSpecility(specilities!);
+                                        // showSpeciality(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: AppColors.app_bg_color,
+                                      )))
+                              : viewModel.isFromAssignDoctor
+                                  ? SmallButton(
+                                      onPressed: () async {
+                                        print("view button clicked");
+                                        final result = await viewModel
+                                            .assignDoctorsToBranch(
+                                                doctorData?.id ?? "");
+                                        if (result) {
+                                          alrtForDoctorAssign(context);
+                                        } else {
+                                          Navigator.of(context).pop();
+                                        }
+                                      },
+                                      title: 'Assign',
+                                    )
+                                  : SizedBox(),
                           //trailing: const Icon(Icons.add_a_photo),
                         ),
                       );

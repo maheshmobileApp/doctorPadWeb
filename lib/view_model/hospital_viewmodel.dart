@@ -22,6 +22,8 @@ class GetAllHospitalViewModel with ChangeNotifier {
   bool isLoading = true;
   List<Specilities>? doctorspecilityList = [];
   List<Specilities>? hospitalspecilityList = [];
+  bool isEditSpecility = false;
+  Specilities? editSpecility;
 
   // HospitalSpecialitiesModel? specialities;
   List<String?> selectedSpecility = [];
@@ -34,6 +36,7 @@ class GetAllHospitalViewModel with ChangeNotifier {
   bool isShowError = false;
   DashBoardMenuOptions selectedSpecilty =
       DashBoardMenuOptions.hOSPITALSPECALITIES;
+  TextEditingController specialityController = TextEditingController();
 
   GetAllHospitalViewModel() {
     getAllHospitals();
@@ -134,6 +137,27 @@ class GetAllHospitalViewModel with ChangeNotifier {
     }
   }
 
+  editSpecilityData(BuildContext context) async {
+    final body = {
+      "id": editSpecility?.id ?? "",
+      "speciality_name": specialityController.text
+    };
+    // final dio = Dio();
+    final requestUrl = selectedSpecilty ==
+            DashBoardMenuOptions.hOSPITALSPECALITIES
+        ? "${ApiConstants.baseUrl}api/v1/hospital_specialities/update_specialities"
+        : "${ApiConstants.baseUrl}api/v1/doctor_specialities/update_specialities";
+    final result = await BaseApiClient().client.put(requestUrl, data: body);
+    if (result.statusCode == 200) {
+      //success
+      Navigator.of(context).pop();
+      showAlertMessage(context, "Specilities added successfully");
+      getSpecilitiesList();
+    } else {
+      //fail
+    }
+  }
+
   addBranch(
       {String? branName, BuildContext? context, String? branchAddress}) async {
     final fileName = selectedImage?.fileName ?? "";
@@ -221,6 +245,12 @@ class GetAllHospitalViewModel with ChangeNotifier {
       }
       return true;
     }
+  }
+
+  setEditSpecility(Specilities specility) {
+    editSpecility = specility;
+    specialityController.text = specility.specialityName ?? "";
+    isEditSpecility = true;
   }
 }
 
