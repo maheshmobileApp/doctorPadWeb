@@ -2,9 +2,12 @@ import 'package:cgg_base_project/repository/doctor_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../data/bae_api_client.dart';
 import '../model/doctor_model.dart/doctor_specialites.dart';
 import '../model/entity/doctor_entity.dart/add_doctor_entity.dart';
 import '../model/get_all_doctor.dart';
+import '../res/constants/api_constants.dart';
+import '../utils/alert_dialog.dart';
 import '../view/add_hospital_successfully/add_hospital_successfully.dart';
 import 'hospitalSpecialityModel.dart';
 
@@ -20,10 +23,67 @@ class GetAllDoctorViewModel with ChangeNotifier {
   List<Specilities>? specilityList = [];
   List<String?> selectedHospitalSpecility = [];
   List<String?> selectedDoctorSpecility = [];
-    bool isEditDoctor = true;
+  bool isEditDoctor = true;
+  bool isEditPressed = false;
+  TextEditingController mobileNumberController = TextEditingController();
+  TextEditingController _doctorSpecialityController = TextEditingController();
+  TextEditingController _clinicSpecialityController = TextEditingController();
+  TextEditingController emailIdController = TextEditingController();
+  TextEditingController nameOfTheDoctorController = TextEditingController();
+  TextEditingController doctorRegistrationNumberController =
+      TextEditingController();
+  DcotorsDetails? editDoctorDetails;
   GetAllDoctorViewModel() {
     getAllDoctor();
     print("called GetAllDoctorViewModel view mode");
+  }
+
+  setDoctorDetails(DcotorsDetails? doctorData) {
+    editDoctorDetails = doctorData;
+    mobileNumberController.text = doctorData?.mobileNo ?? "";
+    emailIdController.text = doctorData?.emailId ?? "";
+    nameOfTheDoctorController.text = doctorData?.name ?? "";
+    doctorRegistrationNumberController.text =
+        doctorData?.doctorRegistrationNumber ?? "";
+    isEditPressed = true;
+  }
+
+  setEmptyDetails() {
+    mobileNumberController.text = "";
+    emailIdController.text = "";
+    nameOfTheDoctorController.text = "";
+    doctorRegistrationNumberController.text = "";
+    isEditPressed = false;
+  }
+
+  updateDoctorDetails(DcotorsDetails? doctorData, BuildContext context) async {
+    final updatePayload = {
+      "doctor_registration_number": doctorRegistrationNumberController.text,
+      "email_id": emailIdController.text,
+      "id": doctorData?.id ?? "",
+      "mobile_no": mobileNumberController.text,
+      "name": nameOfTheDoctorController.text
+    };
+    final url = "${ApiConstants.baseUrl}api/v1/doctors/update_doctors";
+    final result = await BaseApiClient().client.put(url, data: updatePayload);
+    if (result.statusCode == 200) {
+      // //success
+      Navigator.of(context).pop();
+      showAlertMessage(context, "Doctors updated successfully");
+      getAllDoctor();
+    } else {
+      //fail
+    }
+    /*
+    http://doctopad-a2d-dev.el.r.appspot.com/api/v1/doctors/update_doctors
+    {
+  "doctor_registration_number": "string",
+  "email_id": "string",
+  "id": "string",
+  "mobile_no": "string",
+  "name": "string"
+}
+     */
   }
 
   Future<void> getAllDoctor() async {
@@ -85,6 +145,8 @@ class GetAllDoctorViewModel with ChangeNotifier {
     }
     // notifyListeners();
   }
+
+  updateDoctor() {}
 
   showSuccessMessage(BuildContext context) {
     showDialog(

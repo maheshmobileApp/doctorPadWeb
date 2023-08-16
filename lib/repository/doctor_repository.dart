@@ -12,6 +12,8 @@ class AddDoctorRepository {
     return AddDoctorResponse.fromJson(respnse);
   }
 
+ 
+
   Future<GetAllDoctor> getAllDoctor() async {
     final respnse = await _baseClient.getCall('api/v1/doctors');
     return GetAllDoctor.fromJson(respnse);

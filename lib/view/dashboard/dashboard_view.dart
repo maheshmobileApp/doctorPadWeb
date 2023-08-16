@@ -1,4 +1,6 @@
 import '../../responsive.dart';
+import '../../view_model/doctor_view_model.dart';
+import '../../view_model/hospital_viewmodel.dart';
 import '../add_hospital/add_hospital.dart';
 import '../hospital_speciatiles.dart/add_specilites.dart';
 import '../hospital_speciatiles.dart/hospital_specialites.dart';
@@ -93,6 +95,8 @@ class DashBoardView extends StatelessWidget {
   }
 
   showAddDoctor(BuildContext context) {
+    Provider.of<GetAllDoctorViewModel>(context, listen: false)
+        .setEmptyDetails();
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -104,6 +108,8 @@ class DashBoardView extends StatelessWidget {
   }
 
   showAddHospital(BuildContext context) {
+    Provider.of<GetAllHospitalViewModel>(context, listen: false)
+        .setEmptyDetails();
     showDialog(
       context: context,
       barrierDismissible: false,

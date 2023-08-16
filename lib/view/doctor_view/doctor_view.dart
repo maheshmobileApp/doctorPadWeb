@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../res/app_colors.dart';
 import '../../res/components/small_button_widget.dart';
 import '../../view_model/doctor_view_model.dart';
+import '../add_doctor/add_doctor.dart';
 
 class DoctorsWebView extends StatefulWidget {
   const DoctorsWebView({super.key});
@@ -74,12 +75,13 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                               ? SizedBox(
                                   width: 25,
                                   height: 25,
-                                   child: IconButton(
+                                  child: IconButton(
                                       onPressed: () {
                                         // Provider.of<GetAllHospitalViewModel>(context,
                                         //         listen: false)
                                         //     .setEditSpecility(specilities!);
                                         // showSpeciality(context);
+                                        editDoctor(context, doctorData);
                                       },
                                       icon: Icon(
                                         Icons.edit,
@@ -107,6 +109,19 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                     }),
                   ),
                 ),
+    );
+  }
+
+  editDoctor(BuildContext context, DcotorsDetails doctorData) {
+    Provider.of<GetAllDoctorViewModel>(context, listen: false)
+        .setDoctorDetails(doctorData);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+            content: SizedBox(width: 500, height: 650, child: AddDoctorForm()));
+      },
     );
   }
 

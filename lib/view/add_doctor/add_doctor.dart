@@ -10,16 +10,7 @@ import '../../view_model/hospital_viewmodel.dart';
 
 class AddDoctorForm extends StatelessWidget {
   AddDoctorForm({Key? key}) : super(key: key);
-
-  TextEditingController _nameOfTheDoctorController = TextEditingController();
-  TextEditingController _doctorRegistrationNumberController =
-      TextEditingController();
-  TextEditingController _mobileNumberController = TextEditingController();
-  TextEditingController _doctorSpecialityController = TextEditingController();
-  TextEditingController _clinicSpecialityController = TextEditingController();
-  TextEditingController _emailIdController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<GetAllDoctorViewModel>();
@@ -45,7 +36,7 @@ class AddDoctorForm extends StatelessWidget {
               ),
               AppInputTextField(
                   title: 'Name Of The Doctor',
-                  controller: _nameOfTheDoctorController,
+                  controller: viewModel.nameOfTheDoctorController,
                   keyboardType: TextInputType.name,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -57,20 +48,20 @@ class AddDoctorForm extends StatelessWidget {
               _sizedBox(height: 10),
               AppInputTextField(
                 title: 'Doctor Registration Number',
-                controller: _doctorRegistrationNumberController,
+                controller: viewModel.doctorRegistrationNumberController,
                 // prefixIcon: Icon(MyFlutterApp.contact),
                 hintText: 'Enter Doctor Registration Number',
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Enter Doctor Registration Number';
-                  } 
+                  }
                 },
                 keyboardType: TextInputType.number,
               ),
               _sizedBox(height: 10),
               AppInputTextField(
                 title: 'Mobile Number',
-                controller: _mobileNumberController,
+                controller: viewModel.mobileNumberController,
                 //  prefixIcon: Icon(MyFlutterApp.call),
                 hintText: "Enter Mobile Number",
                 validator: (value) {
@@ -95,7 +86,7 @@ class AddDoctorForm extends StatelessWidget {
               _sizedBox(height: 10),
               AppInputTextField(
                 title: 'Email id',
-                controller: _emailIdController,
+                controller: viewModel.emailIdController,
                 //  prefixIcon: Icon(MyFlutterApp.message),
                 hintText: 'Enter Email id',
                 validator: (value) {
@@ -112,18 +103,26 @@ class AddDoctorForm extends StatelessWidget {
               _sizedBox(height: 20),
               Center(
                 child: AppButton(
-                    text: 'ADD DOCTOR',
+                    text: viewModel.isEditPressed
+                        ? "UPDATE DOCTOR"
+                        : 'ADD DOCTOR',
                     color: AppColors.backgroundcolori,
                     primaryColor: AppColors.color1,
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        viewModel.addDoctor(context,
-                            createdBy: "test",
-                            emailId: _emailIdController.text,
-                            mobileNo: _mobileNumberController.text,
-                            name: _nameOfTheDoctorController.text,
-                            doctorRegistrationNumber:
-                                _doctorRegistrationNumberController.text);
+                        if (viewModel.isEditPressed) {
+                          viewModel.updateDoctorDetails(
+                              viewModel.editDoctorDetails!, context);
+                        } else {
+                          viewModel.addDoctor(context,
+                              createdBy: "test",
+                              emailId: viewModel.emailIdController.text,
+                              mobileNo: viewModel.mobileNumberController.text,
+                              name: viewModel.nameOfTheDoctorController.text,
+                              doctorRegistrationNumber: viewModel
+                                  .doctorRegistrationNumberController.text);
+                        }
+
                         //  context.go(RoutesList.addDoctorSuccessfully);
                       }
                     }),

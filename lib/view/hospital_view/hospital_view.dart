@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../res/constants/routes_constants.dart';
 import '../../view_model/hospital_viewmodel.dart';
+import '../add_hospital/add_hospital.dart';
 
 class HospitalView extends StatefulWidget {
   HospitalView({super.key});
@@ -176,6 +177,26 @@ class hospitalListCard extends StatelessWidget {
                       );
                     },
                     title: 'Add Branch',
+                  ),
+                  SmallButton(
+                    onPressed: () {
+                      onPressed!();
+                      Provider.of<GetAllHospitalViewModel>(context,
+                              listen: false)
+                          .setHosptialDetails(hospitalData);
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) {
+                          return AlertDialog(
+                              content: SizedBox(
+                                  width: 500,
+                                  height: 430,
+                                  child: AddHospitalsForms()));
+                        },
+                      );
+                    },
+                    title: '  Edit  ',
                   )
                 ],
               )

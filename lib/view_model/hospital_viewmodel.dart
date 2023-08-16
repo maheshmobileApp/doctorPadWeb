@@ -37,7 +37,15 @@ class GetAllHospitalViewModel with ChangeNotifier {
   DashBoardMenuOptions selectedSpecilty =
       DashBoardMenuOptions.hOSPITALSPECALITIES;
   TextEditingController specialityController = TextEditingController();
+  TextEditingController nameOfTheHospitalController = TextEditingController();
 
+  TextEditingController addressController = TextEditingController();
+
+  TextEditingController contactNumberController = TextEditingController();
+
+  TextEditingController emailIdController = TextEditingController();
+  bool isEditPressed = false;
+  HospitalResponseModel? edithospitalData;
   GetAllHospitalViewModel() {
     getAllHospitals();
     getSpecilitiesList();
@@ -47,6 +55,51 @@ class GetAllHospitalViewModel with ChangeNotifier {
     hospitals = result;
     isLoading = false;
     notifyListeners();
+  }
+
+  setEmptyDetails() {
+    nameOfTheHospitalController.text = "";
+    addressController.text = "";
+    contactNumberController.text = "";
+    emailIdController.text = "";
+    isEditPressed = false;
+  }
+
+  setHosptialDetails(HospitalResponseModel? hospitalData) {
+    edithospitalData = hospitalData;
+    nameOfTheHospitalController.text = hospitalData?.name ?? "";
+    contactNumberController.text = hospitalData?.phone ?? "";
+    emailIdController.text = hospitalData?.email ?? "";
+    isEditPressed = true;
+  }
+
+  void updateHospital(BuildContext context) async {
+/*
+http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals/update_hospital
+{
+  "created_by": "string",
+  "email": "string",
+  "id": "string",
+  "name": "string",
+  "phone": "string"
+}
+ */
+    final updatePayload = {
+      "created_by": "mahesh",
+      "email": emailIdController.text,
+      "id": edithospitalData?.id ?? "",
+      "name": nameOfTheHospitalController.text,
+      "phone": contactNumberController.text
+    };
+    final url = "${ApiConstants.baseUrl}api/v1/hospitals/update_hospital";
+    final result = await BaseApiClient().client.put(url, data: updatePayload);
+    if (result.statusCode == 200) {
+      Navigator.of(context).pop();
+      showAlertMessage(context, "Hosptial updated successfully");
+      getAllHospitals();
+    } else {
+      //fail
+    }
   }
 
   updateTheImage(MediaInfo? file) {

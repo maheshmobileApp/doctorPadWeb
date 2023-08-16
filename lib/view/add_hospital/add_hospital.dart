@@ -10,13 +10,7 @@ import '../../view_model/hospital_viewmodel.dart';
 
 class AddHospitalsForms extends StatelessWidget {
   AddHospitalsForms({Key? key}) : super(key: key);
-  TextEditingController _nameOfTheHospitalController = TextEditingController();
 
-  TextEditingController _addressController = TextEditingController();
-
-  TextEditingController _contactNumberController = TextEditingController();
-
-  TextEditingController _emailIdController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -44,7 +38,7 @@ class AddHospitalsForms extends StatelessWidget {
                   children: [
                     AppInputTextField(
                       title: 'Name Of The Hospital',
-                      controller: _nameOfTheHospitalController,
+                      controller: viewModel.nameOfTheHospitalController,
                       //  prefixIcon: Icon(MyFlutterApp.home),
                       hintText: 'Enter Name Of The Hospital',
                       validator: (value) {
@@ -70,7 +64,7 @@ class AddHospitalsForms extends StatelessWidget {
                     _sizedBox(height: 10),
                     AppInputTextField(
                       title: 'Contact Number',
-                      controller: _contactNumberController,
+                      controller: viewModel.contactNumberController,
                       //  prefixIcon: Icon(MyFlutterApp.call),
                       hintText: "Enter Contact number",
                       inputFormatters: [
@@ -90,7 +84,7 @@ class AddHospitalsForms extends StatelessWidget {
                     _sizedBox(height: 10),
                     AppInputTextField(
                       title: 'Email id',
-                      controller: _emailIdController,
+                      controller: viewModel.emailIdController,
                       //  prefixIcon: Icon(MyFlutterApp.message),
                       hintText: 'Enter Email id',
                       validator: (value) {
@@ -106,18 +100,26 @@ class AddHospitalsForms extends StatelessWidget {
                     ),
                     _sizedBox(height: 30),
                     AppButton(
-                        text: 'ADD  HOSPITAL',
+                        text: viewModel.isEditPressed
+                            ? "UPDATE HOSPITAL"
+                            : 'ADD  HOSPITAL',
                         color: AppColors.backgroundcolori,
                         primaryColor: AppColors.color1,
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            viewModel.addHospital(
-                              context,
-                              createdBy: "mahesh",
-                              email: _emailIdController.text,
-                              name: _nameOfTheHospitalController.text,
-                              phone: _contactNumberController.text,
-                            );
+                            if (viewModel.isEditPressed) {
+                              viewModel.updateHospital(context);
+                            } else {
+                              viewModel.addHospital(
+                                context,
+                                createdBy: "mahesh",
+                                email: viewModel.emailIdController.text,
+                                name:
+                                    viewModel.nameOfTheHospitalController.text,
+                                phone: viewModel.contactNumberController.text,
+                              );
+                            }
+
                             // context.go(RoutesList.addHospitalSuccessfully);
                           }
                         }),
