@@ -38,7 +38,7 @@ class DashBoardView extends StatelessWidget {
                       height: 100, child: headerWidget(viewModel, context)),
                   Expanded(
                     child: Container(
-                      child: loadWidgets(viewModel),
+                      child: loadWidgets(viewModel,context),
                     ),
                   )
                   //HospitalView()
@@ -62,12 +62,12 @@ class DashBoardView extends StatelessWidget {
         header_title = "Doctors";
         break;
       case DashBoardMenuOptions.DOCTORSPECALITIES:
-        button_title = "Add Specilities";
-        header_title = "Doctor Specilities";
+        button_title = "Add Specialities ";
+        header_title = "Doctor Specialities ";
         break;
       case DashBoardMenuOptions.hOSPITALSPECALITIES:
-        button_title = "Add Specilities";
-        header_title = "Hospital Specilities";
+        button_title = "Add Specialities ";
+        header_title = "Hospital Specialities ";
         break;
       default:
     }
@@ -133,11 +133,13 @@ class DashBoardView extends StatelessWidget {
     );
   }
 
-  Widget loadWidgets(DashBoardViewModel viewModel) {
+  Widget loadWidgets(DashBoardViewModel viewModel,BuildContext context) {
     switch (viewModel.selectedMenum) {
       case DashBoardMenuOptions.HOSPITALS:
         return HospitalView();
       case DashBoardMenuOptions.DOCTORS:
+        Provider.of<GetAllDoctorViewModel>(context, listen: false)
+                    .isEditDoctor = true;
         return DoctorsWebView();
       case DashBoardMenuOptions.DOCTORSPECALITIES:
         return HospitalSpecialites();

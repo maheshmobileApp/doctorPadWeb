@@ -212,7 +212,10 @@ http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals/update_hospital
   }
 
   addBranch(
-      {String? branName, BuildContext? context, String? branchAddress}) async {
+      {String? branName,
+      BuildContext? context,
+      String? branchAddress,
+      required String hosptialRegisterNumber}) async {
     final fileName = selectedImage?.fileName ?? "";
     if (this.selectedSpecility.isEmpty) {
       showAlertMessage(context!, "Please Select Specility");
@@ -228,10 +231,10 @@ http://doctopad-a2d-dev.el.r.appspot.com/api/v1/hospitals/update_hospital
       "address": branchAddress,
       "created_by": "string",
       "hospital_id": selectedHospital?.id ?? "",
-      "hospital_reg_number": "534233",
       "name": branName,
       "prescription_image_url": prescription_image_url,
-      "specialization_ids": specilityId
+      "specialization_ids": specilityId,
+      "hospital_reg_number": hosptialRegisterNumber
     };
 
     notifyListeners();

@@ -64,13 +64,13 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          subtitle: Text(
-                            doctorData?.emailId ?? "",
-                            style: TextStyle(
-                                fontFamily: 'Muli',
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          ),
+                          // subtitle: Text(
+                          //   doctorData?.emailId ?? "",
+                          //   style: TextStyle(
+                          //       fontFamily: 'Muli',
+                          //       fontSize: 15,
+                          //       fontWeight: FontWeight.w500),
+                          // ),
                           trailing: viewModel.isEditDoctor
                               ? SizedBox(
                                   width: 25,

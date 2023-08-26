@@ -12,6 +12,8 @@ class AddBranchData extends StatelessWidget {
   AddBranchData({super.key});
   TextEditingController _branchNameControl = TextEditingController();
   TextEditingController _branchAddressControl = TextEditingController();
+    TextEditingController _hosptialRegNumberControl = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -42,6 +44,18 @@ class AddBranchData extends StatelessWidget {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Enter Branch Name';
+                    }
+                    return null;
+                  },
+                ),
+                _sizedBox(height: 10),
+                  AppInputTextField(
+                  controller: _hosptialRegNumberControl,
+                  hintText: "Enter Hosptial Registration Number",
+                  title: "Hosptial Registration Number",
+                  validator: (value) {
+                    if (value!.isEmpty || value!.length < 3) {
+                      return 'Enter Hosptial Registration Number';
                     }
                     return null;
                   },
@@ -79,7 +93,9 @@ class AddBranchData extends StatelessWidget {
                           viewModel.addBranch(
                               context: context,
                               branName: _branchNameControl.text,
-                              branchAddress: _branchAddressControl.text);
+                              branchAddress: _branchAddressControl.text,
+                              hosptialRegisterNumber:_hosptialRegNumberControl.text
+                              );
                         }
                       }),
                 ),
