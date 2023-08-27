@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cgg_base_project/view_model/reports_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -108,6 +109,9 @@ class MenuItemWidget extends StatelessWidget {
         context.read<DashBoardViewModel>().selectTheSideMenu(options);
         context.read<GetAllHospitalViewModel>().selectedSpecilty = options;
         context.read<GetAllHospitalViewModel>().getSpecilitiesList();
+        if (options == DashBoardMenuOptions.REPORTS) {
+                  context.read<ReportsViewModel>().getReports();
+        }
       },
       child: Container(
         decoration: BoxDecoration(
