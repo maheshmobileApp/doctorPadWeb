@@ -15,7 +15,8 @@ class RoutesList {
   static const String dashBoardScreen = "/Dashboard";
   static const String hospitalSpecialities = "/HospitalSpecialites";
   static const String doctorSpecialities = "/DoctorSpecialites";
-  static const String  viewBranches = "/branches";
+  static const String viewBranches = "/branches";
+  static const String reports = "/reports";
 
   //HospitalBranchesList
 }

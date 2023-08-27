@@ -19,9 +19,12 @@ class SmallButton extends StatelessWidget {
         onPressed: onPressed,
         child: Container(
           // color: AppColors.app_bg_color,
+          width: 130,
+          alignment: Alignment.center,
+          height: 45,
           child: Text(
             title,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800,fontSize: 16),
           ),
         ),
       ),

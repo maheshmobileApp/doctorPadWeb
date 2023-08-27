@@ -1,3 +1,5 @@
+import 'package:cgg_base_project/view_model/reports_view_model.dart';
+
 import 'res/constants/go_router.dart';
 import 'view_model/dashboard_view_model.dart';
 import 'view_model/doctor_view_model.dart';
@@ -24,7 +26,7 @@ void main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   runApp(const MyApp());
- // FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+  // FirebaseMessaging.onBackgroundMessage(backgroundHandler);
 }
 
 class MyApp extends StatelessWidget {
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => GetAllDoctorViewModel()),
         ChangeNotifierProvider(create: (_) => GetAllHospitalViewModel()),
         ChangeNotifierProvider(create: (_) => DashBoardViewModel()),
+        ChangeNotifierProvider(create: (_) => ReportsViewModel()),
       ],
       child: MaterialApp.router(
         title: 'DRPad',

@@ -31,14 +31,15 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                   child: Text('No Doctors'),
                 )
               : Container(
-                  child: GridView.count(
-                    crossAxisCount: 4,
-                    childAspectRatio: 3.3,
+                  child: ListView(
+                    // crossAxisCount: 4,
+                    // childAspectRatio: 3.3,
                     children: List.generate(doctors!.body!.length, (index) {
                       final doctorData = doctors.body![index];
                       return Card(
                         elevation: 4,
                         child: ListTile(
+                         
                           onTap: () {
                             showDoctorDetailsView(doctorData);
                           },
@@ -64,13 +65,13 @@ class _DoctorsWebViewState extends State<DoctorsWebView> {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          // subtitle: Text(
-                          //   doctorData?.emailId ?? "",
-                          //   style: TextStyle(
-                          //       fontFamily: 'Muli',
-                          //       fontSize: 15,
-                          //       fontWeight: FontWeight.w500),
-                          // ),
+                          subtitle: Text(
+                            doctorData?.emailId ?? "",
+                            style: TextStyle(
+                                fontFamily: 'Muli',
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500),
+                          ),
                           trailing: viewModel.isEditDoctor
                               ? SizedBox(
                                   width: 25,

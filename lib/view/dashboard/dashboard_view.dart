@@ -1,3 +1,5 @@
+import 'package:cgg_base_project/view/reports/reposts_view.dart';
+
 import '../../responsive.dart';
 import '../../view_model/doctor_view_model.dart';
 import '../../view_model/hospital_viewmodel.dart';
@@ -34,11 +36,13 @@ class DashBoardView extends StatelessWidget {
               Expanded(
                   child: Column(
                 children: [
-                  Container(
-                      height: 100, child: headerWidget(viewModel, context)),
+                  viewModel.selectedMenum == DashBoardMenuOptions.REPORTS
+                      ? SizedBox()
+                      : Container(
+                          height: 100, child: headerWidget(viewModel, context)),
                   Expanded(
                     child: Container(
-                      child: loadWidgets(viewModel,context),
+                      child: loadWidgets(viewModel, context),
                     ),
                   )
                   //HospitalView()
@@ -133,18 +137,20 @@ class DashBoardView extends StatelessWidget {
     );
   }
 
-  Widget loadWidgets(DashBoardViewModel viewModel,BuildContext context) {
+  Widget loadWidgets(DashBoardViewModel viewModel, BuildContext context) {
     switch (viewModel.selectedMenum) {
       case DashBoardMenuOptions.HOSPITALS:
         return HospitalView();
       case DashBoardMenuOptions.DOCTORS:
         Provider.of<GetAllDoctorViewModel>(context, listen: false)
-                    .isEditDoctor = true;
+            .isEditDoctor = true;
         return DoctorsWebView();
       case DashBoardMenuOptions.DOCTORSPECALITIES:
         return HospitalSpecialites();
       case DashBoardMenuOptions.hOSPITALSPECALITIES:
         return HospitalSpecialites();
+      case DashBoardMenuOptions.REPORTS:
+        return ReportsScreen();
       default:
     }
     return Container();

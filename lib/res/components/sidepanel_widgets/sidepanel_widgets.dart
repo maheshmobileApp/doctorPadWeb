@@ -25,6 +25,10 @@ class SidepanelWidgets extends StatelessWidget {
             padding: EdgeInsets.all(10),
           ),
           MenuItemWidget(
+              title: "Reports",
+              icon: "assets/images/reports.png",
+              options: DashBoardMenuOptions.REPORTS),
+          MenuItemWidget(
               title: "View Hospitals",
               icon: "assets/icons/home.png",
               options: DashBoardMenuOptions.HOSPITALS),

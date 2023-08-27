@@ -158,9 +158,9 @@ class hospitalListCard extends StatelessWidget {
                     },
                     title: 'View Branches',
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  // SizedBox(
+                  //   height: 30,
+                  // ),
                   SmallButton(
                     onPressed: () {
                       onPressed!();

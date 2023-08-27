@@ -2,6 +2,7 @@ import 'package:cgg_base_project/res/constants/routes_constants.dart';
 import 'package:cgg_base_project/view/hospital__details/hospital_details.dart';
 import 'package:cgg_base_project/view/hospital_view/hospital_view.dart';
 import 'package:cgg_base_project/view/login/login_web_view.dart';
+import 'package:cgg_base_project/view/reports/reposts_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -103,6 +104,12 @@ final GoRouter routes =
     path: RoutesList.viewBranches,
     builder: (BuildContext context, GoRouterState state) {
       return HospitalBranchesList();
+    },
+  ),
+  GoRoute(
+    path: RoutesList.reports,
+    builder: (BuildContext context, GoRouterState state) {
+      return ReportsScreen();
     },
   ),
   //HospitalBranchesList
