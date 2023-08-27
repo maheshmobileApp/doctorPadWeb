@@ -1,6 +1,6 @@
 {
-    "name": "cgg_base_project",
-    "short_name": "cgg_base_project",
+    "name": "doctorpadweb",
+    "short_name": "doctorpadweb",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
